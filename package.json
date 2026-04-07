@@ -1,0 +1,23 @@
+{
+  "name": "auto-site-builder",
+  "version": "1.0.0",
+  "description": "Automatically find businesses without websites, build them one, and pitch it via email",
+  "scripts": {
+    "discover": "tsx src/discovery/run.ts",
+    "build-site": "tsx src/generator/run.ts",
+    "send-outreach": "tsx src/outreach/run.ts",
+    "dashboard": "cd src/dashboard && next dev"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.36.0",
+    "@supabase/supabase-js": "^2.39.0",
+    "axios": "^1.6.0",
+    "resend": "^3.0.0",
+    "dotenv": "^16.0.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.0",
+    "@types/node": "^20.0.0"
+  }
+}

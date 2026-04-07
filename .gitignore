@@ -1,0 +1,25 @@
+# Environment and secrets
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Generated data (large, regenerable)
+leads/
+analysis/
+generated-sites/
+outreach/
+offers/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Node
+node_modules/

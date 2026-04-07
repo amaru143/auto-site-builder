@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "Bash(PYTHONIOENCODING=utf-8 python -c \":*)",
+      "Bash(python -c \":*)",
+      "Bash(PYTHONIOENCODING=utf-8 python run.py --demo)",
+      "Bash(PYTHONIOENCODING=utf-8 python run.py --summary)",
+      "Bash(tasklist)",
+      "Bash(git init:*)",
+      "Bash(gh auth:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}

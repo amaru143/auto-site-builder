@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ tagline | default('Professional services you can trust.') }}">
+    <title>{{ business_name | default('Business Name') }} — {{ tagline | default('Professional Services') }}</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Inter + Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '{{ primary_color | default("#0f172a") }}',
+                        secondary: '{{ secondary_color | default("#3b82f6") }}',
+                        accent: '{{ accent_color | default("#f59e0b") }}',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['Playfair Display', 'Georgia', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* ── Base & Scroll ─────────────────────────────── */
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', system-ui, sans-serif; }
+
+        /* ── Reveal-on-scroll ──────────────────────────── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(.19,1,.22,1), transform 0.8s cubic-bezier(.19,1,.22,1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: opacity 0.8s cubic-bezier(.19,1,.22,1), transform 0.8s cubic-bezier(.19,1,.22,1);
+        }
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: opacity 0.8s cubic-bezier(.19,1,.22,1), transform 0.8s cubic-bezier(.19,1,.22,1);
+        }
+        .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal-scale.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* ── Hero Parallax & Gradient ──────────────────── */
+        .hero-gradient {
+            background: linear-gradient(
+                135deg,
+                {{ primary_color | default('#0f172a') }}ee 0%,
+                {{ secondary_color | default('#3b82f6') }}cc 50%,
+                {{ primary_color | default('#0f172a') }}dd 100%
+            );
+        }
+        .hero-pattern {
+            background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.06) 0%, transparent 50%),
+                              radial-gradient(circle at 80% 20%, rgba(255,255,255,0.04) 0%, transparent 40%);
+        }
+
+        /* ── Animated gradient text ────────────────────── */
+        @keyframes gradient-shift {
+            0%   { background-position: 0% 50%; }
+            50%  { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .animated-gradient-text {
+            background: linear-gradient(270deg, #fff, {{ accent_color | default('#f59e0b') }}, #fff, {{ secondary_color | default('#3b82f6') }});
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient-shift 6s ease infinite;
+        }
+
+        /* ── Floating shapes (hero) ────────────────────── */
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50%      { transform: translateY(-30px) rotate(5deg); }
+        }
+        @keyframes float-medium {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50%      { transform: translateY(-20px) rotate(-3deg); }
+        }
+        .float-slow   { animation: float-slow 8s ease-in-out infinite; }
+        .float-medium { animation: float-medium 6s ease-in-out infinite; }
+
+        /* ── Card hover lift ───────────────────────────── */
+        .card-hover {
+            transition: transform 0.4s cubic-bezier(.19,1,.22,1), box-shadow 0.4s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px -12px rgba(0,0,0,0.15);
+        }
+
+        /* ── Testimonial carousel ──────────────────────── */
+        .testimonial-track {
+            transition: transform 0.6s cubic-bezier(.19,1,.22,1);
+        }
+
+        /* ── Navbar transition ─────────────────────────── */
+        .nav-solid {
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 1px 20px rgba(0,0,0,0.08);
+        }
+
+        /* ── Hamburger lines ───────────────────────────── */
+        .hamburger span {
+            transition: all 0.35s cubic-bezier(.19,1,.22,1);
+        }
+        .hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+        /* ── Service icon ring ─────────────────────────── */
+        .icon-ring {
+            background: linear-gradient(135deg, {{ secondary_color | default('#3b82f6') }}15, {{ secondary_color | default('#3b82f6') }}08);
+            border: 1px solid {{ secondary_color | default('#3b82f6') }}20;
+        }
+
+        /* ── Gallery hover overlay ─────────────────────── */
+        .gallery-item .overlay {
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+
+        /* ── Pulse CTA button ──────────────────────────── */
+        @keyframes pulse-ring {
+            0%   { transform: scale(1);   opacity: 0.4; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+        .pulse-ring::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: inherit;
+            border: 2px solid {{ secondary_color | default('#3b82f6') }};
+            animation: pulse-ring 2s ease-out infinite;
+        }
+
+        /* ── Custom scrollbar ──────────────────────────── */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb {
+            background: {{ secondary_color | default('#3b82f6') }}60;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: {{ secondary_color | default('#3b82f6') }};
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800 antialiased overflow-x-hidden">
+
+<!-- ════════════════════════════════════════════════════════
+     NAVIGATION
+     ════════════════════════════════════════════════════════ -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+            <!-- Logo / Brand -->
+            <a href="#hero" class="flex items-center gap-2 group">
+                <div class="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center text-white font-bold text-lg transition-transform group-hover:scale-110">
+                    {{ business_name | default('B') | first | upper }}
+                </div>
+                <span id="nav-brand" class="text-xl font-bold text-white transition-colors duration-300">
+                    {{ business_name | default('Business Name') }}
+                </span>
+            </a>
+
+            <!-- Desktop Links -->
+            <div class="hidden lg:flex items-center gap-8">
+                {% set nav_links = [
+                    ('Home', '#hero'),
+                    ('Services', '#services'),
+                    ('About', '#about'),
+                    ('Reviews', '#testimonials'),
+                    ('Gallery', '#gallery'),
+                    ('Contact', '#contact')
+                ] %}
+                {% for label, href in nav_links %}
+                <a href="{{ href }}" class="nav-link text-sm font-medium text-white/80 hover:text-white transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-secondary after:transition-all after:duration-300 hover:after:w-full">
+                    {{ label }}
+                </a>
+                {% endfor %}
+                <a href="tel:{{ phone | default('+1234567890') }}" class="ml-2 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary text-white text-sm font-semibold hover:bg-secondary/90 transition-all shadow-lg shadow-secondary/20 hover:shadow-secondary/40">
+                    <i data-lucide="phone" class="w-4 h-4"></i>
+                    {{ phone | default('(123) 456-7890') }}
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger -->
+            <button id="menu-btn" class="hamburger lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-[6px]" aria-label="Toggle menu">
+                <span class="block w-6 h-[2px] bg-white rounded"></span>
+                <span class="block w-6 h-[2px] bg-white rounded"></span>
+                <span class="block w-6 h-[2px] bg-white rounded"></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Drawer -->
+    <div id="mobile-menu" class="lg:hidden fixed inset-0 top-20 bg-white/98 backdrop-blur-lg translate-x-full transition-transform duration-500 ease-[cubic-bezier(.19,1,.22,1)] z-40">
+        <div class="flex flex-col items-center justify-center h-full gap-8">
+            {% for label, href in nav_links %}
+            <a href="{{ href }}" class="mobile-link text-2xl font-semibold text-primary hover:text-secondary transition-colors">{{ label }}</a>
+            {% endfor %}
+            <a href="tel:{{ phone | default('+1234567890') }}" class="mt-4 inline-flex items-center gap-2 px-8 py-3 rounded-full bg-secondary text-white font-semibold text-lg">
+                <i data-lucide="phone" class="w-5 h-5"></i>
+                Call Now
+            </a>
+        </div>
+    </div>
+</nav>
+
+
+<!-- ════════════════════════════════════════════════════════
+     HERO SECTION
+     ════════════════════════════════════════════════════════ -->
+<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden" style="background: linear-gradient(135deg, {{ gradient_from | default('#0f172a') }} 0%, {{ primary_color | default('#1e40af') }} 40%, {{ secondary_color | default('#3b82f6') }} 100%)">
+    {% if hero_image %}
+    <!-- Real business photo as hero background -->
+    <div class="absolute inset-0 z-0">
+        <img src="{{ hero_image }}" alt="{{ business_name }}" class="w-full h-full object-cover">
+        <div class="absolute inset-0" style="background: linear-gradient(135deg, {{ gradient_from | default('#0f172a') }}dd 0%, {{ primary_color | default('#1e40af') }}bb 40%, {{ secondary_color | default('#3b82f6') }}99 100%)"></div>
+    </div>
+    {% endif %}
+    <!-- Decorative floating shapes -->
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="float-slow absolute top-[15%] left-[10%] w-72 h-72 rounded-full bg-white/5 blur-2xl"></div>
+        <div class="float-medium absolute bottom-[20%] right-[8%] w-96 h-96 rounded-full bg-white/5 blur-3xl"></div>
+        <div class="float-slow absolute top-[60%] left-[60%] w-48 h-48 rounded-full bg-secondary/10 blur-2xl"></div>
+    </div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">
+        <!-- Eyebrow -->
+        <div class="reveal inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/80 text-sm font-medium mb-8 backdrop-blur-sm">
+            <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+            {{ hero_eyebrow | default('Trusted by hundreds of local customers') }}
+        </div>
+
+        <!-- Main Heading -->
+        <h1 class="reveal font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6" style="transition-delay:0.1s; color:#ffffff; text-shadow: 0 2px 20px rgba(0,0,0,0.3)">
+            {{ hero_heading | default(business_name | default('Your Business')) }}
+        </h1>
+
+        <!-- Animated Tagline -->
+        <p class="reveal animated-gradient-text text-xl sm:text-2xl md:text-3xl font-semibold mb-6" style="transition-delay:0.2s; color: rgba(255,255,255,0.9)">
+            {{ tagline | default('Professional Services You Can Trust') }}
+        </p>
+
+        <!-- Sub-description -->
+        <p class="reveal text-white/70 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed" style="transition-delay:0.3s">
+            {{ hero_description | default('We deliver exceptional results with a commitment to quality, reliability, and customer satisfaction. Let us help bring your vision to life.') }}
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4" style="transition-delay:0.4s">
+            <a href="#contact" class="relative pulse-ring inline-flex items-center gap-2 px-8 py-4 rounded-full bg-secondary text-white font-bold text-lg hover:bg-secondary/90 transition-all shadow-2xl shadow-secondary/30">
+                {{ cta_hero | default('Get a Free Quote') }}
+                <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </a>
+            <a href="tel:{{ phone | default('+1234567890') }}" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 border border-white/30 text-white font-semibold text-lg hover:bg-white/20 transition-all backdrop-blur-sm">
+                <i data-lucide="phone" class="w-5 h-5"></i>
+                {{ cta_secondary | default('Call Now') }}
+            </a>
+        </div>
+
+        <!-- Trust badges -->
+        <div class="reveal mt-16 flex flex-wrap items-center justify-center gap-8 text-white/50 text-sm" style="transition-delay:0.5s">
+            {% set icons = ['shield-check', 'star', 'clock', 'award', 'check-circle'] %}
+            {% for badge in trust_badges | default(['Licensed & Insured', '5-Star Rated', 'Fast Turnaround']) %}
+            <div class="flex items-center gap-2">
+                <i data-lucide="{{ icons[loop.index0 % icons|length] }}" class="w-5 h-5"></i>
+                <span>{{ badge }}</span>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-white/40">
+        <i data-lucide="chevrons-down" class="w-6 h-6"></i>
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     SERVICES SECTION
+     ════════════════════════════════════════════════════════ -->
+<section id="services" class="py-24 lg:py-32 bg-gray-50/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <p class="reveal text-secondary font-semibold text-sm uppercase tracking-widest mb-3">What We Offer</p>
+            <h2 class="reveal font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-6" style="transition-delay:0.1s">
+                {{ services_heading | default('Our Services') }}
+            </h2>
+            <p class="reveal text-gray-500 text-lg leading-relaxed" style="transition-delay:0.15s">
+                {{ services_subheading | default('Comprehensive solutions tailored to your unique needs. Every project receives our full attention and expertise.') }}
+            </p>
+        </div>
+
+        <!-- Service Cards -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% set default_services = [
+                {'name': 'Service One', 'description': 'Professional service description goes here. We deliver top-quality results.', 'icon': 'briefcase'},
+                {'name': 'Service Two', 'description': 'Another great service we provide to our valued customers with care.', 'icon': 'settings'},
+                {'name': 'Service Three', 'description': 'Expert solutions designed to meet your specific requirements.', 'icon': 'trending-up'},
+                {'name': 'Service Four', 'description': 'Reliable and efficient service you can always count on.', 'icon': 'shield'},
+                {'name': 'Service Five', 'description': 'Innovative approaches that set us apart from the competition.', 'icon': 'zap'},
+                {'name': 'Service Six', 'description': 'End-to-end support from consultation to project completion.', 'icon': 'headphones'}
+            ] %}
+            {% for service in services | default(default_services) %}
+            <div class="reveal-scale card-hover bg-white rounded-2xl p-8 border border-gray-100 group" style="transition-delay:{{ loop.index0 * 0.08 }}s">
+                <div class="icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i data-lucide="{{ service.icon | default('star') }}" class="w-7 h-7 text-secondary"></i>
+                </div>
+                <h3 class="text-xl font-bold text-primary mb-3">{{ service.name }}</h3>
+                <p class="text-gray-500 leading-relaxed">{{ service.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     ABOUT SECTION
+     ════════════════════════════════════════════════════════ -->
+<section id="about" class="py-24 lg:py-32">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <!-- Image Side -->
+            <div class="reveal-left relative">
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
+                    <img
+                        src="{{ about_image | default('https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80') }}"
+                        alt="{{ business_name | default('About Us') }}"
+                        class="w-full h-full object-cover"
+                        loading="lazy"
+                    >
+                    <div class="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
+                </div>
+                <!-- Floating stat card -->
+                <div class="absolute -bottom-6 -right-6 sm:right-8 bg-white rounded-2xl p-6 shadow-xl border border-gray-100">
+                    <div class="text-4xl font-bold text-secondary mb-1">{{ years_experience | default('10+') }}</div>
+                    <div class="text-gray-500 text-sm font-medium">Years of Experience</div>
+                </div>
+            </div>
+
+            <!-- Text Side -->
+            <div class="reveal-right">
+                <p class="text-secondary font-semibold text-sm uppercase tracking-widest mb-3">About Us</p>
+                <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-6 leading-tight">
+                    {{ about_heading | default('Why Choose ' + business_name | default('Us') + '?') }}
+                </h2>
+                <p class="text-gray-600 text-lg leading-relaxed mb-8">
+                    {{ about_text | default('With years of dedicated experience and a passion for excellence, we have built a reputation for delivering outstanding results. Our team combines expertise, creativity, and attention to detail to exceed expectations on every project. We believe in building lasting relationships with our clients based on trust, transparency, and top-tier quality.') }}
+                </p>
+
+                <!-- About highlights -->
+                <div class="grid sm:grid-cols-2 gap-4 mb-8">
+                    {% set default_highlights = [
+                        'Expert Team',
+                        'Quality Guaranteed',
+                        'Affordable Pricing',
+                        'Fast Turnaround'
+                    ] %}
+                    {% for item in about_highlights | default(default_highlights) %}
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="check" class="w-4 h-4 text-secondary"></i>
+                        </div>
+                        <span class="text-primary font-medium">{{ item }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-white font-semibold hover:bg-primary/90 transition-all shadow-lg">
+                    Learn More
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     TESTIMONIALS / REVIEWS SECTION
+     ════════════════════════════════════════════════════════ -->
+<section id="testimonials" class="py-24 lg:py-32 bg-primary text-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <p class="reveal text-secondary font-semibold text-sm uppercase tracking-widest mb-3">Testimonials</p>
+            <h2 class="reveal font-display text-3xl sm:text-4xl lg:text-5xl font-bold mb-6" style="transition-delay:0.1s">
+                {{ reviews_heading | default('What Our Clients Say') }}
+            </h2>
+            <p class="reveal text-white/60 text-lg" style="transition-delay:0.15s">
+                {{ reviews_subheading | default('Real stories from real customers who trust us with their most important projects.') }}
+            </p>
+        </div>
+
+        <!-- Carousel container -->
+        <div class="relative">
+            <div id="testimonial-viewport" class="overflow-hidden rounded-2xl">
+                <div id="testimonial-track" class="testimonial-track flex">
+                    {% set default_reviews = [
+                        {'name': 'Sarah Johnson', 'text': 'Absolutely phenomenal service! They exceeded all of my expectations. The attention to detail and professionalism were unmatched. I will definitely be a returning customer.', 'rating': 5, 'role': 'Homeowner'},
+                        {'name': 'Michael Chen', 'text': 'From the initial consultation to the final delivery, everything was seamless. The team was responsive, professional, and truly cared about getting things right. Highly recommended!', 'rating': 5, 'role': 'Business Owner'},
+                        {'name': 'Emily Rodriguez', 'text': 'I have worked with many providers in the past, but none compare to this team. Their work ethic, creativity, and reliability set them apart. Five stars across the board.', 'rating': 5, 'role': 'Property Manager'}
+                    ] %}
+                    {% for review in reviews | default(default_reviews) %}
+                    <div class="testimonial-slide w-full flex-shrink-0 px-4">
+                        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 sm:p-10 max-w-3xl mx-auto">
+                            <!-- Stars -->
+                            <div class="flex items-center gap-1 mb-6">
+                                {% for s in range(review.rating | default(5)) %}
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                {% endfor %}
+                            </div>
+                            <!-- Quote -->
+                            <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
+                                "{{ review.text }}"
+                            </blockquote>
+                            <!-- Author -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
+                                    {{ review.name | first | upper }}
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-white">{{ review.name }}</div>
+                                    <div class="text-white/50 text-sm">{{ review.role | default('Customer') }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Carousel controls -->
+            <div class="flex items-center justify-center gap-4 mt-8">
+                <button id="prev-btn" aria-label="Previous review" class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors">
+                    <i data-lucide="chevron-left" class="w-5 h-5 text-white"></i>
+                </button>
+                <div id="carousel-dots" class="flex items-center gap-2">
+                    {% for review in reviews | default(default_reviews) %}
+                    <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/30 transition-all duration-300 {{ 'bg-secondary w-8' if loop.index0 == 0 }}" data-slide="{{ loop.index0 }}" aria-label="Go to review {{ loop.index }}"></button>
+                    {% endfor %}
+                </div>
+                <button id="next-btn" aria-label="Next review" class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors">
+                    <i data-lucide="chevron-right" class="w-5 h-5 text-white"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     GALLERY / PORTFOLIO SECTION
+     ════════════════════════════════════════════════════════ -->
+<section id="gallery" class="py-24 lg:py-32">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <p class="reveal text-secondary font-semibold text-sm uppercase tracking-widest mb-3">Our Work</p>
+            <h2 class="reveal font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-6" style="transition-delay:0.1s">
+                {{ gallery_heading | default('Featured Projects') }}
+            </h2>
+            <p class="reveal text-gray-500 text-lg" style="transition-delay:0.15s">
+                {{ gallery_subheading | default('A showcase of our finest work. Each project reflects our commitment to quality and craftsmanship.') }}
+            </p>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+            {% set default_gallery = [
+                {'image': 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=600&q=80', 'title': 'Project One', 'category': 'Featured'},
+                {'image': 'https://images.unsplash.com/photo-1497215842964-222b430dc094?w=600&q=80', 'title': 'Project Two', 'category': 'Recent'},
+                {'image': 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80', 'title': 'Project Three', 'category': 'Commercial'},
+                {'image': 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&q=80', 'title': 'Project Four', 'category': 'Featured'},
+                {'image': 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&q=80', 'title': 'Project Five', 'category': 'Residential'},
+                {'image': 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=600&q=80', 'title': 'Project Six', 'category': 'Recent'}
+            ] %}
+            {% for item in gallery | default(default_gallery) %}
+            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group {{ 'md:col-span-2 md:row-span-2' if loop.index0 == 0 else '' }}" style="transition-delay:{{ loop.index0 * 0.06 }}s">
+                <div class="aspect-square {{ 'md:aspect-[4/3]' if loop.index0 == 0 else '' }}">
+                    <img
+                        src="{{ item.image }}"
+                        alt="{{ item.title | default('Gallery image') }}"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        loading="lazy"
+                    >
+                </div>
+                <div class="overlay absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent flex items-end p-6">
+                    <div>
+                        <span class="text-secondary text-xs font-semibold uppercase tracking-wider">{{ item.category | default('Project') }}</span>
+                        <h3 class="text-white font-bold text-lg mt-1">{{ item.title | default('Untitled') }}</h3>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     SPECIAL SECTIONS (Business-type specific)
+     ════════════════════════════════════════════════════════ -->
+{% for section in special_sections | default([]) %}
+
+{% if section.type == 'menu' %}
+<!-- Restaurant Menu Section -->
+<section id="menu" class="py-24 lg:py-32 bg-gray-50/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <p class="reveal text-secondary font-semibold text-sm uppercase tracking-widest mb-3">MENU</p>
+            <h2 class="reveal font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4">{{ section.title | default('Our Menu') }}</h2>
+            <p class="reveal text-gray-500 text-lg max-w-2xl mx-auto">Fresh ingredients, bold flavors, and dishes made with love.</p>
+        </div>
+        {% for cat in section.categories | default([]) %}
+        <div class="mb-12 reveal" style="transition-delay:{{ loop.index0 * 0.1 }}s">
+            <h3 class="font-display text-2xl font-bold text-primary mb-6 pb-3 border-b-2 border-secondary/20">{{ cat.name }}</h3>
+            <div class="space-y-4">
+                {% for item in cat['items'] | default([]) %}
+                <div class="flex justify-between items-start group hover:bg-white p-3 rounded-lg transition-colors">
+                    <div class="flex-1">
+                        <h4 class="font-semibold text-gray-900 text-lg">{{ item.name }}</h4>
+                        {% if item.desc %}<p class="text-gray-500 text-sm mt-1">{{ item.desc }}</p>{% endif %}
+                    </div>
+                    <span class="text-secondary font-bold text-lg ml-4">{{ item.price }}</span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+        <p class="text-center text-gray-400 text-sm mt-8 italic">* Menu items and prices are samples. Actual menu will be customized to your offerings.</p>
+    </div>
+</section>
+{% endif %}
+
+{% if section.type == 'pricing_menu' %}
+<!-- Pricing / Services Menu Section -->
+<section id="pricing" class="py-24 lg:py-32 bg-gray-50/50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <p class="reveal text-secondary font-semibold text-sm uppercase tracking-widest mb-3">PRICING</p>
+            <h2 class="reveal font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4">{{ section.title | default('Services & Pricing') }}</h2>
+        </div>
+        <div class="reveal bg-white rounded-2xl shadow-lg overflow-hidden">
+            {% for item in section['items'] | default([]) %}
+            <div class="flex justify-between items-center p-6 {{ 'border-t border-gray-100' if not loop.first else '' }} hover:bg-gray-50 transition-colors">
+                <div>
+                    <h4 class="font-semibold text-gray-900 text-lg">{{ item.name }}</h4>
+                    {% if item.desc %}<p class="text-gray-500 text-sm">{{ item.desc }}</p>{% endif %}
+                </div>
+                <span class="text-secondary font-bold text-xl">{{ item.price }}</span>
+            </div>
+            {% endfor %}
+        </div>
+        <p class="text-center text-gray-400 text-sm mt-6 italic">* Prices shown are examples. Your actual pricing will be displayed.</p>
+    </div>
+</section>
+{% endif %}
+
+{% if section.type == 'emergency_banner' %}
+<!-- Emergency Service Banner -->
+<section class="bg-red-600 py-6">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div class="flex items-center gap-3">
+                <span class="w-3 h-3 rounded-full bg-white animate-pulse"></span>
+                <span class="text-white font-bold text-xl">{{ section.text | default('24/7 Emergency Service Available') }}</span>
+            </div>
+            <a href="tel:{{ phone }}" class="px-6 py-2 bg-white text-red-600 font-bold rounded-full hover:bg-gray-100 transition-colors">
+                Call Now
+            </a>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% if section.type == 'insurance_banner' %}
+<!-- Insurance / Payment Info -->
+<section class="py-16 bg-blue-50">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+        <h3 class="reveal font-display text-2xl font-bold text-primary mb-4">{{ section.title | default('Insurance & Payment') }}</h3>
+        <p class="reveal text-gray-600 text-lg mb-6">{{ section.text | default('We accept most major insurance plans.') }}</p>
+        <div class="reveal flex flex-wrap justify-center gap-4">
+            {% for plan in ['Delta Dental', 'Cigna', 'Aetna', 'MetLife', 'United Healthcare', 'BlueCross'] %}
+            <span class="px-4 py-2 bg-white rounded-lg shadow-sm text-sm font-medium text-gray-700">{{ plan }}</span>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% if section.type == 'hours_banner' %}
+<!-- Hours & Location -->
+<section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+        <h3 class="reveal font-display text-2xl font-bold text-primary text-center mb-8">{{ section.title | default('Hours & Location') }}</h3>
+        <div class="reveal grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-gray-50 rounded-2xl p-6">
+                <h4 class="font-semibold text-gray-900 mb-4 flex items-center gap-2"><i data-lucide="clock" class="w-5 h-5 text-secondary"></i> Hours</h4>
+                <div class="space-y-2 text-gray-600">
+                    <div class="flex justify-between"><span>Monday - Thursday</span><span class="font-medium">11:00 AM - 10:00 PM</span></div>
+                    <div class="flex justify-between"><span>Friday - Saturday</span><span class="font-medium">11:00 AM - 11:00 PM</span></div>
+                    <div class="flex justify-between"><span>Sunday</span><span class="font-medium">12:00 PM - 9:00 PM</span></div>
+                </div>
+            </div>
+            <div class="bg-gray-50 rounded-2xl p-6">
+                <h4 class="font-semibold text-gray-900 mb-4 flex items-center gap-2"><i data-lucide="map-pin" class="w-5 h-5 text-secondary"></i> Location</h4>
+                <p class="text-gray-600 mb-3">{{ address }}</p>
+                <a href="{{ google_maps_url }}" target="_blank" class="text-secondary font-medium hover:underline">Get Directions &rarr;</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% endfor %}
+
+
+<!-- ════════════════════════════════════════════════════════
+     CTA SECTION
+     ════════════════════════════════════════════════════════ -->
+<section id="cta" class="py-24 lg:py-32 relative overflow-hidden">
+    <!-- Background gradient -->
+    <div class="absolute inset-0 hero-gradient hero-pattern"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        <h2 class="reveal font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+            {{ cta_heading | default('Ready to Get Started?') }}
+        </h2>
+        <p class="reveal text-white/70 text-lg sm:text-xl mb-10 max-w-2xl mx-auto" style="transition-delay:0.1s">
+            {{ cta_text | default('Take the first step today. Contact us for a free consultation and see why our clients keep coming back.') }}
+        </p>
+        <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4" style="transition-delay:0.2s">
+            <a href="#contact" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-primary font-bold text-lg hover:bg-gray-100 transition-all shadow-2xl">
+                {{ cta_hero | default('Contact Us Today') }}
+                <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </a>
+            <a href="tel:{{ phone | default('+1234567890') }}" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 border border-white/30 text-white font-semibold text-lg hover:bg-white/20 transition-all backdrop-blur-sm">
+                <i data-lucide="phone" class="w-5 h-5"></i>
+                Call Now
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     CONTACT SECTION
+     ════════════════════════════════════════════════════════ -->
+<section id="contact" class="py-24 lg:py-32 bg-gray-50/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <p class="reveal text-secondary font-semibold text-sm uppercase tracking-widest mb-3">Contact</p>
+            <h2 class="reveal font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-6" style="transition-delay:0.1s">
+                {{ contact_heading | default('Get in Touch') }}
+            </h2>
+            <p class="reveal text-gray-500 text-lg" style="transition-delay:0.15s">
+                {{ contact_subheading | default('We would love to hear from you. Reach out today for a free estimate or consultation.') }}
+            </p>
+        </div>
+
+        <div class="grid lg:grid-cols-5 gap-12">
+            <!-- Contact Info & Map -->
+            <div class="lg:col-span-2 space-y-8">
+                <!-- Info cards -->
+                <div class="reveal-left space-y-4">
+                    <a href="tel:{{ phone | default('+1234567890') }}" class="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 card-hover group">
+                        <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-secondary group-hover:text-white transition-colors">
+                            <i data-lucide="phone" class="w-5 h-5 text-secondary group-hover:text-white transition-colors"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-primary mb-1">Phone</div>
+                            <div class="text-gray-500">{{ phone | default('(123) 456-7890') }}</div>
+                        </div>
+                    </a>
+
+                    <a href="mailto:{{ email | default('hello@example.com') }}" class="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 card-hover group">
+                        <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-secondary group-hover:text-white transition-colors">
+                            <i data-lucide="mail" class="w-5 h-5 text-secondary group-hover:text-white transition-colors"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-primary mb-1">Email</div>
+                            <div class="text-gray-500">{{ email | default('hello@example.com') }}</div>
+                        </div>
+                    </a>
+
+                    <div class="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 card-hover group">
+                        <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-secondary group-hover:text-white transition-colors">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-secondary group-hover:text-white transition-colors"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-primary mb-1">Address</div>
+                            <div class="text-gray-500">{{ address | default('123 Main Street, City, State 12345') }}</div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 card-hover group">
+                        <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-secondary group-hover:text-white transition-colors">
+                            <i data-lucide="clock" class="w-5 h-5 text-secondary group-hover:text-white transition-colors"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-primary mb-1">Hours</div>
+                            <div class="text-gray-500">{{ hours | default('Mon-Fri: 8AM - 6PM') }}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map placeholder -->
+                <div class="reveal-left rounded-2xl overflow-hidden border border-gray-200 shadow-sm" style="transition-delay:0.15s">
+                    {% if google_maps_embed %}
+                    <iframe src="{{ google_maps_embed }}" width="100%" height="220" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map"></iframe>
+                    {% else %}
+                    <div class="w-full h-[220px] bg-gray-200 flex items-center justify-center text-gray-400">
+                        <div class="text-center">
+                            <i data-lucide="map" class="w-10 h-10 mx-auto mb-2"></i>
+                            <span class="text-sm">Map placeholder</span>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="lg:col-span-3 reveal-right">
+                <form action="{{ form_action | default('#') }}" method="POST" class="bg-white rounded-2xl p-8 sm:p-10 border border-gray-100 shadow-lg">
+                    <div class="grid sm:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="name" class="block text-sm font-semibold text-primary mb-2">Full Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Your name"
+                                   class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all text-gray-700 placeholder:text-gray-400">
+                        </div>
+                        <div>
+                            <label for="email-input" class="block text-sm font-semibold text-primary mb-2">Email</label>
+                            <input type="email" id="email-input" name="email" required placeholder="you@email.com"
+                                   class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all text-gray-700 placeholder:text-gray-400">
+                        </div>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="phone-input" class="block text-sm font-semibold text-primary mb-2">Phone</label>
+                            <input type="tel" id="phone-input" name="phone" placeholder="(123) 456-7890"
+                                   class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all text-gray-700 placeholder:text-gray-400">
+                        </div>
+                        <div>
+                            <label for="service-select" class="block text-sm font-semibold text-primary mb-2">Service Needed</label>
+                            <select id="service-select" name="service"
+                                    class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all text-gray-700">
+                                <option value="">Select a service</option>
+                                {% for service in services | default(default_services) %}
+                                <option value="{{ service.name }}">{{ service.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block text-sm font-semibold text-primary mb-2">Message</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Tell us about your project..."
+                                  class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all text-gray-700 placeholder:text-gray-400 resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-secondary text-white font-bold text-lg hover:bg-secondary/90 transition-all shadow-lg shadow-secondary/20 hover:shadow-secondary/40">
+                        Send Message
+                        <i data-lucide="send" class="w-5 h-5"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     PAYMENT / GET THIS WEBSITE SECTION
+     ════════════════════════════════════════════════════════ -->
+<section id="get-website" class="py-20 lg:py-24 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+        <div class="reveal bg-gradient-to-br from-primary to-primary/90 rounded-3xl p-10 sm:p-14 shadow-2xl relative overflow-hidden">
+            <!-- Decorative circles -->
+            <div class="absolute top-0 right-0 w-64 h-64 bg-secondary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" aria-hidden="true"></div>
+            <div class="absolute bottom-0 left-0 w-48 h-48 bg-secondary/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" aria-hidden="true"></div>
+
+            <div class="relative z-10">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/70 text-sm font-medium mb-6">
+                    <i data-lucide="sparkles" class="w-4 h-4"></i>
+                    Premium Website Package
+                </div>
+                <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mb-4">
+                    Get This Website
+                </h2>
+                <p class="text-white/60 text-lg mb-2">
+                    A professionally built, fully customized website just like this one.
+                </p>
+                <div class="text-5xl sm:text-6xl font-extrabold text-white my-8">
+                    {{ website_price | default('$500') }}
+                </div>
+                <ul class="text-left max-w-md mx-auto space-y-3 mb-10">
+                    {% set default_package_features = [
+                        'Fully responsive, mobile-first design',
+                        'Custom branding & color scheme',
+                        'SEO-optimized structure',
+                        'Contact form integration',
+                        'Google Maps integration',
+                        'Social media links',
+                        'Full setup guide included after purchase'
+                    ] %}
+                    {% for feature in package_features | default(default_package_features) %}
+                    <li class="flex items-center gap-3 text-white/80">
+                        <i data-lucide="check-circle-2" class="w-5 h-5 text-accent flex-shrink-0"></i>
+                        <span>{{ feature }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <a href="{{ payment_link | default('#') }}" class="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-secondary text-white font-bold text-lg hover:bg-secondary/90 transition-all shadow-2xl shadow-secondary/30 hover:shadow-secondary/50">
+                    Purchase Now
+                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+                <p class="text-white/40 text-sm mt-6">Secure payment. Full setup guide included after purchase.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════════ -->
+<footer class="bg-primary text-white pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+            <!-- Brand -->
+            <div class="lg:col-span-1">
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center text-white font-bold text-lg">
+                        {{ business_name | default('B') | first | upper }}
+                    </div>
+                    <span class="text-xl font-bold">{{ business_name | default('Business Name') }}</span>
+                </div>
+                <p class="text-white/50 text-sm leading-relaxed mb-6">
+                    {{ footer_description | default(tagline | default('Delivering quality and excellence in every project we undertake.')) }}
+                </p>
+                <!-- Social Icons -->
+                <div class="flex items-center gap-3">
+                    {% set default_socials = [
+                        {'icon': 'facebook', 'url': '#'},
+                        {'icon': 'instagram', 'url': '#'},
+                        {'icon': 'twitter', 'url': '#'}
+                    ] %}
+                    {% for social in socials | default(default_socials) %}
+                    <a href="{{ social.url }}" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition-colors" aria-label="{{ social.icon }}">
+                        <i data-lucide="{{ social.icon }}" class="w-4 h-4"></i>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h4 class="font-semibold text-white mb-4">Quick Links</h4>
+                <ul class="space-y-3">
+                    {% set footer_nav = [('Home', '#hero'), ('Services', '#services'), ('About', '#about'), ('Reviews', '#testimonials'), ('Gallery', '#gallery'), ('Contact', '#contact')] %}
+                    {% for label, href in footer_nav %}
+                    <li><a href="{{ href }}" class="text-white/50 hover:text-white transition-colors text-sm">{{ label }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- Services list -->
+            <div>
+                <h4 class="font-semibold text-white mb-4">Services</h4>
+                <ul class="space-y-3">
+                    {% for service in services | default(default_services) %}
+                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">{{ service.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- Contact info -->
+            <div>
+                <h4 class="font-semibold text-white mb-4">Contact Us</h4>
+                <ul class="space-y-3 text-sm">
+                    <li>
+                        <a href="tel:{{ phone | default('+1234567890') }}" class="flex items-center gap-2 text-white/50 hover:text-white transition-colors">
+                            <i data-lucide="phone" class="w-4 h-4 flex-shrink-0"></i>
+                            {{ phone | default('(123) 456-7890') }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:{{ email | default('hello@example.com') }}" class="flex items-center gap-2 text-white/50 hover:text-white transition-colors">
+                            <i data-lucide="mail" class="w-4 h-4 flex-shrink-0"></i>
+                            {{ email | default('hello@example.com') }}
+                        </a>
+                    </li>
+                    <li>
+                        <div class="flex items-start gap-2 text-white/50">
+                            <i data-lucide="map-pin" class="w-4 h-4 flex-shrink-0 mt-0.5"></i>
+                            {{ address | default('123 Main Street, City, State 12345') }}
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="border-t border-white/10 pt-8">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p class="text-white/40 text-sm">
+                    &copy; {{ current_year | default('2026') }} {{ business_name | default('Business Name') }}. All rights reserved.
+                </p>
+                <p class="text-white/30 text-xs">
+                    Full setup guide included after purchase &middot; Built with care
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- ════════════════════════════════════════════════════════
+     BACK TO TOP BUTTON
+     ════════════════════════════════════════════════════════ -->
+<button id="back-to-top" aria-label="Back to top"
+        class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-secondary text-white shadow-xl flex items-center justify-center opacity-0 translate-y-4 pointer-events-none transition-all duration-300">
+    <i data-lucide="chevron-up" class="w-5 h-5"></i>
+</button>
+
+
+<!-- ════════════════════════════════════════════════════════
+     JAVASCRIPT
+     ════════════════════════════════════════════════════════ -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    /* ── Initialize Lucide icons ───────────────────────── */
+    lucide.createIcons();
+
+    /* ── Navbar: transparent -> solid on scroll ─────────── */
+    const navbar  = document.getElementById('navbar');
+    const brand   = document.getElementById('nav-brand');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const hamburgerSpans = document.querySelectorAll('#menu-btn span');
+
+    function updateNav() {
+        const scrolled = window.scrollY > 60;
+        if (scrolled) {
+            navbar.classList.add('nav-solid');
+            brand.classList.replace('text-white', 'text-gray-900');
+            navLinks.forEach(l => { l.classList.replace('text-white/80', 'text-gray-600'); l.classList.replace('hover:text-white', 'hover:text-gray-900'); });
+            hamburgerSpans.forEach(s => s.classList.replace('bg-white', 'bg-gray-900'));
+        } else {
+            navbar.classList.remove('nav-solid');
+            brand.classList.replace('text-gray-900', 'text-white');
+            navLinks.forEach(l => { l.classList.replace('text-gray-600', 'text-white/80'); l.classList.replace('hover:text-gray-900', 'hover:text-white'); });
+            hamburgerSpans.forEach(s => s.classList.replace('bg-gray-900', 'bg-white'));
+        }
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+
+    /* ── Mobile menu toggle ────────────────────────────── */
+    const menuBtn    = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = mobileMenu.querySelectorAll('.mobile-link');
+
+    menuBtn.addEventListener('click', () => {
+        menuBtn.classList.toggle('open');
+        mobileMenu.classList.toggle('translate-x-full');
+    });
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            menuBtn.classList.remove('open');
+            mobileMenu.classList.add('translate-x-full');
+        });
+    });
+
+    /* ── Scroll reveal (Intersection Observer) ─────────── */
+    const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(el => observer.observe(el));
+
+    /* ── Testimonials carousel ─────────────────────────── */
+    const track = document.getElementById('testimonial-track');
+    const dots  = document.querySelectorAll('.carousel-dot');
+    const slides = document.querySelectorAll('.testimonial-slide');
+    let current = 0;
+    const total = slides.length;
+
+    function goToSlide(index) {
+        current = ((index % total) + total) % total;
+        track.style.transform = `translateX(-${current * 100}%)`;
+        dots.forEach((d, i) => {
+            d.classList.toggle('bg-secondary', i === current);
+            d.classList.toggle('w-8', i === current);
+            d.classList.toggle('bg-white/30', i !== current);
+            d.classList.toggle('w-2.5', i !== current);
+        });
+    }
+
+    document.getElementById('next-btn').addEventListener('click', () => goToSlide(current + 1));
+    document.getElementById('prev-btn').addEventListener('click', () => goToSlide(current - 1));
+    dots.forEach(dot => dot.addEventListener('click', () => goToSlide(+dot.dataset.slide)));
+
+    // Auto-advance every 6 seconds
+    let autoplay = setInterval(() => goToSlide(current + 1), 6000);
+    const viewport = document.getElementById('testimonial-viewport');
+    viewport.addEventListener('mouseenter', () => clearInterval(autoplay));
+    viewport.addEventListener('mouseleave', () => { autoplay = setInterval(() => goToSlide(current + 1), 6000); });
+
+    /* ── Back-to-top button ────────────────────────────── */
+    const topBtn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 600) {
+            topBtn.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+            topBtn.classList.add('opacity-100', 'translate-y-0');
+        } else {
+            topBtn.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+            topBtn.classList.remove('opacity-100', 'translate-y-0');
+        }
+    }, { passive: true });
+
+    topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    /* ── Smooth scroll for anchor links ────────────────── */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const offset = 80;
+                const top = target.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({ top, behavior: 'smooth' });
+            }
+        });
+    });
+
+    /* ── Touch swipe support for carousel ──────────────── */
+    let touchStartX = 0;
+    let touchEndX = 0;
+    viewport.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+    viewport.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 50) {
+            diff > 0 ? goToSlide(current + 1) : goToSlide(current - 1);
+        }
+    });
+
+});
+</script>
+
+</body>
+</html>

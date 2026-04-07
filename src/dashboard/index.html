@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auto Site Builder — Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <style>
+    :root {
+      --primary: #2c3e50;
+      --accent: #3498db;
+      --green: #16a34a;
+      --yellow: #d97706;
+      --red: #dc2626;
+      --gray: #6b7280;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; background: #f1f5f9; color: #1e293b; }
+    nav {
+      background: var(--primary); color: white; padding: 1rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    nav h1 { font-size: 1.2rem; font-weight: 700; }
+    nav .stats { display: flex; gap: 2rem; font-size: 0.9rem; }
+    nav .stat span { opacity: 0.7; }
+    nav .stat strong { margin-left: 0.3rem; }
+    .container { max-width: 1300px; margin: 0 auto; padding: 2rem; }
+
+    /* FILTERS */
+    .filters {
+      display: flex; gap: 0.75rem; margin-bottom: 1.5rem; flex-wrap: wrap; align-items: center;
+    }
+    .filters select, .filters input {
+      padding: 0.5rem 0.75rem; border: 1px solid #e2e8f0; border-radius: 8px;
+      background: white; font-size: 0.9rem; color: #1e293b;
+    }
+    .filters label { font-size: 0.85rem; color: var(--gray); font-weight: 600; }
+
+    /* TABLE */
+    .table-wrap { background: white; border-radius: 12px; box-shadow: 0 1px 8px rgba(0,0,0,0.06); overflow: hidden; }
+    table { width: 100%; border-collapse: collapse; }
+    th { background: #f8fafc; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--gray); padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    td { padding: 0.9rem 1rem; border-bottom: 1px solid #f1f5f9; font-size: 0.9rem; vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f8fafc; }
+
+    /* STATUS BADGES */
+    .badge {
+      display: inline-block; padding: 0.25rem 0.6rem; border-radius: 100px;
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .badge-discovered   { background: #e0f2fe; color: #0369a1; }
+    .badge-site_built   { background: #fef3c7; color: #92400e; }
+    .badge-email_found  { background: #e0e7ff; color: #3730a3; }
+    .badge-email_sent   { background: #dbeafe; color: #1d4ed8; }
+    .badge-replied      { background: #dcfce7; color: #166534; }
+    .badge-interested   { background: #d1fae5; color: #065f46; }
+    .badge-sold         { background: #166534; color: white; }
+    .badge-delivered    { background: #14532d; color: white; }
+    .badge-declined     { background: #fee2e2; color: #991b1b; }
+
+    /* REPLY PANEL */
+    .reply-text {
+      max-width: 300px; overflow: hidden; text-overflow: ellipsis;
+      white-space: nowrap; color: var(--gray); font-size: 0.85rem;
+    }
+    .reply-text.has-reply { color: var(--green); cursor: pointer; font-weight: 500; }
+
+    /* ACTIONS */
+    .actions { display: flex; gap: 0.4rem; }
+    .action-btn {
+      padding: 0.3rem 0.6rem; border-radius: 6px; border: none; cursor: pointer;
+      font-size: 0.78rem; font-weight: 600; transition: opacity 0.15s;
+    }
+    .action-btn:hover { opacity: 0.8; }
+    .btn-view   { background: #e0f2fe; color: #0369a1; }
+    .btn-status { background: #e0e7ff; color: #3730a3; }
+    .btn-note   { background: #fef3c7; color: #92400e; }
+
+    /* MODAL */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+      z-index: 1000; align-items: center; justify-content: center;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: white; border-radius: 12px; padding: 2rem; max-width: 600px; width: 90%;
+      max-height: 80vh; overflow-y: auto;
+    }
+    .modal h3 { margin-bottom: 1rem; font-size: 1.1rem; }
+    .modal textarea { width: 100%; min-height: 120px; padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 8px; font-family: inherit; font-size: 0.9rem; resize: vertical; }
+    .modal-actions { display: flex; gap: 0.75rem; margin-top: 1rem; justify-content: flex-end; }
+    .modal-actions button { padding: 0.6rem 1.2rem; border-radius: 8px; border: none; cursor: pointer; font-weight: 600; }
+    .btn-save { background: var(--primary); color: white; }
+    .btn-cancel { background: #f1f5f9; color: var(--gray); }
+    .modal label { display: block; font-weight: 600; font-size: 0.85rem; margin-bottom: 0.4rem; margin-top: 1rem; }
+    .modal select { width: 100%; padding: 0.6rem; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 0.9rem; }
+
+    .loading { text-align: center; padding: 3rem; color: var(--gray); }
+    .empty { text-align: center; padding: 3rem; color: var(--gray); font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <h1>Auto Site Builder Dashboard</h1>
+  <div class="stats">
+    <div class="stat"><span>Discovered</span><strong id="stat-discovered">—</strong></div>
+    <div class="stat"><span>Sites Built</span><strong id="stat-built">—</strong></div>
+    <div class="stat"><span>Emails Sent</span><strong id="stat-sent">—</strong></div>
+    <div class="stat"><span>Replies</span><strong id="stat-replied">—</strong></div>
+    <div class="stat"><span>Sold</span><strong id="stat-sold">—</strong></div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="filters">
+    <label>Filter:</label>
+    <select id="filter-status" onchange="loadLeads()">
+      <option value="">All Statuses</option>
+      <option value="discovered">Discovered</option>
+      <option value="site_built">Site Built</option>
+      <option value="email_sent">Email Sent</option>
+      <option value="replied">Replied</option>
+      <option value="interested">Interested</option>
+      <option value="sold">Sold</option>
+      <option value="delivered">Delivered</option>
+      <option value="declined">Declined</option>
+    </select>
+    <select id="filter-industry" onchange="loadLeads()">
+      <option value="">All Industries</option>
+      <option value="home-services">Home Services</option>
+      <option value="food-beverage">Food & Beverage</option>
+      <option value="beauty-wellness">Beauty & Wellness</option>
+      <option value="medical">Medical</option>
+      <option value="professional">Professional</option>
+      <option value="auto">Auto</option>
+    </select>
+    <input type="text" id="filter-search" placeholder="Search by name or city..." oninput="loadLeads()" style="min-width:220px" />
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Business</th>
+          <th>Location</th>
+          <th>Industry</th>
+          <th>Status</th>
+          <th>Reply</th>
+          <th>Site</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="leads-table">
+        <tr><td colspan="7" class="loading">Loading...</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <h3 id="modal-title">Update Lead</h3>
+    <div id="modal-body"></div>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+      <button class="btn-save" onclick="saveModal()">Save</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // CONFIG — fill in your Supabase URL and anon key
+  const SUPABASE_URL = '';
+  const SUPABASE_ANON_KEY = '';
+
+  if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+    document.querySelector('#leads-table').innerHTML =
+      '<tr><td colspan="7" class="empty">⚠️ Add your SUPABASE_URL and SUPABASE_ANON_KEY in dashboard/index.html</td></tr>';
+  }
+
+  const supabase = window.supabase?.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  let currentId = null;
+  let currentAction = null;
+
+  async function loadStats() {
+    if (!supabase) return;
+    const statuses = ['discovered', 'site_built', 'email_sent', 'replied', 'sold'];
+    for (const s of statuses) {
+      const { count } = await supabase.from('businesses').select('*', { count: 'exact', head: true }).eq('status', s);
+      const el = document.getElementById(`stat-${s === 'site_built' ? 'built' : s === 'email_sent' ? 'sent' : s}`);
+      if (el) el.textContent = count ?? '—';
+    }
+  }
+
+  async function loadLeads() {
+    if (!supabase) return;
+    const status = document.getElementById('filter-status').value;
+    const industry = document.getElementById('filter-industry').value;
+    const search = document.getElementById('filter-search').value.toLowerCase();
+
+    let q = supabase
+      .from('businesses')
+      .select('*, generated_sites(preview_url), outreach(reply_content, reply_received_at, status)')
+      .order('discovered_at', { ascending: false })
+      .limit(100);
+
+    if (status) q = q.eq('status', status);
+    if (industry) q = q.eq('industry', industry);
+    if (search) q = q.ilike('name', `%${search}%`);
+
+    const { data, error } = await q;
+    const tbody = document.getElementById('leads-table');
+
+    if (error || !data || data.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="7" class="empty">No leads found.</td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = data.map(biz => {
+      const site = biz.generated_sites?.[0];
+      const outreach = biz.outreach?.[0];
+      const reply = outreach?.reply_content;
+      const statusBadge = `<span class="badge badge-${biz.status}">${biz.status.replace('_', ' ')}</span>`;
+      const replyCell = reply
+        ? `<div class="reply-text has-reply" title="${reply}" onclick="viewReply('${biz.id}', \`${reply.replace(/`/g, "'")}\`)">💬 ${reply.slice(0, 50)}...</div>`
+        : `<span style="color:#9ca3af;font-size:0.8rem">No reply yet</span>`;
+
+      return `<tr>
+        <td>
+          <strong>${biz.name}</strong>
+          ${biz.phone ? `<br/><span style="color:var(--gray);font-size:0.8rem">${biz.phone}</span>` : ''}
+          ${biz.email ? `<br/><span style="color:var(--accent);font-size:0.8rem">${biz.email}</span>` : ''}
+        </td>
+        <td>${biz.city || ''}, ${biz.state || ''}</td>
+        <td style="font-size:0.85rem;color:var(--gray)">${biz.industry || ''}</td>
+        <td>${statusBadge}</td>
+        <td>${replyCell}</td>
+        <td>
+          ${site?.preview_url
+            ? `<a href="${site.preview_url}" target="_blank" style="color:var(--accent);font-size:0.85rem">View →</a>`
+            : '<span style="color:#9ca3af;font-size:0.8rem">Not built</span>'}
+        </td>
+        <td>
+          <div class="actions">
+            <button class="action-btn btn-status" onclick="updateStatus('${biz.id}', '${biz.status}')">Status</button>
+            <button class="action-btn btn-note" onclick="addNote('${biz.id}')">Note</button>
+          </div>
+        </td>
+      </tr>`;
+    }).join('');
+  }
+
+  function viewReply(id, text) {
+    document.getElementById('modal-title').textContent = 'Reply Content';
+    document.getElementById('modal-body').innerHTML = `<div style="background:#f8fafc;padding:1rem;border-radius:8px;white-space:pre-wrap;font-size:0.9rem;line-height:1.6">${text}</div>`;
+    currentId = id;
+    currentAction = 'view';
+    document.getElementById('modal').classList.add('open');
+  }
+
+  function updateStatus(id, current) {
+    const statuses = ['discovered','site_built','email_found','email_sent','replied','interested','sold','delivered','declined'];
+    document.getElementById('modal-title').textContent = 'Update Status';
+    document.getElementById('modal-body').innerHTML = `
+      <label>New Status</label>
+      <select id="modal-status">
+        ${statuses.map(s => `<option value="${s}" ${s === current ? 'selected' : ''}>${s.replace('_', ' ')}</option>`).join('')}
+      </select>`;
+    currentId = id;
+    currentAction = 'status';
+    document.getElementById('modal').classList.add('open');
+  }
+
+  function addNote(id) {
+    document.getElementById('modal-title').textContent = 'Add Note';
+    document.getElementById('modal-body').innerHTML = `
+      <label>Note</label>
+      <textarea id="modal-note" placeholder="Add a note about this lead..."></textarea>`;
+    currentId = id;
+    currentAction = 'note';
+    document.getElementById('modal').classList.add('open');
+  }
+
+  async function saveModal() {
+    if (!currentId || !supabase) return;
+
+    if (currentAction === 'status') {
+      const newStatus = document.getElementById('modal-status').value;
+      await supabase.from('businesses').update({ status: newStatus }).eq('id', currentId);
+    } else if (currentAction === 'note') {
+      const note = document.getElementById('modal-note').value;
+      await supabase.from('outreach').update({ notes: note }).eq('business_id', currentId);
+    }
+
+    closeModal();
+    loadLeads();
+    loadStats();
+  }
+
+  function closeModal() {
+    document.getElementById('modal').classList.remove('open');
+    currentId = null;
+    currentAction = null;
+  }
+
+  document.getElementById('modal').addEventListener('click', e => {
+    if (e.target === document.getElementById('modal')) closeModal();
+  });
+
+  // Initial load
+  loadStats();
+  loadLeads();
+</script>
+</body>
+</html>
