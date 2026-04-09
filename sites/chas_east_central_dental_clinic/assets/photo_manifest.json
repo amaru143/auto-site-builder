@@ -1,0 +1,25 @@
+{
+  "business_name": "CHAS East Central Dental Clinic",
+  "place_id": "ChIJ8z-sq3AZnlQRwgMgWSOrdQM",
+  "downloaded_at": "2026-04-09T08:00:58.553110",
+  "photos": [
+    {
+      "filename": "gallery_3.jpg",
+      "purpose": "gallery",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\chas_east_central_dental_clinic\\assets\\images\\gallery_3.jpg",
+      "relative_path": "assets/images/gallery_3.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    },
+    {
+      "filename": "gallery_5.jpg",
+      "purpose": "gallery",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\chas_east_central_dental_clinic\\assets\\images\\gallery_5.jpg",
+      "relative_path": "assets/images/gallery_5.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    }
+  ]
+}
