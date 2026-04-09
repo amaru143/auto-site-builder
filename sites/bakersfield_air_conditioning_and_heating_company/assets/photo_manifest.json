@@ -1,0 +1,25 @@
+{
+  "business_name": "Bakersfield Air Conditioning and Heating Company",
+  "place_id": "ChIJi-Z8I4Bp6oAR7OOLol981AQ",
+  "downloaded_at": "2026-04-09T01:17:55.243778",
+  "photos": [
+    {
+      "filename": "hero.jpg",
+      "purpose": "hero",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\bakersfield_air_conditioning_and_heating_company\\assets\\images\\hero.jpg",
+      "relative_path": "assets/images/hero.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    },
+    {
+      "filename": "about.jpg",
+      "purpose": "about",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\bakersfield_air_conditioning_and_heating_company\\assets\\images\\about.jpg",
+      "relative_path": "assets/images/about.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    }
+  ]
+}
