@@ -1,0 +1,43 @@
+{
+  "business_name": "WANG CAI MASSAGE",
+  "place_id": "ChIJX5d_drmn3IARJZdsCKPVKE4",
+  "downloaded_at": "2026-04-09T02:32:45.591367",
+  "photos": [
+    {
+      "filename": "hero.jpg",
+      "purpose": "hero",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\wang_cai_massage\\assets\\images\\hero.jpg",
+      "relative_path": "assets/images/hero.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    },
+    {
+      "filename": "about.jpg",
+      "purpose": "about",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\wang_cai_massage\\assets\\images\\about.jpg",
+      "relative_path": "assets/images/about.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    },
+    {
+      "filename": "logo_candidate.jpg",
+      "purpose": "logo",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\wang_cai_massage\\assets\\images\\logo_candidate.jpg",
+      "relative_path": "assets/images/logo_candidate.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    },
+    {
+      "filename": "gallery_1.jpg",
+      "purpose": "gallery",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\wang_cai_massage\\assets\\images\\gallery_1.jpg",
+      "relative_path": "assets/images/gallery_1.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    }
+  ]
+}
