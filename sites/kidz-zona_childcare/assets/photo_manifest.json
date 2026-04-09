@@ -1,0 +1,52 @@
+{
+  "business_name": "Kidz-Zona Childcare",
+  "place_id": "ChIJnVNPXGpv1oYRAovZpcx940g",
+  "downloaded_at": "2026-04-08T14:31:15.020744",
+  "photos": [
+    {
+      "filename": "hero.jpg",
+      "purpose": "hero",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\kidz-zona_childcare\\assets\\images\\hero.jpg",
+      "relative_path": "assets/images/hero.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    },
+    {
+      "filename": "about.jpg",
+      "purpose": "about",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\kidz-zona_childcare\\assets\\images\\about.jpg",
+      "relative_path": "assets/images/about.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    },
+    {
+      "filename": "logo_candidate.jpg",
+      "purpose": "logo",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\kidz-zona_childcare\\assets\\images\\logo_candidate.jpg",
+      "relative_path": "assets/images/logo_candidate.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    },
+    {
+      "filename": "gallery_1.jpg",
+      "purpose": "gallery",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\kidz-zona_childcare\\assets\\images\\gallery_1.jpg",
+      "relative_path": "assets/images/gallery_1.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    },
+    {
+      "filename": "gallery_2.jpg",
+      "purpose": "gallery",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\kidz-zona_childcare\\assets\\images\\gallery_2.jpg",
+      "relative_path": "assets/images/gallery_2.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    }
+  ]
+}
