@@ -1,0 +1,34 @@
+{
+  "business_name": "Smart Cleaning Services",
+  "place_id": "ChIJy4mFZQuaTYcRZi2aXdwGCNg",
+  "downloaded_at": "2026-04-09T00:56:49.195744",
+  "photos": [
+    {
+      "filename": "hero.jpg",
+      "purpose": "hero",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\smart_cleaning_services\\assets\\images\\hero.jpg",
+      "relative_path": "assets/images/hero.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    },
+    {
+      "filename": "about.jpg",
+      "purpose": "about",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\smart_cleaning_services\\assets\\images\\about.jpg",
+      "relative_path": "assets/images/about.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    },
+    {
+      "filename": "logo_candidate.jpg",
+      "purpose": "logo",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\smart_cleaning_services\\assets\\images\\logo_candidate.jpg",
+      "relative_path": "assets/images/logo_candidate.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    }
+  ]
+}
