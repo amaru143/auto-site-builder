@@ -1,0 +1,25 @@
+{
+  "business_name": "BJ's Consumer's Choice Pest Control",
+  "place_id": "ChIJ4VipIUUHkYARAw5DIWMA0ck",
+  "downloaded_at": "2026-04-09T02:06:09.182503",
+  "photos": [
+    {
+      "filename": "hero.jpg",
+      "purpose": "hero",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\bjs_consumers_choice_pest_control\\assets\\images\\hero.jpg",
+      "relative_path": "assets/images/hero.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    },
+    {
+      "filename": "about.jpg",
+      "purpose": "about",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\bjs_consumers_choice_pest_control\\assets\\images\\about.jpg",
+      "relative_path": "assets/images/about.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    }
+  ]
+}
