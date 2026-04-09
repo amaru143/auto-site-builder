@@ -1,4 +1,4 @@
-# Assets Needed for Premier Barber Lounge
+# Assets Needed for premier barber lounge
 
 ## Required Images
 - [ ] Logo (PNG, transparent background, min 200x200px)
