@@ -1,0 +1,25 @@
+{
+  "business_name": "Meridian To Health - Massage Therapist",
+  "place_id": "ChIJdTohCmVr6oARjxgydRDYlx8",
+  "downloaded_at": "2026-04-09T01:27:18.995913",
+  "photos": [
+    {
+      "filename": "hero.jpg",
+      "purpose": "hero",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\meridian_to_health_-_massage_therapist\\assets\\images\\hero.jpg",
+      "relative_path": "assets/images/hero.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    },
+    {
+      "filename": "about.jpg",
+      "purpose": "about",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\meridian_to_health_-_massage_therapist\\assets\\images\\about.jpg",
+      "relative_path": "assets/images/about.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    }
+  ]
+}
