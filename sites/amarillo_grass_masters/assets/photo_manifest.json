@@ -1,0 +1,34 @@
+{
+  "business_name": "Amarillo Grass Masters",
+  "place_id": "ChIJ04D__StbAYcREw954GCbDk4",
+  "downloaded_at": "2026-04-09T05:29:37.225690",
+  "photos": [
+    {
+      "filename": "hero.jpg",
+      "purpose": "hero",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\amarillo_grass_masters\\assets\\images\\hero.jpg",
+      "relative_path": "assets/images/hero.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    },
+    {
+      "filename": "about.jpg",
+      "purpose": "about",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\amarillo_grass_masters\\assets\\images\\about.jpg",
+      "relative_path": "assets/images/about.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    },
+    {
+      "filename": "logo_candidate.jpg",
+      "purpose": "logo",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\amarillo_grass_masters\\assets\\images\\logo_candidate.jpg",
+      "relative_path": "assets/images/logo_candidate.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    }
+  ]
+}
