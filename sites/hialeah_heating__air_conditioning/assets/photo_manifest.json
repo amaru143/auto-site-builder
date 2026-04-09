@@ -1,0 +1,43 @@
+{
+  "business_name": "Hialeah Heating & Air Conditioning",
+  "place_id": "ChIJqczWx0662YgR5x4gPg3CsRo",
+  "downloaded_at": "2026-04-09T05:00:35.336945",
+  "photos": [
+    {
+      "filename": "hero.jpg",
+      "purpose": "hero",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\hialeah_heating__air_conditioning\\assets\\images\\hero.jpg",
+      "relative_path": "assets/images/hero.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    },
+    {
+      "filename": "about.jpg",
+      "purpose": "about",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\hialeah_heating__air_conditioning\\assets\\images\\about.jpg",
+      "relative_path": "assets/images/about.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    },
+    {
+      "filename": "logo_candidate.jpg",
+      "purpose": "logo",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\hialeah_heating__air_conditioning\\assets\\images\\logo_candidate.jpg",
+      "relative_path": "assets/images/logo_candidate.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    },
+    {
+      "filename": "gallery_1.jpg",
+      "purpose": "gallery",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\hialeah_heating__air_conditioning\\assets\\images\\gallery_1.jpg",
+      "relative_path": "assets/images/gallery_1.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    }
+  ]
+}
