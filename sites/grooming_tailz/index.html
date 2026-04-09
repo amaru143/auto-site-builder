@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional grooming that keeps your furry friend looking and feeling great">
+    <title>Grooming Tailz — Professional grooming that keeps your furry friend looking and feeling great</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Inter + Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0d9488',
+                        secondary: '#14b8a6',
+                        accent: '#f0fdfa',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['Playfair Display', 'Georgia', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* ── Base & Scroll ─────────────────────────────── */
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', system-ui, sans-serif; }
+
+        /* ── Reveal-on-scroll ──────────────────────────── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(.19,1,.22,1), transform 0.8s cubic-bezier(.19,1,.22,1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: opacity 0.8s cubic-bezier(.19,1,.22,1), transform 0.8s cubic-bezier(.19,1,.22,1);
+        }
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: opacity 0.8s cubic-bezier(.19,1,.22,1), transform 0.8s cubic-bezier(.19,1,.22,1);
+        }
+        .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal-scale.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* ── Hero Parallax & Gradient ──────────────────── */
+        .hero-gradient {
+            background: linear-gradient(
+                135deg,
+                #0d948899 0%,
+                #14b8a699 50%,
+                #0d948899 100%
+            );
+        }
+        .hero-pattern {
+            background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.06) 0%, transparent 50%),
+                              radial-gradient(circle at 80% 20%, rgba(255,255,255,0.04) 0%, transparent 40%);
+        }
+
+        /* ── Animated gradient text ────────────────────── */
+        @keyframes gradient-shift {
+            0%   { background-position: 0% 50%; }
+            50%  { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .animated-gradient-text {
+            background: linear-gradient(270deg, #fff, #f0fdfa, #fff, #14b8a6);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient-shift 6s ease infinite;
+        }
+
+        /* ── Floating shapes (hero) ────────────────────── */
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50%      { transform: translateY(-30px) rotate(5deg); }
+        }
+        @keyframes float-medium {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50%      { transform: translateY(-20px) rotate(-3deg); }
+        }
+        .float-slow   { animation: float-slow 8s ease-in-out infinite; }
+        .float-medium { animation: float-medium 6s ease-in-out infinite; }
+
+        /* ── Card hover lift ───────────────────────────── */
+        .card-hover {
+            transition: transform 0.4s cubic-bezier(.19,1,.22,1), box-shadow 0.4s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px -12px rgba(0,0,0,0.15);
+        }
+
+        /* ── Testimonial carousel ──────────────────────── */
+        .testimonial-track {
+            transition: transform 0.6s cubic-bezier(.19,1,.22,1);
+        }
+
+        /* ── Navbar transition ─────────────────────────── */
+        .nav-solid {
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 1px 20px rgba(0,0,0,0.08);
+        }
+
+        /* ── Hamburger lines ───────────────────────────── */
+        .hamburger span {
+            transition: all 0.35s cubic-bezier(.19,1,.22,1);
+        }
+        .hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+        /* ── Service icon ring ─────────────────────────── */
+        .icon-ring {
+            background: linear-gradient(135deg, #14b8a615, #14b8a608);
+            border: 1px solid #14b8a620;
+        }
+
+        /* ── Gallery hover overlay ─────────────────────── */
+        .gallery-item .overlay {
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+
+        /* ── Pulse CTA button ──────────────────────────── */
+        @keyframes pulse-ring {
+            0%   { transform: scale(1);   opacity: 0.4; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+        .pulse-ring::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: inherit;
+            border: 2px solid #14b8a6;
+            animation: pulse-ring 2s ease-out infinite;
+        }
+
+        /* ── Custom scrollbar ──────────────────────────── */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb {
+            background: #14b8a660;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #14b8a6;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800 antialiased overflow-x-hidden">
+
+<!-- ════════════════════════════════════════════════════════
+     FLOATING DISCOUNT BUBBLE (preview only — removed from final product)
+     ════════════════════════════════════════════════════════ -->
+
+<a href="https://buy.stripe.com/14A14nbN85xO4Yu6S1bZe01" target="_blank" id="discount-bubble" style="position:fixed; bottom:20px; right:20px; z-index:9999; text-decoration:none; animation: bubble-pulse 2s ease-in-out infinite;">
+    <div style="background:linear-gradient(135deg,#dc2626,#ea580c); border-radius:16px; padding:12px 16px; box-shadow:0 8px 32px rgba(220,38,38,0.4); max-width:200px; text-align:center; font-family:'Inter',system-ui,sans-serif;">
+        <div style="color:#fef08a; font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">&#9200; 48hr deal</div>
+        <div style="display:flex; align-items:center; justify-content:center; gap:6px;">
+            <span style="color:rgba(255,255,255,0.5); text-decoration:line-through; font-size:13px; font-weight:600;">$1250</span>
+            <span style="color:#ffffff; font-size:22px; font-weight:800;">$500</span>
+        </div>
+        <div style="color:#ffffff; font-size:10px; font-weight:700; margin-top:2px;" id="countdown-timer">48:00:00</div>
+        <div style="color:rgba(255,200,200,0.7); font-size:7px; font-weight:700; margin-top:4px;">&#9888; Not on final site</div>
+    </div>
+</a>
+<style>
+    @keyframes bubble-pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+    }
+</style>
+<script>
+    (function() {
+        var key = 'discount_start_' + location.pathname;
+        var start = localStorage.getItem(key);
+        if (!start) { start = Date.now(); localStorage.setItem(key, start); }
+        start = parseInt(start);
+        var end = start + 48 * 60 * 60 * 1000;
+        var el = document.getElementById('countdown-timer');
+        function tick() {
+            var left = Math.max(0, end - Date.now());
+            var h = Math.floor(left / 3600000);
+            var m = Math.floor((left % 3600000) / 60000);
+            var s = Math.floor((left % 60000) / 1000);
+            el.textContent = h.toString().padStart(2,'0') + ':' + m.toString().padStart(2,'0') + ':' + s.toString().padStart(2,'0');
+            if (left > 0) requestAnimationFrame(tick);
+            else el.textContent = 'EXPIRED';
+        }
+        tick();
+    })();
+</script>
+
+
+<!-- ════════════════════════════════════════════════════════
+     NAVIGATION
+     ════════════════════════════════════════════════════════ -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+            <!-- Logo / Brand -->
+            <a href="#hero" class="flex items-center gap-2 group">
+                <span id="nav-brand" class="text-xl font-bold text-white transition-all duration-300 opacity-0 -translate-x-2">
+                    Grooming Tailz
+                </span>
+            </a>
+
+            <!-- Desktop Links -->
+            <div class="hidden lg:flex items-center gap-8">
+                
+                
+                <a href="#hero" class="nav-link text-sm font-medium text-white/80 hover:text-white transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-secondary after:transition-all after:duration-300 hover:after:w-full">
+                    Home
+                </a>
+                
+                <a href="#services" class="nav-link text-sm font-medium text-white/80 hover:text-white transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-secondary after:transition-all after:duration-300 hover:after:w-full">
+                    Services
+                </a>
+                
+                <a href="#about" class="nav-link text-sm font-medium text-white/80 hover:text-white transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-secondary after:transition-all after:duration-300 hover:after:w-full">
+                    About
+                </a>
+                
+                <a href="#testimonials" class="nav-link text-sm font-medium text-white/80 hover:text-white transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-secondary after:transition-all after:duration-300 hover:after:w-full">
+                    Reviews
+                </a>
+                
+                <a href="#gallery" class="nav-link text-sm font-medium text-white/80 hover:text-white transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-secondary after:transition-all after:duration-300 hover:after:w-full">
+                    Gallery
+                </a>
+                
+                <a href="#contact" class="nav-link text-sm font-medium text-white/80 hover:text-white transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-secondary after:transition-all after:duration-300 hover:after:w-full">
+                    Contact
+                </a>
+                
+                <a href="tel:(951) 212-8350" class="ml-2 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary text-white text-sm font-semibold hover:bg-secondary/90 transition-all shadow-lg shadow-secondary/20 hover:shadow-secondary/40">
+                    <i data-lucide="phone" class="w-4 h-4"></i>
+                    (951) 212-8350
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger -->
+            <button id="menu-btn" class="hamburger lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-[6px]" aria-label="Toggle menu">
+                <span class="block w-6 h-[2px] bg-white rounded"></span>
+                <span class="block w-6 h-[2px] bg-white rounded"></span>
+                <span class="block w-6 h-[2px] bg-white rounded"></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Drawer -->
+    <div id="mobile-menu" class="lg:hidden fixed inset-0 top-20 bg-white/98 backdrop-blur-lg translate-x-full transition-transform duration-500 ease-[cubic-bezier(.19,1,.22,1)] z-40">
+        <div class="flex flex-col items-center justify-center h-full gap-8">
+            
+            <a href="#hero" class="mobile-link text-2xl font-semibold text-primary hover:text-secondary transition-colors">Home</a>
+            
+            <a href="#services" class="mobile-link text-2xl font-semibold text-primary hover:text-secondary transition-colors">Services</a>
+            
+            <a href="#about" class="mobile-link text-2xl font-semibold text-primary hover:text-secondary transition-colors">About</a>
+            
+            <a href="#testimonials" class="mobile-link text-2xl font-semibold text-primary hover:text-secondary transition-colors">Reviews</a>
+            
+            <a href="#gallery" class="mobile-link text-2xl font-semibold text-primary hover:text-secondary transition-colors">Gallery</a>
+            
+            <a href="#contact" class="mobile-link text-2xl font-semibold text-primary hover:text-secondary transition-colors">Contact</a>
+            
+            <a href="tel:(951) 212-8350" class="mt-4 inline-flex items-center gap-2 px-8 py-3 rounded-full bg-secondary text-white font-semibold text-lg">
+                <i data-lucide="phone" class="w-5 h-5"></i>
+                Call Now
+            </a>
+        </div>
+    </div>
+</nav>
+
+
+<!-- ════════════════════════════════════════════════════════
+     HERO SECTION
+     ════════════════════════════════════════════════════════ -->
+<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden" style="background: linear-gradient(135deg, #134e4a 0%, #0d9488 40%, #14b8a6 100%)">
+    
+    <!-- Real business photo as hero background -->
+    <div class="absolute inset-0 z-0">
+        <img src="assets/images/hero.jpg" alt="Grooming Tailz" class="w-full h-full object-cover">
+        <div class="absolute inset-0 hero-tint" style="background: linear-gradient(135deg, #134e4a99 0%, #0d948899 40%, #14b8a699 100%)"></div>
+    </div>
+    
+    <!-- Decorative floating shapes -->
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="float-slow absolute top-[15%] left-[10%] w-72 h-72 rounded-full bg-white/5 blur-2xl"></div>
+        <div class="float-medium absolute bottom-[20%] right-[8%] w-96 h-96 rounded-full bg-white/5 blur-3xl"></div>
+        <div class="float-slow absolute top-[60%] left-[60%] w-48 h-48 rounded-full bg-secondary/10 blur-2xl"></div>
+    </div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">
+        <!-- Eyebrow -->
+        <div class="reveal inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/80 text-sm font-medium mb-8 backdrop-blur-sm">
+            <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+            5 ★ rated · 18 Google reviews
+        </div>
+
+        <!-- Main Heading -->
+        <h1 class="reveal font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6" style="transition-delay:0.1s; color:#ffffff; text-shadow: 0 2px 20px rgba(0,0,0,0.3)">
+            Grooming Tailz
+        </h1>
+
+        <!-- Animated Tagline -->
+        <p class="reveal animated-gradient-text text-xl sm:text-2xl md:text-3xl font-semibold mb-6" style="transition-delay:0.2s; color: rgba(255,255,255,0.9)">
+            Professional grooming that keeps your furry friend looking and feeling great
+        </p>
+
+        <!-- Sub-description -->
+        <p class="reveal text-white/70 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed" style="transition-delay:0.3s">
+            Grooming Tailz — serving Riverside with professional pet grooming services. Rated 5/5 by 18 customers on Google. Call us at (951) 212-8350.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4" style="transition-delay:0.4s">
+            <a href="#contact" class="relative pulse-ring inline-flex items-center gap-2 px-8 py-4 rounded-full bg-secondary text-white font-bold text-lg hover:bg-secondary/90 transition-all shadow-2xl shadow-secondary/30">
+                Book an Appointment
+                <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </a>
+            
+            <a href="tel:(951) 212-8350" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 border border-white/30 text-white font-semibold text-lg hover:bg-white/20 transition-all backdrop-blur-sm">
+                <i data-lucide="phone" class="w-5 h-5"></i>
+                Call Now
+            </a>
+            
+        </div>
+
+        <!-- Trust badges -->
+        <div class="reveal mt-16 flex flex-wrap items-center justify-center gap-8 text-white/50 text-sm" style="transition-delay:0.5s">
+            
+            
+            <div class="flex items-center gap-2">
+                <i data-lucide="shield-check" class="w-5 h-5"></i>
+                <span>5-Star Rated</span>
+            </div>
+            
+            <div class="flex items-center gap-2">
+                <i data-lucide="star" class="w-5 h-5"></i>
+                <span>18 Reviews</span>
+            </div>
+            
+            <div class="flex items-center gap-2">
+                <i data-lucide="clock" class="w-5 h-5"></i>
+                <span>Located in Riverside</span>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-white/40">
+        <i data-lucide="chevrons-down" class="w-6 h-6"></i>
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     SERVICES SECTION
+     ════════════════════════════════════════════════════════ -->
+<section id="services" class="py-24 lg:py-32 bg-gray-50/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <p class="reveal text-secondary font-semibold text-sm uppercase tracking-widest mb-3">WHAT WE OFFER</p>
+            <h2 class="reveal font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-6" style="transition-delay:0.1s">
+                Grooming Services
+            </h2>
+            
+            <p class="reveal text-gray-500 text-lg leading-relaxed" style="transition-delay:0.15s">
+                Professional grooming to keep your pet looking and feeling their best.
+            </p>
+            
+        </div>
+
+        <!-- Service Cards -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            
+            <div class="reveal-scale card-hover bg-white rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.0s">
+                <div class="icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i data-lucide="star" class="w-7 h-7 text-secondary"></i>
+                </div>
+                <h3 class="text-xl font-bold text-primary mb-3">Full Grooming</h3>
+                <p class="text-gray-500 leading-relaxed">I would definitely recommend Grooming Tailz if you’re looking for a groomer in the IE!</p>
+            </div>
+            
+            <div class="reveal-scale card-hover bg-white rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.08s">
+                <div class="icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i data-lucide="scissors" class="w-7 h-7 text-secondary"></i>
+                </div>
+                <h3 class="text-xl font-bold text-primary mb-3">Nail Trim</h3>
+                <p class="text-gray-500 leading-relaxed">My dog gets stressed when her nails are trimmed and they were careful, caring, and did an amazing...</p>
+            </div>
+            
+            <div class="reveal-scale card-hover bg-white rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.16s">
+                <div class="icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i data-lucide="scissors" class="w-7 h-7 text-secondary"></i>
+                </div>
+                <h3 class="text-xl font-bold text-primary mb-3">Haircut</h3>
+                <p class="text-gray-500 leading-relaxed">My dog gets stressed when her nails are trimmed and they were careful, caring, and did an amazing...</p>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     ABOUT SECTION
+     ════════════════════════════════════════════════════════ -->
+<section id="about" class="py-24 lg:py-32">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <!-- Image Side -->
+            <div class="reveal-left relative">
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
+                    
+                    <img
+                        src="assets/images/about.jpg"
+                        alt="Grooming Tailz"
+                        class="w-full h-full object-cover"
+                        loading="lazy"
+                    >
+                    <div class="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
+                    
+                </div>
+                <!-- Floating stat card -->
+                
+                <div class="absolute -bottom-6 -right-6 sm:right-8 bg-white rounded-2xl p-6 shadow-xl border border-gray-100">
+                    <div class="text-4xl font-bold text-secondary mb-1">18</div>
+                    <div class="text-gray-500 text-sm font-medium">Google Reviews</div>
+                </div>
+                
+            </div>
+
+            <!-- Text Side -->
+            <div class="reveal-right">
+                <p class="text-secondary font-semibold text-sm uppercase tracking-widest mb-3">About Us</p>
+                <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-6 leading-tight">
+                    Why Choose Grooming Tailz?
+                </h2>
+                <p class="text-gray-600 text-lg leading-relaxed mb-8">
+                    Grooming Tailz is a pet grooming business located in Riverside. Rated 5 out of 5 stars based on 18 Google reviews. Located at 10452 Magnolia Ave, Riverside, CA 92505, USA. Call (951) 212-8350 to get in touch.
+                </p>
+
+                <!-- About highlights -->
+                
+                <div class="grid sm:grid-cols-2 gap-4 mb-8">
+                    
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="check" class="w-4 h-4 text-secondary"></i>
+                        </div>
+                        <span class="text-primary font-medium">5-Star Google Rating</span>
+                    </div>
+                    
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="check" class="w-4 h-4 text-secondary"></i>
+                        </div>
+                        <span class="text-primary font-medium">Call Anytime</span>
+                    </div>
+                    
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="check" class="w-4 h-4 text-secondary"></i>
+                        </div>
+                        <span class="text-primary font-medium">Serving Riverside</span>
+                    </div>
+                    
+                </div>
+                
+
+                <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-white font-semibold hover:bg-primary/90 transition-all shadow-lg">
+                    Learn More
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     TESTIMONIALS / REVIEWS SECTION
+     ════════════════════════════════════════════════════════ -->
+
+<section id="testimonials" class="py-24 lg:py-32 bg-primary text-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <p class="reveal text-secondary font-semibold text-sm uppercase tracking-widest mb-3">Testimonials</p>
+            <h2 class="reveal font-display text-3xl sm:text-4xl lg:text-5xl font-bold mb-6" style="transition-delay:0.1s">
+                What Our Clients Say
+            </h2>
+            <p class="reveal text-white/60 text-lg" style="transition-delay:0.15s">
+                Real stories from real customers who trust us with their most important projects.
+            </p>
+        </div>
+
+        <!-- Carousel container -->
+        <div class="relative">
+            <div id="testimonial-viewport" class="overflow-hidden rounded-2xl">
+                <div id="testimonial-track" class="testimonial-track flex">
+                    
+                    
+                    <div class="testimonial-slide w-full flex-shrink-0 px-4">
+                        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 sm:p-10 max-w-3xl mx-auto">
+                            <!-- Stars -->
+                            <div class="flex items-center gap-1 mb-6">
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                            </div>
+                            <!-- Quote -->
+                            <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
+                                "My first visit was Sept 2024 …. It’s very hard to find a place who work with cats! I have 3… they are amazing with them! Especially my 2 yr old…she’s a little tooo feisty! They do what they can with her even if she scratches and bites them 😭 *soooo sorry* I recommend everyone I know here 🫶🏻  They also keep you updated the whole time they are there with videos and pics … I love that! 10/10 experience for me!"
+                            </blockquote>
+                            <!-- Author -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
+                                    T
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-white">TINA GOMEZ</div>
+                                    <div class="text-white/50 text-sm">2 months ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide w-full flex-shrink-0 px-4">
+                        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 sm:p-10 max-w-3xl mx-auto">
+                            <!-- Stars -->
+                            <div class="flex items-center gap-1 mb-6">
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                            </div>
+                            <!-- Quote -->
+                            <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
+                                "First time at Grooming Tailz and I am very happy with the work they did on my mini doodle! It was very easy to schedule and they were super sweet with us! Easy drop off and pick up and the price is very reasonable for the quality! I would definitely recommend Grooming Tailz if you’re looking for a groomer in the IE! Will definitely be coming back to get our other dogs groomed!"
+                            </blockquote>
+                            <!-- Author -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
+                                    D
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-white">Diana Alvarado</div>
+                                    <div class="text-white/50 text-sm">a year ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide w-full flex-shrink-0 px-4">
+                        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 sm:p-10 max-w-3xl mx-auto">
+                            <!-- Stars -->
+                            <div class="flex items-center gap-1 mb-6">
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                            </div>
+                            <!-- Quote -->
+                            <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
+                                "Such lovely people. I took my cat in because she is not very receptive to nail trimming and I figured they wouldn't be able to do any of her nails. After completing 75% of the job we were unable to continue and they HALFED the price of the service that we already though was too cheap. I will be coming back for other services in the future."
+                            </blockquote>
+                            <!-- Author -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
+                                    K
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-white">Kane R</div>
+                                    <div class="text-white/50 text-sm">2 months ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide w-full flex-shrink-0 px-4">
+                        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 sm:p-10 max-w-3xl mx-auto">
+                            <!-- Stars -->
+                            <div class="flex items-center gap-1 mb-6">
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                            </div>
+                            <!-- Quote -->
+                            <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
+                                "Been coming here with our pup consistently since we adopted him. They take good care of him & they deliver well on their services. I feel they are reasonably priced. Great services & they have great customer service. We love it here."
+                            </blockquote>
+                            <!-- Author -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
+                                    J
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-white">Joey Hernandez</div>
+                                    <div class="text-white/50 text-sm">5 months ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide w-full flex-shrink-0 px-4">
+                        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 sm:p-10 max-w-3xl mx-auto">
+                            <!-- Stars -->
+                            <div class="flex items-center gap-1 mb-6">
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                            </div>
+                            <!-- Quote -->
+                            <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
+                                "Amazing experience! My dog gets stressed when her nails are trimmed and they were careful, caring, and did an amazing job! 1000% Recommend!!"
+                            </blockquote>
+                            <!-- Author -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
+                                    D
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-white">Delia Davila</div>
+                                    <div class="text-white/50 text-sm">2 months ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Carousel controls -->
+            <div class="flex items-center justify-center gap-4 mt-8">
+                <button id="prev-btn" aria-label="Previous review" class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors">
+                    <i data-lucide="chevron-left" class="w-5 h-5 text-white"></i>
+                </button>
+                <div id="carousel-dots" class="flex items-center gap-2">
+                    
+                    <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/30 transition-all duration-300 bg-secondary w-8" data-slide="0" aria-label="Go to review 1"></button>
+                    
+                    <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/30 transition-all duration-300 " data-slide="1" aria-label="Go to review 2"></button>
+                    
+                    <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/30 transition-all duration-300 " data-slide="2" aria-label="Go to review 3"></button>
+                    
+                    <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/30 transition-all duration-300 " data-slide="3" aria-label="Go to review 4"></button>
+                    
+                    <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/30 transition-all duration-300 " data-slide="4" aria-label="Go to review 5"></button>
+                    
+                </div>
+                <button id="next-btn" aria-label="Next review" class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors">
+                    <i data-lucide="chevron-right" class="w-5 h-5 text-white"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- ════════════════════════════════════════════════════════
+     GALLERY / PORTFOLIO SECTION
+     ════════════════════════════════════════════════════════ -->
+
+<section id="gallery" class="py-24 lg:py-32">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <p class="reveal text-secondary font-semibold text-sm uppercase tracking-widest mb-3">Our Work</p>
+            <h2 class="reveal font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-6" style="transition-delay:0.1s">
+                Photos
+            </h2>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+            
+            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group md:col-span-2 md:row-span-2" style="transition-delay:0.0s">
+                <div class="aspect-square md:aspect-[4/3]">
+                    <img
+                        src="assets/images/gallery_1.jpg"
+                        alt="Grooming Tailz photo 1"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        loading="lazy"
+                    >
+                </div>
+            </div>
+            
+            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group " style="transition-delay:0.06s">
+                <div class="aspect-square ">
+                    <img
+                        src="assets/images/gallery_2.jpg"
+                        alt="Grooming Tailz photo 2"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        loading="lazy"
+                    >
+                </div>
+            </div>
+            
+            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group " style="transition-delay:0.12s">
+                <div class="aspect-square ">
+                    <img
+                        src="assets/images/gallery_3.jpg"
+                        alt="Grooming Tailz photo 3"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        loading="lazy"
+                    >
+                </div>
+            </div>
+            
+            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group " style="transition-delay:0.18s">
+                <div class="aspect-square ">
+                    <img
+                        src="assets/images/gallery_4.jpg"
+                        alt="Grooming Tailz photo 4"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        loading="lazy"
+                    >
+                </div>
+            </div>
+            
+            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group " style="transition-delay:0.24s">
+                <div class="aspect-square ">
+                    <img
+                        src="assets/images/gallery_5.jpg"
+                        alt="Grooming Tailz photo 5"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        loading="lazy"
+                    >
+                </div>
+            </div>
+            
+            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group " style="transition-delay:0.3s">
+                <div class="aspect-square ">
+                    <img
+                        src="assets/images/gallery_6.jpg"
+                        alt="Grooming Tailz photo 6"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        loading="lazy"
+                    >
+                </div>
+            </div>
+            
+            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group " style="transition-delay:0.36s">
+                <div class="aspect-square ">
+                    <img
+                        src="assets/images/gallery_7.jpg"
+                        alt="Grooming Tailz photo 7"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        loading="lazy"
+                    >
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+
+<!-- ════════════════════════════════════════════════════════
+     SPECIAL SECTIONS (Business-type specific)
+     ════════════════════════════════════════════════════════ -->
+
+
+
+<!-- ════════════════════════════════════════════════════════
+     CTA SECTION
+     ════════════════════════════════════════════════════════ -->
+<section id="cta" class="py-24 lg:py-32 relative overflow-hidden">
+    <!-- Background gradient -->
+    <div class="absolute inset-0 hero-gradient hero-pattern"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        <h2 class="reveal font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+            Ready to Get Started?
+        </h2>
+        <p class="reveal text-white/70 text-lg sm:text-xl mb-10 max-w-2xl mx-auto" style="transition-delay:0.1s">
+            Book an Appointment
+        </p>
+        <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4" style="transition-delay:0.2s">
+            <a href="#contact" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-primary font-bold text-lg hover:bg-gray-100 transition-all shadow-2xl">
+                Book an Appointment
+                <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </a>
+            <a href="tel:(951) 212-8350" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 border border-white/30 text-white font-semibold text-lg hover:bg-white/20 transition-all backdrop-blur-sm">
+                <i data-lucide="phone" class="w-5 h-5"></i>
+                Call Now
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     CONTACT SECTION
+     ════════════════════════════════════════════════════════ -->
+<section id="contact" class="py-24 lg:py-32 bg-gray-50/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <p class="reveal text-secondary font-semibold text-sm uppercase tracking-widest mb-3">Contact</p>
+            <h2 class="reveal font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-6" style="transition-delay:0.1s">
+                Get in Touch
+            </h2>
+            <p class="reveal text-gray-500 text-lg" style="transition-delay:0.15s">
+                We would love to hear from you. Reach out today for a free estimate or consultation.
+            </p>
+        </div>
+
+        <div class="grid lg:grid-cols-5 gap-12">
+            <!-- Contact Info & Map -->
+            <div class="lg:col-span-2 space-y-8">
+                <!-- Info cards -->
+                <div class="reveal-left space-y-4">
+                    <a href="tel:(951) 212-8350" class="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 card-hover group">
+                        <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-secondary group-hover:text-white transition-colors">
+                            <i data-lucide="phone" class="w-5 h-5 text-secondary group-hover:text-white transition-colors"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-primary mb-1">Phone</div>
+                            <div class="text-gray-500">(951) 212-8350</div>
+                        </div>
+                    </a>
+
+                    
+
+                    <div class="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 card-hover group">
+                        <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-secondary group-hover:text-white transition-colors">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-secondary group-hover:text-white transition-colors"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-primary mb-1">Address</div>
+                            <div class="text-gray-500">10452 Magnolia Ave, Riverside, CA 92505, USA</div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 card-hover group">
+                        <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-secondary group-hover:text-white transition-colors">
+                            <i data-lucide="clock" class="w-5 h-5 text-secondary group-hover:text-white transition-colors"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-primary mb-1">Hours</div>
+                            
+                            <div class="text-gray-500 text-sm space-y-0.5">
+                                
+                                <div>Monday: 9:00 AM – 5:00 PM</div>
+                                
+                                <div>Tuesday: 9:00 AM – 5:00 PM</div>
+                                
+                                <div>Wednesday: 9:00 AM – 5:00 PM</div>
+                                
+                                <div>Thursday: 9:00 AM – 5:00 PM</div>
+                                
+                                <div>Friday: 9:00 AM – 5:00 PM</div>
+                                
+                                <div>Saturday: 9:00 AM – 5:00 PM</div>
+                                
+                                <div>Sunday: 10:00 AM – 5:00 PM</div>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map placeholder -->
+                <div class="reveal-left rounded-2xl overflow-hidden border border-gray-200 shadow-sm" style="transition-delay:0.15s">
+                    
+                    <div class="w-full h-[220px] bg-gray-200 flex items-center justify-center text-gray-400">
+                        <div class="text-center">
+                            <i data-lucide="map" class="w-10 h-10 mx-auto mb-2"></i>
+                            <span class="text-sm">Map placeholder</span>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="lg:col-span-3 reveal-right">
+                <form action="#contact" method="POST" class="bg-white rounded-2xl p-8 sm:p-10 border border-gray-100 shadow-lg">
+                    <input type="hidden" name="_subject" value="New inquiry from your website — Grooming Tailz">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="#contact">
+                    <div class="grid sm:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="name" class="block text-sm font-semibold text-primary mb-2">Full Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Your name"
+                                   class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all text-gray-700 placeholder:text-gray-400">
+                        </div>
+                        <div>
+                            <label for="email-input" class="block text-sm font-semibold text-primary mb-2">Email</label>
+                            <input type="email" id="email-input" name="email" required placeholder="you@email.com"
+                                   class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all text-gray-700 placeholder:text-gray-400">
+                        </div>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="phone-input" class="block text-sm font-semibold text-primary mb-2">Phone</label>
+                            <input type="tel" id="phone-input" name="phone" placeholder="(123) 456-7890"
+                                   class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all text-gray-700 placeholder:text-gray-400">
+                        </div>
+                        <div>
+                            <label for="service-select" class="block text-sm font-semibold text-primary mb-2">Service Needed</label>
+                            <select id="service-select" name="service"
+                                    class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all text-gray-700">
+                                <option value="">Select a service</option>
+                                
+                                <option value="Full Grooming">Full Grooming</option>
+                                
+                                <option value="Nail Trim">Nail Trim</option>
+                                
+                                <option value="Haircut">Haircut</option>
+                                
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block text-sm font-semibold text-primary mb-2">Message</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Tell us about your project..."
+                                  class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all text-gray-700 placeholder:text-gray-400 resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-secondary text-white font-bold text-lg hover:bg-secondary/90 transition-all shadow-lg shadow-secondary/20 hover:shadow-secondary/40">
+                        Send Message
+                        <i data-lucide="send" class="w-5 h-5"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     PAYMENT / GET THIS WEBSITE SECTION
+     ════════════════════════════════════════════════════════ -->
+
+<section id="get-website" class="py-20 lg:py-24 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+        <div class="reveal bg-gradient-to-br from-primary to-primary/90 rounded-3xl p-10 sm:p-14 shadow-2xl relative overflow-hidden">
+            <!-- Decorative circles -->
+            <div class="absolute top-0 right-0 w-64 h-64 bg-secondary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" aria-hidden="true"></div>
+            <div class="absolute bottom-0 left-0 w-48 h-48 bg-secondary/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" aria-hidden="true"></div>
+
+            <div class="relative z-10">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/70 text-sm font-medium mb-6">
+                    <i data-lucide="sparkles" class="w-4 h-4"></i>
+                    Premium Website Package
+                </div>
+                <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mb-4">
+                    Get This Website
+                </h2>
+                <p class="text-white/60 text-lg mb-2">
+                    A professionally built, fully customized website just like this one.
+                </p>
+
+                <!-- Competitor price comparison -->
+                <div class="grid grid-cols-3 gap-3 max-w-lg mx-auto my-8">
+                    <div class="bg-white/5 border border-white/10 rounded-xl p-3 text-center">
+                        <p class="text-white/30 text-[10px] uppercase tracking-wider mb-1">Agencies</p>
+                        <p class="text-white/40 line-through text-lg font-bold">$3,000+</p>
+                        <p class="text-red-400/60 text-[10px]">4-8 weeks</p>
+                    </div>
+                    <div class="bg-white/5 border border-white/10 rounded-xl p-3 text-center">
+                        <p class="text-white/30 text-[10px] uppercase tracking-wider mb-1">Freelancers</p>
+                        <p class="text-white/40 line-through text-lg font-bold">$2,000+</p>
+                        <p class="text-red-400/60 text-[10px]">2-4 weeks</p>
+                    </div>
+                    <div class="bg-accent/20 border-2 border-accent/50 rounded-xl p-3 text-center ring-2 ring-accent/20">
+                        <p class="text-accent text-[10px] uppercase tracking-wider font-bold mb-1">Us</p>
+                        <p class="text-white text-lg font-extrabold">$500</p>
+                        <p class="text-green-400 text-[10px] font-semibold">Ready now</p>
+                    </div>
+                </div>
+                <p class="text-white/30 text-xs mb-4">Save $1,500+ compared to hiring a web designer</p>
+
+                <div class="flex items-center justify-center gap-4 my-6">
+                    <span class="text-2xl sm:text-3xl text-white/40 line-through font-bold">$1250</span>
+                    <span class="text-5xl sm:text-6xl font-extrabold text-white">$500</span>
+                </div>
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/20 border border-red-400/30 text-red-300 text-sm font-bold mb-6">
+                    &#9200; This price expires in <span id="countdown-timer-bottom" class="font-mono">48:00:00</span>
+                </div>
+                <script>
+                    (function() {
+                        var key = 'discount_start_' + location.pathname;
+                        var start = localStorage.getItem(key);
+                        if (!start) { start = Date.now(); localStorage.setItem(key, start); }
+                        start = parseInt(start);
+                        var end = start + 48 * 60 * 60 * 1000;
+                        var el = document.getElementById('countdown-timer-bottom');
+                        function tick() {
+                            var left = Math.max(0, end - Date.now());
+                            var h = Math.floor(left / 3600000);
+                            var m = Math.floor((left % 3600000) / 60000);
+                            var s = Math.floor((left % 60000) / 1000);
+                            el.textContent = h.toString().padStart(2,'0') + ':' + m.toString().padStart(2,'0') + ':' + s.toString().padStart(2,'0');
+                            if (left > 0) requestAnimationFrame(tick);
+                            else el.textContent = 'EXPIRED';
+                        }
+                        tick();
+                    })();
+                </script>
+                <ul class="text-left max-w-md mx-auto space-y-3 mb-10">
+                    
+                    
+                    <li class="flex items-center gap-3 text-white/80">
+                        <i data-lucide="check-circle-2" class="w-5 h-5 text-accent flex-shrink-0"></i>
+                        <span>Fully responsive, mobile-first design</span>
+                    </li>
+                    
+                    <li class="flex items-center gap-3 text-white/80">
+                        <i data-lucide="check-circle-2" class="w-5 h-5 text-accent flex-shrink-0"></i>
+                        <span>Unlimited free revisions — colors, fonts, layout, spacing, content</span>
+                    </li>
+                    
+                    <li class="flex items-center gap-3 text-white/80">
+                        <i data-lucide="check-circle-2" class="w-5 h-5 text-accent flex-shrink-0"></i>
+                        <span>SEO-optimized structure</span>
+                    </li>
+                    
+                    <li class="flex items-center gap-3 text-white/80">
+                        <i data-lucide="check-circle-2" class="w-5 h-5 text-accent flex-shrink-0"></i>
+                        <span>Real photos & reviews from your business</span>
+                    </li>
+                    
+                    <li class="flex items-center gap-3 text-white/80">
+                        <i data-lucide="check-circle-2" class="w-5 h-5 text-accent flex-shrink-0"></i>
+                        <span>Add your logo, menu items, services, social links anytime</span>
+                    </li>
+                    
+                    <li class="flex items-center gap-3 text-white/80">
+                        <i data-lucide="check-circle-2" class="w-5 h-5 text-accent flex-shrink-0"></i>
+                        <span>Rearrange sections, change themes, update text — just reply to any email</span>
+                    </li>
+                    
+                    <li class="flex items-center gap-3 text-white/80">
+                        <i data-lucide="check-circle-2" class="w-5 h-5 text-accent flex-shrink-0"></i>
+                        <span>Full setup guide included after purchase</span>
+                    </li>
+                    
+                </ul>
+                <a href="https://buy.stripe.com/14A14nbN85xO4Yu6S1bZe01" target="_blank" style="display:inline-block; background:#22c55e; color:#fff; padding:18px 56px; border-radius:12px; text-decoration:none; font-weight:800; font-size:18px; letter-spacing:0.5px; box-shadow:0 4px 24px rgba(34,197,94,0.4); transition:all 0.3s;">
+                    Claim Your Website &rarr;
+                </a>
+                <p class="text-white/40 text-sm mt-6">Secure payment via Stripe. Full setup guide included after purchase.</p>
+                <p class="text-white/20 text-[10px] mt-3">By completing your purchase you agree to our <a href="https://amaru143.github.io/auto-site-builder/terms.html" class="underline text-white/25 hover:text-white/40" target="_blank">Terms of Service</a>.</p>
+                <p class="text-red-400 text-[10px] font-bold mt-4 border border-red-400/30 rounded px-3 py-1 inline-block">&#9888; This payment section will NOT appear on your final website</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- ════════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════════ -->
+<footer class="bg-primary text-white pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+            <!-- Brand -->
+            <div class="lg:col-span-1">
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="text-xl font-bold">Grooming Tailz</span>
+                </div>
+                <p class="text-white/50 text-sm leading-relaxed mb-6">
+                    Professional grooming that keeps your furry friend looking and feeling great
+                </p>
+                <!-- Social Icons -->
+                <div class="flex items-center gap-3">
+                    
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h4 class="font-semibold text-white mb-4">Quick Links</h4>
+                <ul class="space-y-3">
+                    
+                    
+                    <li><a href="#hero" class="text-white/50 hover:text-white transition-colors text-sm">Home</a></li>
+                    
+                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Services</a></li>
+                    
+                    <li><a href="#about" class="text-white/50 hover:text-white transition-colors text-sm">About</a></li>
+                    
+                    <li><a href="#testimonials" class="text-white/50 hover:text-white transition-colors text-sm">Reviews</a></li>
+                    
+                    <li><a href="#gallery" class="text-white/50 hover:text-white transition-colors text-sm">Gallery</a></li>
+                    
+                    <li><a href="#contact" class="text-white/50 hover:text-white transition-colors text-sm">Contact</a></li>
+                    
+                </ul>
+            </div>
+
+            <!-- Services list -->
+            <div>
+                <h4 class="font-semibold text-white mb-4">Services</h4>
+                <ul class="space-y-3">
+                    
+                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Full Grooming</a></li>
+                    
+                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Nail Trim</a></li>
+                    
+                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Haircut</a></li>
+                    
+                </ul>
+            </div>
+
+            <!-- Contact info -->
+            <div>
+                <h4 class="font-semibold text-white mb-4">Contact Us</h4>
+                <ul class="space-y-3 text-sm">
+                    <li>
+                        <a href="tel:(951) 212-8350" class="flex items-center gap-2 text-white/50 hover:text-white transition-colors">
+                            <i data-lucide="phone" class="w-4 h-4 flex-shrink-0"></i>
+                            (951) 212-8350
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <div class="flex items-start gap-2 text-white/50">
+                            <i data-lucide="map-pin" class="w-4 h-4 flex-shrink-0 mt-0.5"></i>
+                            10452 Magnolia Ave, Riverside, CA 92505, USA
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="border-t border-white/10 pt-8">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p class="text-white/40 text-sm">
+                    &copy; 2026 Grooming Tailz. All rights reserved.
+                </p>
+                <p class="text-white/30 text-xs">
+                    Full setup guide included after purchase &middot; Built with care
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- ════════════════════════════════════════════════════════
+     BACK TO TOP BUTTON
+     ════════════════════════════════════════════════════════ -->
+<button id="back-to-top" aria-label="Back to top"
+        class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-secondary text-white shadow-xl flex items-center justify-center opacity-0 translate-y-4 pointer-events-none transition-all duration-300">
+    <i data-lucide="chevron-up" class="w-5 h-5"></i>
+</button>
+
+
+<!-- ════════════════════════════════════════════════════════
+     JAVASCRIPT
+     ════════════════════════════════════════════════════════ -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    /* ── Initialize Lucide icons ───────────────────────── */
+    lucide.createIcons();
+
+    /* ── Navbar: transparent -> solid on scroll ─────────── */
+    const navbar  = document.getElementById('navbar');
+    const brand   = document.getElementById('nav-brand');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const hamburgerSpans = document.querySelectorAll('#menu-btn span');
+
+    function updateNav() {
+        const scrolled = window.scrollY > 60;
+        if (scrolled) {
+            navbar.classList.add('nav-solid');
+            brand.classList.replace('text-white', 'text-gray-900');
+            brand.classList.remove('opacity-0', '-translate-x-2');
+            brand.classList.add('opacity-100', 'translate-x-0');
+            navLinks.forEach(l => { l.classList.replace('text-white/80', 'text-gray-600'); l.classList.replace('hover:text-white', 'hover:text-gray-900'); });
+            hamburgerSpans.forEach(s => s.classList.replace('bg-white', 'bg-gray-900'));
+        } else {
+            navbar.classList.remove('nav-solid');
+            brand.classList.replace('text-gray-900', 'text-white');
+            brand.classList.add('opacity-0', '-translate-x-2');
+            brand.classList.remove('opacity-100', 'translate-x-0');
+            navLinks.forEach(l => { l.classList.replace('text-gray-600', 'text-white/80'); l.classList.replace('hover:text-gray-900', 'hover:text-white'); });
+            hamburgerSpans.forEach(s => s.classList.replace('bg-gray-900', 'bg-white'));
+        }
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+
+    /* ── Mobile menu toggle ────────────────────────────── */
+    const menuBtn    = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = mobileMenu.querySelectorAll('.mobile-link');
+
+    menuBtn.addEventListener('click', () => {
+        menuBtn.classList.toggle('open');
+        mobileMenu.classList.toggle('translate-x-full');
+    });
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            menuBtn.classList.remove('open');
+            mobileMenu.classList.add('translate-x-full');
+        });
+    });
+
+    /* ── Scroll reveal (Intersection Observer) ─────────── */
+    const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(el => observer.observe(el));
+
+    /* ── Testimonials carousel ─────────────────────────── */
+    const track = document.getElementById('testimonial-track');
+    if (track) {
+        const dots  = document.querySelectorAll('.carousel-dot');
+        const slides = document.querySelectorAll('.testimonial-slide');
+        let current = 0;
+        const total = slides.length;
+
+        function goToSlide(index) {
+            current = ((index % total) + total) % total;
+            track.style.transform = `translateX(-${current * 100}%)`;
+            dots.forEach((d, i) => {
+                d.classList.toggle('bg-secondary', i === current);
+                d.classList.toggle('w-8', i === current);
+                d.classList.toggle('bg-white/30', i !== current);
+                d.classList.toggle('w-2.5', i !== current);
+            });
+        }
+
+        document.getElementById('next-btn')?.addEventListener('click', () => goToSlide(current + 1));
+        document.getElementById('prev-btn')?.addEventListener('click', () => goToSlide(current - 1));
+        dots.forEach(dot => dot.addEventListener('click', () => goToSlide(+dot.dataset.slide)));
+
+        let autoplay = setInterval(() => goToSlide(current + 1), 6000);
+        const viewport = document.getElementById('testimonial-viewport');
+        if (viewport) {
+            viewport.addEventListener('mouseenter', () => clearInterval(autoplay));
+            viewport.addEventListener('mouseleave', () => { autoplay = setInterval(() => goToSlide(current + 1), 6000); });
+        }
+    }
+
+    /* ── Back-to-top button ────────────────────────────── */
+    const topBtn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 600) {
+            topBtn.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+            topBtn.classList.add('opacity-100', 'translate-y-0');
+        } else {
+            topBtn.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+            topBtn.classList.remove('opacity-100', 'translate-y-0');
+        }
+    }, { passive: true });
+
+    topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    /* ── Smooth scroll for anchor links ────────────────── */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const offset = 80;
+                const top = target.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({ top, behavior: 'smooth' });
+            }
+        });
+    });
+
+    /* ── Touch swipe support for carousel ──────────────── */
+    let touchStartX = 0;
+    let touchEndX = 0;
+    viewport.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+    viewport.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 50) {
+            diff > 0 ? goToSlide(current + 1) : goToSlide(current - 1);
+        }
+    });
+
+});
+</script>
+
+</body>
+</html>
