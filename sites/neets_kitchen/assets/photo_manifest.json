@@ -1,0 +1,34 @@
+{
+  "business_name": "NEETS KITCHEN",
+  "place_id": "ChIJu8RojEiv3IARS4HAHOnO8tM",
+  "downloaded_at": "2026-04-09T02:02:31.812780",
+  "photos": [
+    {
+      "filename": "hero.jpg",
+      "purpose": "hero",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\neets_kitchen\\assets\\images\\hero.jpg",
+      "relative_path": "assets/images/hero.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    },
+    {
+      "filename": "about.jpg",
+      "purpose": "about",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\neets_kitchen\\assets\\images\\about.jpg",
+      "relative_path": "assets/images/about.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    },
+    {
+      "filename": "logo_candidate.jpg",
+      "purpose": "logo",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\neets_kitchen\\assets\\images\\logo_candidate.jpg",
+      "relative_path": "assets/images/logo_candidate.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    }
+  ]
+}
