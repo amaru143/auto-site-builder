@@ -1,0 +1,25 @@
+{
+  "business_name": "Achievable Dreams Learning Academy, LLC",
+  "place_id": "ChIJd5jogTu15YgRVl0nQHV_zE4",
+  "downloaded_at": "2026-04-09T00:00:16.296713",
+  "photos": [
+    {
+      "filename": "hero.jpg",
+      "purpose": "hero",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\achievable_dreams_learning_academy_llc\\assets\\images\\hero.jpg",
+      "relative_path": "assets/images/hero.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    },
+    {
+      "filename": "about.jpg",
+      "purpose": "about",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\achievable_dreams_learning_academy_llc\\assets\\images\\about.jpg",
+      "relative_path": "assets/images/about.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    }
+  ]
+}
