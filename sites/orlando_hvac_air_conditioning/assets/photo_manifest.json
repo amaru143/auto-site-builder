@@ -1,0 +1,25 @@
+{
+  "business_name": "Orlando HVAC Air Conditioning",
+  "place_id": "ChIJCx3Mwg9ZlIARzWxxkXOIeRg",
+  "downloaded_at": "2026-04-09T04:33:22.386343",
+  "photos": [
+    {
+      "filename": "hero.jpg",
+      "purpose": "hero",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\orlando_hvac_air_conditioning\\assets\\images\\hero.jpg",
+      "relative_path": "assets/images/hero.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    },
+    {
+      "filename": "about.jpg",
+      "purpose": "about",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\orlando_hvac_air_conditioning\\assets\\images\\about.jpg",
+      "relative_path": "assets/images/about.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    }
+  ]
+}
