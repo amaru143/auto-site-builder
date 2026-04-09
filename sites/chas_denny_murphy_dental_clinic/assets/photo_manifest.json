@@ -1,0 +1,52 @@
+{
+  "business_name": "CHAS Denny Murphy Dental Clinic",
+  "place_id": "ChIJVR9Ab2YYnlQRI7j7MSn4xKo",
+  "downloaded_at": "2026-04-09T08:00:46.408078",
+  "photos": [
+    {
+      "filename": "hero.jpg",
+      "purpose": "hero",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\chas_denny_murphy_dental_clinic\\assets\\images\\hero.jpg",
+      "relative_path": "assets/images/hero.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    },
+    {
+      "filename": "gallery_1.jpg",
+      "purpose": "gallery",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\chas_denny_murphy_dental_clinic\\assets\\images\\gallery_1.jpg",
+      "relative_path": "assets/images/gallery_1.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    },
+    {
+      "filename": "gallery_3.jpg",
+      "purpose": "gallery",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\chas_denny_murphy_dental_clinic\\assets\\images\\gallery_3.jpg",
+      "relative_path": "assets/images/gallery_3.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    },
+    {
+      "filename": "gallery_5.jpg",
+      "purpose": "gallery",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\chas_denny_murphy_dental_clinic\\assets\\images\\gallery_5.jpg",
+      "relative_path": "assets/images/gallery_5.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    },
+    {
+      "filename": "gallery_6.jpg",
+      "purpose": "gallery",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\chas_denny_murphy_dental_clinic\\assets\\images\\gallery_6.jpg",
+      "relative_path": "assets/images/gallery_6.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    }
+  ]
+}
