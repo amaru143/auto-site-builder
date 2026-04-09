@@ -1,0 +1,25 @@
+{
+  "business_name": "Stepping Stones Childcare Center",
+  "place_id": "ChIJb6TGsnRFyoARSip_lM6r2cI",
+  "downloaded_at": "2026-04-09T06:55:35.184790",
+  "photos": [
+    {
+      "filename": "hero.jpg",
+      "purpose": "hero",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\stepping_stones_childcare_center\\assets\\images\\hero.jpg",
+      "relative_path": "assets/images/hero.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    },
+    {
+      "filename": "about.jpg",
+      "purpose": "about",
+      "path": "C:\\Users\\kidka\\auto-site-builder\\generated-sites\\stepping_stones_childcare_center\\assets\\images\\about.jpg",
+      "relative_path": "assets/images/about.jpg",
+      "attributions": [],
+      "width": 0,
+      "height": 0
+    }
+  ]
+}
