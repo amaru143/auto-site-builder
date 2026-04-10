@@ -198,7 +198,7 @@
 
 <a href="https://buy.stripe.com/14A14nbN85xO4Yu6S1bZe01" target="_blank" id="discount-bubble" style="position:fixed; bottom:20px; right:20px; z-index:9999; text-decoration:none; animation: bubble-pulse 2s ease-in-out infinite;">
     <div style="background:linear-gradient(135deg,#dc2626,#ea580c); border-radius:16px; padding:12px 16px; box-shadow:0 8px 32px rgba(220,38,38,0.4); max-width:200px; text-align:center; font-family:'Inter',system-ui,sans-serif;">
-        <div style="color:#fef08a; font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">&#9200; 48hr deal</div>
+        <div style="color:#fef08a; font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">&#9200; 7-DAY DEAL</div>
         <div style="display:flex; align-items:center; justify-content:center; gap:6px;">
             <span style="color:rgba(255,255,255,0.5); text-decoration:line-through; font-size:13px; font-weight:600;">$1250</span>
             <span style="color:#ffffff; font-size:22px; font-weight:800;">$500</span>
@@ -216,10 +216,10 @@
 <script>
     (function() {
         var key = 'discount_start_' + location.pathname;
-        var start = localStorage.getItem(key);
-        if (!start) { start = Date.now(); localStorage.setItem(key, start); }
+        var start = localStorage.getItem(key + '_ext');
+        if (!start) { start = Date.now(); localStorage.setItem(key + '_ext', start); }
         start = parseInt(start);
-        var end = start + 48 * 60 * 60 * 1000;
+        var end = start + 7 * 24 * 60 * 60 * 1000;
         var el = document.getElementById('countdown-timer');
         function tick() {
             var left = Math.max(0, end - Date.now());
@@ -1126,10 +1126,10 @@ Great place to hang out with friends if you are looking to get tattooed as a gro
                 <script>
                     (function() {
                         var key = 'discount_start_' + location.pathname;
-                        var start = localStorage.getItem(key);
-                        if (!start) { start = Date.now(); localStorage.setItem(key, start); }
+                        var start = localStorage.getItem(key + '_ext');
+                        if (!start) { start = Date.now(); localStorage.setItem(key + '_ext', start); }
                         start = parseInt(start);
-                        var end = start + 48 * 60 * 60 * 1000;
+                        var end = start + 7 * 24 * 60 * 60 * 1000;
                         var el = document.getElementById('countdown-timer-bottom');
                         function tick() {
                             var left = Math.max(0, end - Date.now());
