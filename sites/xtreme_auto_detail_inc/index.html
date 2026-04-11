@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Fast, reliable plumbing solutions for your home and business">
-    <title>Olin Plumbing Inc. — Fast, reliable plumbing solutions for your home and business</title>
+    <meta name="description" content="Professional auto detailing that makes your vehicle look brand new">
+    <title>Xtreme Auto Detail, Inc. — Professional auto detailing that makes your vehicle look brand new</title>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -22,9 +22,9 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#1e40af',
-                        secondary: '#3b82f6',
-                        accent: '#dbeafe',
+                        primary: '#7c2d12',
+                        secondary: '#ea580c',
+                        accent: '#fff7ed',
                     },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -82,9 +82,9 @@
         .hero-gradient {
             background: linear-gradient(
                 135deg,
-                #1e40af99 0%,
-                #3b82f699 50%,
-                #1e40af99 100%
+                #7c2d1299 0%,
+                #ea580c99 50%,
+                #7c2d1299 100%
             );
         }
         .hero-pattern {
@@ -99,7 +99,7 @@
             100% { background-position: 0% 50%; }
         }
         .animated-gradient-text {
-            background: linear-gradient(270deg, #fff, #dbeafe, #fff, #3b82f6);
+            background: linear-gradient(270deg, #fff, #fff7ed, #fff, #ea580c);
             background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -150,8 +150,8 @@
 
         /* ── Service icon ring ─────────────────────────── */
         .icon-ring {
-            background: linear-gradient(135deg, #3b82f615, #3b82f608);
-            border: 1px solid #3b82f620;
+            background: linear-gradient(135deg, #ea580c15, #ea580c08);
+            border: 1px solid #ea580c20;
         }
 
         /* ── Gallery hover overlay ─────────────────────── */
@@ -173,7 +173,7 @@
             position: absolute;
             inset: -4px;
             border-radius: inherit;
-            border: 2px solid #3b82f6;
+            border: 2px solid #ea580c;
             animation: pulse-ring 2s ease-out infinite;
         }
 
@@ -181,11 +181,11 @@
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f5f9; }
         ::-webkit-scrollbar-thumb {
-            background: #3b82f660;
+            background: #ea580c60;
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #3b82f6;
+            background: #ea580c;
         }
     </style>
 </head>
@@ -198,7 +198,7 @@
 
 <a href="https://buy.stripe.com/14A14nbN85xO4Yu6S1bZe01" target="_blank" id="discount-bubble" style="position:fixed; bottom:20px; right:20px; z-index:9999; text-decoration:none; animation: bubble-pulse 2s ease-in-out infinite;">
     <div style="background:linear-gradient(135deg,#dc2626,#ea580c); border-radius:16px; padding:12px 16px; box-shadow:0 8px 32px rgba(220,38,38,0.4); max-width:200px; text-align:center; font-family:'Inter',system-ui,sans-serif;">
-        <div style="color:#fef08a; font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">&#9200; 7-DAY DEAL</div>
+        <div style="color:#fef08a; font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">&#9200; 48hr deal</div>
         <div style="display:flex; align-items:center; justify-content:center; gap:6px;">
             <span style="color:rgba(255,255,255,0.5); text-decoration:line-through; font-size:13px; font-weight:600;">$1250</span>
             <span style="color:#ffffff; font-size:22px; font-weight:800;">$500</span>
@@ -216,10 +216,10 @@
 <script>
     (function() {
         var key = 'discount_start_' + location.pathname;
-        var start = localStorage.getItem(key + '_ext');
-        if (!start) { start = Date.now(); localStorage.setItem(key + '_ext', start); }
+        var start = localStorage.getItem(key);
+        if (!start) { start = Date.now(); localStorage.setItem(key, start); }
         start = parseInt(start);
-        var end = start + 7 * 24 * 60 * 60 * 1000;
+        var end = start + 48 * 60 * 60 * 1000;
         var el = document.getElementById('countdown-timer');
         function tick() {
             var left = Math.max(0, end - Date.now());
@@ -244,7 +244,7 @@
             <!-- Logo / Brand -->
             <a href="#hero" class="flex items-center gap-2 group">
                 <span id="nav-brand" class="text-xl font-bold text-white transition-all duration-300 opacity-0 -translate-x-2">
-                    Olin Plumbing Inc.
+                    Xtreme Auto Detail, Inc.
                 </span>
             </a>
 
@@ -276,9 +276,9 @@
                     Contact
                 </a>
                 
-                <a href="tel:(813) 443-5820" class="ml-2 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary text-white text-sm font-semibold hover:bg-secondary/90 transition-all shadow-lg shadow-secondary/20 hover:shadow-secondary/40">
+                <a href="tel:(512) 487-4873" class="ml-2 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary text-white text-sm font-semibold hover:bg-secondary/90 transition-all shadow-lg shadow-secondary/20 hover:shadow-secondary/40">
                     <i data-lucide="phone" class="w-4 h-4"></i>
-                    (813) 443-5820
+                    (512) 487-4873
                 </a>
             </div>
 
@@ -307,7 +307,7 @@
             
             <a href="#contact" class="mobile-link text-2xl font-semibold text-primary hover:text-secondary transition-colors">Contact</a>
             
-            <a href="tel:(813) 443-5820" class="mt-4 inline-flex items-center gap-2 px-8 py-3 rounded-full bg-secondary text-white font-semibold text-lg">
+            <a href="tel:(512) 487-4873" class="mt-4 inline-flex items-center gap-2 px-8 py-3 rounded-full bg-secondary text-white font-semibold text-lg">
                 <i data-lucide="phone" class="w-5 h-5"></i>
                 Call Now
             </a>
@@ -319,13 +319,7 @@
 <!-- ════════════════════════════════════════════════════════
      HERO SECTION
      ════════════════════════════════════════════════════════ -->
-<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden" style="background: linear-gradient(135deg, #1e3a5f 0%, #1e40af 40%, #3b82f6 100%)">
-    
-    <!-- Real business photo as hero background -->
-    <div class="absolute inset-0 z-0">
-        <img src="assets/images/hero.jpg" alt="Olin Plumbing Inc." class="w-full h-full object-cover">
-        <div class="absolute inset-0 hero-tint" style="background: linear-gradient(135deg, #1e3a5f99 0%, #1e40af99 40%, #3b82f699 100%)"></div>
-    </div>
+<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden" style="background: linear-gradient(135deg, #431407 0%, #7c2d12 40%, #ea580c 100%)">
     
     <!-- Decorative floating shapes -->
     <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
@@ -338,34 +332,34 @@
         <!-- Eyebrow -->
         <div class="reveal inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/80 text-sm font-medium mb-8 backdrop-blur-sm">
             <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-            4.9 ★ rated · 1229 Google reviews
+            4.8 ★ rated · 208 Google reviews
         </div>
 
         <!-- Main Heading -->
         <h1 class="reveal font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6" style="transition-delay:0.1s; color:#ffffff; text-shadow: 0 2px 20px rgba(0,0,0,0.3)">
-            Olin Plumbing Inc.
+            Xtreme Auto Detail, Inc.
         </h1>
 
         <!-- Animated Tagline -->
         <p class="reveal animated-gradient-text text-xl sm:text-2xl md:text-3xl font-semibold mb-6" style="transition-delay:0.2s; color: rgba(255,255,255,0.9)">
-            Fast, reliable plumbing solutions for your home and business
+            Professional auto detailing that makes your vehicle look brand new
         </p>
 
         <!-- Sub-description -->
         <p class="reveal text-white/70 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed" style="transition-delay:0.3s">
-            Olin Plumbing Inc. — serving Tampa with professional plumbing services. Rated 4.9/5 by 1229 customers on Google. Call us at (813) 443-5820.
+            Xtreme Auto Detail, Inc. — serving Austin with professional auto detailing services. Rated 4.8/5 by 208 customers on Google. Call us at (512) 487-4873.
         </p>
 
         <!-- CTA Buttons -->
         <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4" style="transition-delay:0.4s">
             <a href="#contact" class="relative pulse-ring inline-flex items-center gap-2 px-8 py-4 rounded-full bg-secondary text-white font-bold text-lg hover:bg-secondary/90 transition-all shadow-2xl shadow-secondary/30">
-                Get a Free Estimate
+                Get a Quote
                 <i data-lucide="arrow-right" class="w-5 h-5"></i>
             </a>
             
-            <a href="tel:(813) 443-5820" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 border border-white/30 text-white font-semibold text-lg hover:bg-white/20 transition-all backdrop-blur-sm">
+            <a href="tel:(512) 487-4873" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 border border-white/30 text-white font-semibold text-lg hover:bg-white/20 transition-all backdrop-blur-sm">
                 <i data-lucide="phone" class="w-5 h-5"></i>
-                Emergency Service
+                Call Now
             </a>
             
         </div>
@@ -376,17 +370,17 @@
             
             <div class="flex items-center gap-2">
                 <i data-lucide="shield-check" class="w-5 h-5"></i>
-                <span>4.9-Star Rated</span>
+                <span>4.8-Star Rated</span>
             </div>
             
             <div class="flex items-center gap-2">
                 <i data-lucide="star" class="w-5 h-5"></i>
-                <span>1229+ Reviews</span>
+                <span>208+ Reviews</span>
             </div>
             
             <div class="flex items-center gap-2">
                 <i data-lucide="clock" class="w-5 h-5"></i>
-                <span>Located in Tampa</span>
+                <span>Located in Austin</span>
             </div>
             
         </div>
@@ -408,11 +402,11 @@
         <div class="text-center max-w-3xl mx-auto mb-16">
             <p class="reveal text-secondary font-semibold text-sm uppercase tracking-widest mb-3">WHAT WE OFFER</p>
             <h2 class="reveal font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-6" style="transition-delay:0.1s">
-                Plumbing Services
+                Detailing Services
             </h2>
             
             <p class="reveal text-gray-500 text-lg leading-relaxed" style="transition-delay:0.15s">
-                Licensed plumbers ready to handle any job — from routine fixes to emergency repairs.
+                Professional detailing that brings your vehicle back to showroom condition.
             </p>
             
         </div>
@@ -423,50 +417,34 @@
             
             <div class="reveal-scale card-hover bg-white rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.0s">
                 <div class="icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <i data-lucide="wrench" class="w-7 h-7 text-secondary"></i>
+                    <i data-lucide="sparkles" class="w-7 h-7 text-secondary"></i>
                 </div>
-                <h3 class="text-xl font-bold text-primary mb-3">Pipe Repair</h3>
-                <p class="text-gray-500 leading-relaxed">He went straight to work, checking out the leaks and replacing the valves.</p>
+                <h3 class="text-xl font-bold text-primary mb-3">Full Detail</h3>
+                <p class="text-gray-500 leading-relaxed">Daniel and the team at Xtreme Auto Detail were great to work with and did an incredible job with...</p>
             </div>
             
             <div class="reveal-scale card-hover bg-white rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.08s">
                 <div class="icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <i data-lucide="alert-triangle" class="w-7 h-7 text-secondary"></i>
+                    <i data-lucide="sparkles" class="w-7 h-7 text-secondary"></i>
                 </div>
-                <h3 class="text-xl font-bold text-primary mb-3">Emergency Repairs</h3>
-                <p class="text-gray-500 leading-relaxed">24/7 emergency plumbing service. Burst pipes, leaks, and clogs fixed fast.</p>
+                <h3 class="text-xl font-bold text-primary mb-3">Interior Cleaning</h3>
+                <p class="text-gray-500 leading-relaxed">I had a full detail (interior and exterior) because I’m getting ready to sell her soon.</p>
             </div>
             
             <div class="reveal-scale card-hover bg-white rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.16s">
                 <div class="icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                     <i data-lucide="droplets" class="w-7 h-7 text-secondary"></i>
                 </div>
-                <h3 class="text-xl font-bold text-primary mb-3">Drain Cleaning</h3>
-                <p class="text-gray-500 leading-relaxed">Professional drain cleaning and unclogging for sinks, tubs, and main lines.</p>
+                <h3 class="text-xl font-bold text-primary mb-3">Exterior Wash</h3>
+                <p class="text-gray-500 leading-relaxed">I had a full detail (interior and exterior) because I’m getting ready to sell her soon.</p>
             </div>
             
             <div class="reveal-scale card-hover bg-white rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.24s">
                 <div class="icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <i data-lucide="flame" class="w-7 h-7 text-secondary"></i>
+                    <i data-lucide="shield" class="w-7 h-7 text-secondary"></i>
                 </div>
-                <h3 class="text-xl font-bold text-primary mb-3">Water Heater Service</h3>
-                <p class="text-gray-500 leading-relaxed">Installation, repair, and maintenance of all water heater types.</p>
-            </div>
-            
-            <div class="reveal-scale card-hover bg-white rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.32s">
-                <div class="icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <i data-lucide="wrench" class="w-7 h-7 text-secondary"></i>
-                </div>
-                <h3 class="text-xl font-bold text-primary mb-3">Pipe Repair & Replacement</h3>
-                <p class="text-gray-500 leading-relaxed">Expert pipe repair, repiping, and replacement services.</p>
-            </div>
-            
-            <div class="reveal-scale card-hover bg-white rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.4s">
-                <div class="icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <i data-lucide="bath" class="w-7 h-7 text-secondary"></i>
-                </div>
-                <h3 class="text-xl font-bold text-primary mb-3">Bathroom Remodeling</h3>
-                <p class="text-gray-500 leading-relaxed">Complete bathroom plumbing for remodels and new construction.</p>
+                <h3 class="text-xl font-bold text-primary mb-3">Ceramic Coating</h3>
+                <p class="text-gray-500 leading-relaxed">Daniel and the team at Xtreme Auto Detail were great to work with and did an incredible job with...</p>
             </div>
             
         </div>
@@ -484,19 +462,15 @@
             <div class="reveal-left relative">
                 <div class="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
                     
-                    <img
-                        src="assets/images/about.jpg"
-                        alt="Olin Plumbing Inc."
-                        class="w-full h-full object-cover"
-                        loading="lazy"
-                    >
-                    <div class="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
+                    <div class="w-full h-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                        <span class="text-6xl">🚗</span>
+                    </div>
                     
                 </div>
                 <!-- Floating stat card -->
                 
                 <div class="absolute -bottom-6 -right-6 sm:right-8 bg-white rounded-2xl p-6 shadow-xl border border-gray-100">
-                    <div class="text-4xl font-bold text-secondary mb-1">1229</div>
+                    <div class="text-4xl font-bold text-secondary mb-1">208</div>
                     <div class="text-gray-500 text-sm font-medium">Google Reviews</div>
                 </div>
                 
@@ -506,10 +480,10 @@
             <div class="reveal-right">
                 <p class="text-secondary font-semibold text-sm uppercase tracking-widest mb-3">About Us</p>
                 <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-6 leading-tight">
-                    Why Choose Olin Plumbing Inc.?
+                    Why Choose Xtreme Auto Detail, Inc.?
                 </h2>
                 <p class="text-gray-600 text-lg leading-relaxed mb-8">
-                    Olin Plumbing Inc. is a plumbing business located in Tampa. Rated 4.9 out of 5 stars based on 1229 Google reviews. Located at 3201 E 8th Ave, Tampa, FL 33605, USA. Call (813) 443-5820 to get in touch.
+                    Xtreme Auto Detail, Inc. is a auto detailing business located in Austin. Rated 4.8 out of 5 stars based on 208 Google reviews. Located at 4509 Hudson Bend Rd #200, Austin, TX 78734, USA. Call (512) 487-4873 to get in touch.
                 </p>
 
                 <!-- About highlights -->
@@ -520,14 +494,14 @@
                         <div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0">
                             <i data-lucide="check" class="w-4 h-4 text-secondary"></i>
                         </div>
-                        <span class="text-primary font-medium">4.9-Star Google Rating</span>
+                        <span class="text-primary font-medium">4.8-Star Google Rating</span>
                     </div>
                     
                     <div class="flex items-center gap-3">
                         <div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0">
                             <i data-lucide="check" class="w-4 h-4 text-secondary"></i>
                         </div>
-                        <span class="text-primary font-medium">1229+ Customer Reviews</span>
+                        <span class="text-primary font-medium">208+ Customer Reviews</span>
                     </div>
                     
                     <div class="flex items-center gap-3">
@@ -541,7 +515,7 @@
                         <div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0">
                             <i data-lucide="check" class="w-4 h-4 text-secondary"></i>
                         </div>
-                        <span class="text-primary font-medium">Serving Tampa</span>
+                        <span class="text-primary font-medium">Serving Austin</span>
                     </div>
                     
                 </div>
@@ -598,16 +572,16 @@
                             </div>
                             <!-- Quote -->
                             <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
-                                "Great experience with Olin Plumbing. This is the second time we called them and they have done a great job both times. Jesus was awesome. Explained everything, kept things clean and did a great job. My dog has also decided that Jesus is now one of her best friends."
+                                "Had PPF, ceramic and tint done on two cars.  Daniel was great to work with on the quote and education process.  He was more detailed than the other quotes I received.  Robert was also very knowledgeable and helped answer questions when we dropped the cars off.  Both were stunning when we picked them up.  Big thanks!"
                             </blockquote>
                             <!-- Author -->
                             <div class="flex items-center gap-4">
                                 <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
-                                    T
+                                    M
                                 </div>
                                 <div>
-                                    <div class="font-semibold text-white">Tim Traud</div>
-                                    <div class="text-white/50 text-sm">a month ago</div>
+                                    <div class="font-semibold text-white">Marcus Wake</div>
+                                    <div class="text-white/50 text-sm">3 months ago</div>
                                 </div>
                             </div>
                         </div>
@@ -631,44 +605,7 @@
                             </div>
                             <!-- Quote -->
                             <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
-                                "This was my first experience with Olin Plumbing. I never enjoy it when I need a plumber, but Olin made it a very good experience. Everything was smooth and simple, from my initial phone call to schedule the appointment to having the work completed. I really appreciated getting the name and a picture of my technician prior to his arrival.
-
-Jesus showed up during the time window specified. He had a great attitude and smile. He also really seems to like the company he is working for. That counts for a lot to me. Jesus was efficient and thorough. He went straight to work, checking out the leaks and replacing the valves. He explained what he found and the probable cause. He had the parts he needed on his truck. I appreciate him not having to go back to the office or the hardware store to complete the job.
-
-All in all, it was an excellent experience. I will keep Olin's phone number and Jesus's name at the top of my list of service providers. Next time I need a plumber, Olin will be my first call."
-                            </blockquote>
-                            <!-- Author -->
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
-                                    A
-                                </div>
-                                <div>
-                                    <div class="font-semibold text-white">Ann H</div>
-                                    <div class="text-white/50 text-sm">a month ago</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-slide w-full flex-shrink-0 px-4">
-                        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 sm:p-10 max-w-3xl mx-auto">
-                            <!-- Stars -->
-                            <div class="flex items-center gap-1 mb-6">
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                            </div>
-                            <!-- Quote -->
-                            <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
-                                "Olin Plumbing was able to get me scheduled at the time I needed for a few items. Jesus showed up, and after completing some assessments and inspections, he provided a solid game plan for my plumbing needs. He was also very informative and kind. Thanks, Jesus, and thanks, Olin! I'll be calling again when I need you."
+                                "I recently took my two vehicles to Xtreme auto detail & I had a great experience. Their work quality is truly amazing! very professional & easy to work with. Would highly recommend them for any window tint & detailing work you need done."
                             </blockquote>
                             <!-- Author -->
                             <div class="flex items-center gap-4">
@@ -676,7 +613,79 @@ All in all, it was an excellent experience. I will keep Olin's phone number and 
                                     J
                                 </div>
                                 <div>
-                                    <div class="font-semibold text-white">Jen Frost</div>
+                                    <div class="font-semibold text-white">Jorge Canales</div>
+                                    <div class="text-white/50 text-sm">5 months ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide w-full flex-shrink-0 px-4">
+                        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 sm:p-10 max-w-3xl mx-auto">
+                            <!-- Stars -->
+                            <div class="flex items-center gap-1 mb-6">
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                            </div>
+                            <!-- Quote -->
+                            <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
+                                "These guys went above and BEYOND for my 2020 Nissan Murano. If my car could talk, I’m sure she would say that was the best spa day ever!
+
+I had a full detail (interior and exterior) because I’m getting ready to sell her soon. I’m so grateful I chose this business to help me prepare for negotiating.
+
+These guys work damn hard. They’re honest, kind and have great taste in music 🎧 playing in their garage while working their magic.
+
+Thank you both for helping me. You’re reliable and thorough. I pray everyone gives you guys 30% tips each in addition to raving reviews!"
+                            </blockquote>
+                            <!-- Author -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
+                                    M
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-white">Michelle Iankowitz</div>
+                                    <div class="text-white/50 text-sm">6 months ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide w-full flex-shrink-0 px-4">
+                        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 sm:p-10 max-w-3xl mx-auto">
+                            <!-- Stars -->
+                            <div class="flex items-center gap-1 mb-6">
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                            </div>
+                            <!-- Quote -->
+                            <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
+                                "I had tint and PPF completed here on my vehicle and it came out flawlessly. I'd highly recommend them! Daniel & Robert were very communicative along the way and helped choose the best shade of tint for my car and the best PPF package option to go with."
+                            </blockquote>
+                            <!-- Author -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
+                                    T
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-white">trysten mcvoy</div>
                                     <div class="text-white/50 text-sm">a month ago</div>
                                 </div>
                             </div>
@@ -701,49 +710,16 @@ All in all, it was an excellent experience. I will keep Olin's phone number and 
                             </div>
                             <!-- Quote -->
                             <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
-                                "Oh my goodness!  What extraordinary service!  I called Olin as my bathrooms were backing up and they sent Estevan out.  He was so polite, helpful and he even called the previous plumber to see if there was a warranty on their work before he got started (he was trying to save me some money). Estevan found the problem and showed me what was wrong.  He fixed the issue, cleaned up behind himself (I think that  its cleaner than when he started, lol), and I paid the exact price that he quoted me earlier.  I was so impressed with him.  He even said that his company has integrity and that all of the employees want to do a good job.  I love that!  If anyone asks me for a recommendation for a good plumbing company, I will definitely recommend Olin (and hopefully you'll get Estevan, lol)"
+                                "Daniel and the team at Xtreme Auto Detail were great to work with and did an incredible job with professional tinting and ceramic coating for my Subaru. Highly recommend for both services"
                             </blockquote>
                             <!-- Author -->
                             <div class="flex items-center gap-4">
                                 <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
-                                    D
+                                    T
                                 </div>
                                 <div>
-                                    <div class="font-semibold text-white">Deirdre Tatum</div>
-                                    <div class="text-white/50 text-sm">5 months ago</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-slide w-full flex-shrink-0 px-4">
-                        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 sm:p-10 max-w-3xl mx-auto">
-                            <!-- Stars -->
-                            <div class="flex items-center gap-1 mb-6">
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                            </div>
-                            <!-- Quote -->
-                            <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
-                                "Two outstanding technicians, Anthony and Willi from Olin Plumbing Inc., came to my house to complete some plumbing work. I was pleased that I was able to secure an appointment for the same day. They performed excellent repairs on the taps connected to my washing machine. Moreover, they offered me an affordable price for their services, which made me feel that I was receiving great value for my money. Before going Anthony gifted me two beautifully designed Olin mugs. Thank you for your excellent service and the mugs!"
-                            </blockquote>
-                            <!-- Author -->
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
-                                    D
-                                </div>
-                                <div>
-                                    <div class="font-semibold text-white">Deepa Malavalli</div>
-                                    <div class="text-white/50 text-sm">5 months ago</div>
+                                    <div class="font-semibold text-white">Thomas Turner</div>
+                                    <div class="text-white/50 text-sm">6 months ago</div>
                                 </div>
                             </div>
                         </div>
@@ -784,100 +760,6 @@ All in all, it was an excellent experience. I will keep Olin's phone number and 
      GALLERY / PORTFOLIO SECTION
      ════════════════════════════════════════════════════════ -->
 
-<section id="gallery" class="py-24 lg:py-32">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Section header -->
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <p class="reveal text-secondary font-semibold text-sm uppercase tracking-widest mb-3">Our Work</p>
-            <h2 class="reveal font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-6" style="transition-delay:0.1s">
-                Photos
-            </h2>
-        </div>
-
-        <!-- Gallery Grid -->
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-            
-            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group md:col-span-2 md:row-span-2" style="transition-delay:0.0s">
-                <div class="aspect-square md:aspect-[4/3]">
-                    <img
-                        src="assets/images/gallery_1.jpg"
-                        alt="Olin Plumbing Inc. photo 1"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                    >
-                </div>
-            </div>
-            
-            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group " style="transition-delay:0.06s">
-                <div class="aspect-square ">
-                    <img
-                        src="assets/images/gallery_2.jpg"
-                        alt="Olin Plumbing Inc. photo 2"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                    >
-                </div>
-            </div>
-            
-            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group " style="transition-delay:0.12s">
-                <div class="aspect-square ">
-                    <img
-                        src="assets/images/gallery_3.jpg"
-                        alt="Olin Plumbing Inc. photo 3"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                    >
-                </div>
-            </div>
-            
-            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group " style="transition-delay:0.18s">
-                <div class="aspect-square ">
-                    <img
-                        src="assets/images/gallery_4.jpg"
-                        alt="Olin Plumbing Inc. photo 4"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                    >
-                </div>
-            </div>
-            
-            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group " style="transition-delay:0.24s">
-                <div class="aspect-square ">
-                    <img
-                        src="assets/images/gallery_5.jpg"
-                        alt="Olin Plumbing Inc. photo 5"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                    >
-                </div>
-            </div>
-            
-            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group " style="transition-delay:0.3s">
-                <div class="aspect-square ">
-                    <img
-                        src="assets/images/gallery_6.jpg"
-                        alt="Olin Plumbing Inc. photo 6"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                    >
-                </div>
-            </div>
-            
-            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group " style="transition-delay:0.36s">
-                <div class="aspect-square ">
-                    <img
-                        src="assets/images/gallery_7.jpg"
-                        alt="Olin Plumbing Inc. photo 7"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                    >
-                </div>
-            </div>
-            
-        </div>
-    </div>
-</section>
-
 
 
 <!-- ════════════════════════════════════════════════════════
@@ -898,14 +780,14 @@ All in all, it was an excellent experience. I will keep Olin's phone number and 
             Ready to Get Started?
         </h2>
         <p class="reveal text-white/70 text-lg sm:text-xl mb-10 max-w-2xl mx-auto" style="transition-delay:0.1s">
-            Get a Free Estimate
+            Book Your Detail
         </p>
         <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4" style="transition-delay:0.2s">
             <a href="#contact" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-primary font-bold text-lg hover:bg-gray-100 transition-all shadow-2xl">
-                Get a Free Estimate
+                Get a Quote
                 <i data-lucide="arrow-right" class="w-5 h-5"></i>
             </a>
-            <a href="tel:(813) 443-5820" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 border border-white/30 text-white font-semibold text-lg hover:bg-white/20 transition-all backdrop-blur-sm">
+            <a href="tel:(512) 487-4873" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 border border-white/30 text-white font-semibold text-lg hover:bg-white/20 transition-all backdrop-blur-sm">
                 <i data-lucide="phone" class="w-5 h-5"></i>
                 Call Now
             </a>
@@ -935,13 +817,13 @@ All in all, it was an excellent experience. I will keep Olin's phone number and 
             <div class="lg:col-span-2 space-y-8">
                 <!-- Info cards -->
                 <div class="reveal-left space-y-4">
-                    <a href="tel:(813) 443-5820" class="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 card-hover group">
+                    <a href="tel:(512) 487-4873" class="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 card-hover group">
                         <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-secondary group-hover:text-white transition-colors">
                             <i data-lucide="phone" class="w-5 h-5 text-secondary group-hover:text-white transition-colors"></i>
                         </div>
                         <div>
                             <div class="font-semibold text-primary mb-1">Phone</div>
-                            <div class="text-gray-500">(813) 443-5820</div>
+                            <div class="text-gray-500">(512) 487-4873</div>
                         </div>
                     </a>
 
@@ -953,7 +835,7 @@ All in all, it was an excellent experience. I will keep Olin's phone number and 
                         </div>
                         <div>
                             <div class="font-semibold text-primary mb-1">Address</div>
-                            <div class="text-gray-500">3201 E 8th Ave, Tampa, FL 33605, USA</div>
+                            <div class="text-gray-500">4509 Hudson Bend Rd #200, Austin, TX 78734, USA</div>
                         </div>
                     </div>
 
@@ -964,23 +846,7 @@ All in all, it was an excellent experience. I will keep Olin's phone number and 
                         <div>
                             <div class="font-semibold text-primary mb-1">Hours</div>
                             
-                            <div class="text-gray-500 text-sm space-y-0.5">
-                                
-                                <div>Monday: Open 24 hours</div>
-                                
-                                <div>Tuesday: Open 24 hours</div>
-                                
-                                <div>Wednesday: Open 24 hours</div>
-                                
-                                <div>Thursday: Open 24 hours</div>
-                                
-                                <div>Friday: Open 24 hours</div>
-                                
-                                <div>Saturday: Open 24 hours</div>
-                                
-                                <div>Sunday: Open 24 hours</div>
-                                
-                            </div>
+                            <div class="text-gray-500">Contact us for hours</div>
                             
                         </div>
                     </div>
@@ -1001,8 +867,8 @@ All in all, it was an excellent experience. I will keep Olin's phone number and 
 
             <!-- Contact Form -->
             <div class="lg:col-span-3 reveal-right">
-                <form action="https://formsubmit.co/info@olinplumbinginc.com" method="POST" class="bg-white rounded-2xl p-8 sm:p-10 border border-gray-100 shadow-lg">
-                    <input type="hidden" name="_subject" value="New inquiry from your website — Olin Plumbing Inc.">
+                <form action="#contact" method="POST" class="bg-white rounded-2xl p-8 sm:p-10 border border-gray-100 shadow-lg">
+                    <input type="hidden" name="_subject" value="New inquiry from your website — Xtreme Auto Detail, Inc.">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_next" value="#contact">
                     <div class="grid sm:grid-cols-2 gap-6 mb-6">
@@ -1029,17 +895,13 @@ All in all, it was an excellent experience. I will keep Olin's phone number and 
                                     class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all text-gray-700">
                                 <option value="">Select a service</option>
                                 
-                                <option value="Pipe Repair">Pipe Repair</option>
+                                <option value="Full Detail">Full Detail</option>
                                 
-                                <option value="Emergency Repairs">Emergency Repairs</option>
+                                <option value="Interior Cleaning">Interior Cleaning</option>
                                 
-                                <option value="Drain Cleaning">Drain Cleaning</option>
+                                <option value="Exterior Wash">Exterior Wash</option>
                                 
-                                <option value="Water Heater Service">Water Heater Service</option>
-                                
-                                <option value="Pipe Repair & Replacement">Pipe Repair & Replacement</option>
-                                
-                                <option value="Bathroom Remodeling">Bathroom Remodeling</option>
+                                <option value="Ceramic Coating">Ceramic Coating</option>
                                 
                             </select>
                         </div>
@@ -1113,10 +975,10 @@ All in all, it was an excellent experience. I will keep Olin's phone number and 
                 <script>
                     (function() {
                         var key = 'discount_start_' + location.pathname;
-                        var start = localStorage.getItem(key + '_ext');
-                        if (!start) { start = Date.now(); localStorage.setItem(key + '_ext', start); }
+                        var start = localStorage.getItem(key);
+                        if (!start) { start = Date.now(); localStorage.setItem(key, start); }
                         start = parseInt(start);
-                        var end = start + 7 * 24 * 60 * 60 * 1000;
+                        var end = start + 48 * 60 * 60 * 1000;
                         var el = document.getElementById('countdown-timer-bottom');
                         function tick() {
                             var left = Math.max(0, end - Date.now());
@@ -1191,10 +1053,10 @@ All in all, it was an excellent experience. I will keep Olin's phone number and 
             <!-- Brand -->
             <div class="lg:col-span-1">
                 <div class="flex items-center gap-2 mb-4">
-                    <span class="text-xl font-bold">Olin Plumbing Inc.</span>
+                    <span class="text-xl font-bold">Xtreme Auto Detail, Inc.</span>
                 </div>
                 <p class="text-white/50 text-sm leading-relaxed mb-6">
-                    Fast, reliable plumbing solutions for your home and business
+                    Professional auto detailing that makes your vehicle look brand new
                 </p>
                 <!-- Social Icons -->
                 <div class="flex items-center gap-3">
@@ -1228,17 +1090,13 @@ All in all, it was an excellent experience. I will keep Olin's phone number and 
                 <h4 class="font-semibold text-white mb-4">Services</h4>
                 <ul class="space-y-3">
                     
-                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Pipe Repair</a></li>
+                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Full Detail</a></li>
                     
-                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Emergency Repairs</a></li>
+                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Interior Cleaning</a></li>
                     
-                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Drain Cleaning</a></li>
+                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Exterior Wash</a></li>
                     
-                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Water Heater Service</a></li>
-                    
-                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Pipe Repair & Replacement</a></li>
-                    
-                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Bathroom Remodeling</a></li>
+                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Ceramic Coating</a></li>
                     
                 </ul>
             </div>
@@ -1248,16 +1106,16 @@ All in all, it was an excellent experience. I will keep Olin's phone number and 
                 <h4 class="font-semibold text-white mb-4">Contact Us</h4>
                 <ul class="space-y-3 text-sm">
                     <li>
-                        <a href="tel:(813) 443-5820" class="flex items-center gap-2 text-white/50 hover:text-white transition-colors">
+                        <a href="tel:(512) 487-4873" class="flex items-center gap-2 text-white/50 hover:text-white transition-colors">
                             <i data-lucide="phone" class="w-4 h-4 flex-shrink-0"></i>
-                            (813) 443-5820
+                            (512) 487-4873
                         </a>
                     </li>
                     
                     <li>
                         <div class="flex items-start gap-2 text-white/50">
                             <i data-lucide="map-pin" class="w-4 h-4 flex-shrink-0 mt-0.5"></i>
-                            3201 E 8th Ave, Tampa, FL 33605, USA
+                            4509 Hudson Bend Rd #200, Austin, TX 78734, USA
                         </div>
                     </li>
                 </ul>
@@ -1268,7 +1126,7 @@ All in all, it was an excellent experience. I will keep Olin's phone number and 
         <div class="border-t border-white/10 pt-8">
             <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
                 <p class="text-white/40 text-sm">
-                    &copy; 2026 Olin Plumbing Inc.. All rights reserved.
+                    &copy; 2026 Xtreme Auto Detail, Inc.. All rights reserved.
                 </p>
                 <p class="text-white/30 text-xs">
                     Full setup guide included after purchase &middot; Built with care
