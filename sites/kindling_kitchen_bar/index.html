@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kindling Kitchen & Bar — Wood-fired cooking, craft cocktails, and seasonal plates in a warm, intimate setting.">
+    <title>Kindling Kitchen & Bar — Wood-Fired & Seasonal</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/@phosphor-icons/web@2.0.3"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        surface: '#FDFBF7',
+                        ink: '#1a1714',
+                        muted: '#78716c',
+                        accent: '#c2410c',
+                        'accent-light': '#fed7aa',
+                        warm: '#f5f0ea',
+                        card: '#ffffff',
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+                        display: ['Fraunces', 'Georgia', 'serif'],
+                    },
+                    borderRadius: {
+                        '4xl': '2rem',
+                        '5xl': '2.5rem',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: #FDFBF7; color: #1a1714; }
+
+        /* Film grain overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 50;
+            pointer-events: none;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.9s cubic-bezier(0.32, 0.72, 0, 1), transform 0.9s cubic-bezier(0.32, 0.72, 0, 1);
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal-left {
+            opacity: 0; transform: translateX(-48px);
+            transition: opacity 0.9s cubic-bezier(0.32, 0.72, 0, 1), transform 0.9s cubic-bezier(0.32, 0.72, 0, 1);
+        }
+        .reveal-left.active { opacity: 1; transform: translateX(0); }
+        .reveal-right {
+            opacity: 0; transform: translateX(48px);
+            transition: opacity 0.9s cubic-bezier(0.32, 0.72, 0, 1), transform 0.9s cubic-bezier(0.32, 0.72, 0, 1);
+        }
+        .reveal-right.active { opacity: 1; transform: translateX(0); }
+        .reveal-scale {
+            opacity: 0; transform: scale(0.92);
+            transition: opacity 0.8s cubic-bezier(0.32, 0.72, 0, 1), transform 0.8s cubic-bezier(0.32, 0.72, 0, 1);
+        }
+        .reveal-scale.active { opacity: 1; transform: scale(1); }
+
+        /* Stagger children */
+        .stagger > *:nth-child(1) { transition-delay: 0ms; }
+        .stagger > *:nth-child(2) { transition-delay: 80ms; }
+        .stagger > *:nth-child(3) { transition-delay: 160ms; }
+        .stagger > *:nth-child(4) { transition-delay: 240ms; }
+        .stagger > *:nth-child(5) { transition-delay: 320ms; }
+        .stagger > *:nth-child(6) { transition-delay: 400ms; }
+
+        /* Pill button active press */
+        .btn-press { transition: all 0.5s cubic-bezier(0.32, 0.72, 0, 1); }
+        .btn-press:active { transform: scale(0.97) translateY(1px); }
+        .btn-press:hover { transform: translateY(-2px); }
+
+        /* Double-bezel card */
+        .doppelrand {
+            background: rgba(0,0,0,0.02);
+            border: 1px solid rgba(0,0,0,0.04);
+            padding: 6px;
+            border-radius: 2rem;
+        }
+        .doppelrand-inner {
+            background: #ffffff;
+            border-radius: calc(2rem - 6px);
+            box-shadow: inset 0 1px 1px rgba(255,255,255,0.8), 0 20px 40px -15px rgba(0,0,0,0.06);
+        }
+
+        /* Floating nav glass */
+        .nav-glass {
+            background: rgba(253, 251, 247, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(0,0,0,0.06);
+        }
+
+        /* Marquee */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .marquee-track { animation: marquee 30s linear infinite; }
+        .marquee-track:hover { animation-play-state: paused; }
+
+        /* Hero image mask */
+        .hero-img-mask {
+            mask-image: linear-gradient(to left, black 70%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to left, black 70%, transparent 100%);
+        }
+
+        /* Menu item hover line */
+        .menu-line::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(194,65,12,0.3), transparent);
+            transform: scaleX(0);
+            transition: transform 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+        }
+        .menu-line:hover::after { transform: scaleX(1); }
+
+        /* Smooth image zoom on hover */
+        .img-zoom { transition: transform 1.2s cubic-bezier(0.32, 0.72, 0, 1); }
+        .img-zoom:hover { transform: scale(1.04); }
+
+        /* Eyebrow tag */
+        .eyebrow {
+            display: inline-block;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 9999px;
+            background: rgba(194, 65, 12, 0.08);
+            color: #c2410c;
+        }
+
+        /* Mobile nav overlay */
+        .mobile-nav {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+        }
+        .mobile-nav.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .mobile-nav .nav-link {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s cubic-bezier(0.32, 0.72, 0, 1), transform 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+        }
+        .mobile-nav.open .nav-link:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 100ms; }
+        .mobile-nav.open .nav-link:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 160ms; }
+        .mobile-nav.open .nav-link:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 220ms; }
+        .mobile-nav.open .nav-link:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 280ms; }
+        .mobile-nav.open .nav-link:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 340ms; }
+        .mobile-nav.open .nav-link:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: 400ms; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- ═══════════════ FLOATING NAV ═══════════════ -->
+    <nav class="fixed top-0 left-0 right-0 z-40 flex justify-center pt-5 px-4">
+        <div class="nav-glass rounded-full px-3 py-2 flex items-center gap-1 max-w-3xl w-full md:w-auto">
+            <a href="#" class="font-display font-bold text-lg px-4 text-ink whitespace-nowrap">Kindling</a>
+            <div class="hidden md:flex items-center gap-1 ml-auto">
+                <a href="#about" class="px-4 py-2 text-sm font-medium text-muted hover:text-ink rounded-full hover:bg-black/[0.03] transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]">About</a>
+                <a href="#menu" class="px-4 py-2 text-sm font-medium text-muted hover:text-ink rounded-full hover:bg-black/[0.03] transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]">Menu</a>
+                <a href="#gallery" class="px-4 py-2 text-sm font-medium text-muted hover:text-ink rounded-full hover:bg-black/[0.03] transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]">Gallery</a>
+                <a href="#reviews" class="px-4 py-2 text-sm font-medium text-muted hover:text-ink rounded-full hover:bg-black/[0.03] transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]">Reviews</a>
+                <a href="#contact" class="px-4 py-2 text-sm font-medium text-muted hover:text-ink rounded-full hover:bg-black/[0.03] transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]">Contact</a>
+            </div>
+            <a href="#contact" class="hidden md:flex items-center gap-2 ml-3 bg-ink text-surface text-sm font-semibold px-5 py-2.5 rounded-full btn-press">
+                Reserve
+                <span class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center">
+                    <i class="ph ph-arrow-up-right text-xs"></i>
+                </span>
+            </a>
+            <!-- Mobile hamburger -->
+            <button id="menuBtn" class="md:hidden ml-auto w-10 h-10 flex items-center justify-center rounded-full hover:bg-black/[0.03]" aria-label="Menu">
+                <div class="flex flex-col gap-1.5 w-5" id="hamburger">
+                    <span class="block h-[1.5px] bg-ink rounded-full transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] origin-center"></span>
+                    <span class="block h-[1.5px] bg-ink rounded-full transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] origin-center"></span>
+                </div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile menu overlay -->
+    <div id="mobileNav" class="mobile-nav fixed inset-0 z-30 bg-surface/95 backdrop-blur-3xl flex flex-col items-center justify-center gap-6">
+        <a href="#about" class="nav-link font-display text-4xl font-medium text-ink">About</a>
+        <a href="#menu" class="nav-link font-display text-4xl font-medium text-ink">Menu</a>
+        <a href="#gallery" class="nav-link font-display text-4xl font-medium text-ink">Gallery</a>
+        <a href="#reviews" class="nav-link font-display text-4xl font-medium text-ink">Reviews</a>
+        <a href="#contact" class="nav-link font-display text-4xl font-medium text-ink">Contact</a>
+        <a href="#contact" class="nav-link mt-4 bg-ink text-surface text-lg font-semibold px-8 py-4 rounded-full btn-press">Reserve a Table</a>
+    </div>
+
+
+    <!-- ═══════════════ HERO — EDITORIAL SPLIT ═══════════════ -->
+    <section class="min-h-[100dvh] relative flex items-center overflow-hidden">
+        <!-- Left content -->
+        <div class="relative z-10 w-full md:w-1/2 px-6 md:px-16 lg:pl-[8vw] py-32 md:py-0">
+            <div class="max-w-xl">
+                <span class="eyebrow reveal">Wood-Fired & Seasonal</span>
+                <h1 class="font-display text-5xl md:text-7xl lg:text-[5.5rem] font-700 tracking-tight leading-[0.95] mt-6 reveal" style="transition-delay: 80ms">
+                    Cooking with<br>
+                    <span class="text-accent">fire</span> & intention
+                </h1>
+                <p class="text-muted text-lg md:text-xl leading-relaxed mt-8 max-w-[42ch] reveal" style="transition-delay: 160ms">
+                    Seasonal plates, wood-fired flavor, and craft cocktails built around what the land gives us each week.
+                </p>
+                <div class="flex flex-wrap gap-4 mt-10 reveal" style="transition-delay: 240ms">
+                    <a href="#menu" class="bg-ink text-surface font-semibold px-7 py-3.5 rounded-full btn-press flex items-center gap-3 text-sm">
+                        View the Menu
+                        <span class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center">
+                            <i class="ph ph-arrow-down text-xs"></i>
+                        </span>
+                    </a>
+                    <a href="#contact" class="border border-ink/15 text-ink font-semibold px-7 py-3.5 rounded-full btn-press text-sm hover:bg-ink/[0.03]">
+                        Reserve a Table
+                    </a>
+                </div>
+                <div class="flex items-center gap-6 mt-12 reveal" style="transition-delay: 320ms">
+                    <div class="flex items-center gap-2">
+                        <i class="ph ph-star-fill text-accent text-sm"></i>
+                        <span class="text-sm font-semibold">4.8</span>
+                        <span class="text-sm text-muted">on Google</span>
+                    </div>
+                    <div class="w-px h-4 bg-ink/10"></div>
+                    <div class="flex items-center gap-2">
+                        <i class="ph ph-map-pin text-accent text-sm"></i>
+                        <span class="text-sm text-muted">Portland, OR</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Right image -->
+        <div class="hidden md:block absolute right-0 top-0 bottom-0 w-[55%] overflow-hidden">
+            <div class="hero-img-mask w-full h-full">
+                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1400&h=1000&fit=crop&q=85"
+                     alt="Wood-fired cooking"
+                     class="w-full h-full object-cover">
+            </div>
+        </div>
+        <!-- Mobile hero image (below fold hint) -->
+        <div class="md:hidden absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-surface to-transparent z-20"></div>
+    </section>
+
+
+    <!-- ═══════════════ MARQUEE DIVIDER ═══════════════ -->
+    <div class="py-6 border-y border-ink/5 overflow-hidden">
+        <div class="flex whitespace-nowrap marquee-track">
+            <span class="inline-flex items-center gap-8 px-4 text-sm font-medium text-muted/60 tracking-wider uppercase">
+                <span>Wood-Fired</span> <span class="text-accent/40">&bull;</span>
+                <span>Seasonal Plates</span> <span class="text-accent/40">&bull;</span>
+                <span>Craft Cocktails</span> <span class="text-accent/40">&bull;</span>
+                <span>Local Ingredients</span> <span class="text-accent/40">&bull;</span>
+                <span>Open Kitchen</span> <span class="text-accent/40">&bull;</span>
+                <span>Private Dining</span> <span class="text-accent/40">&bull;</span>
+                <span>Weekend Brunch</span> <span class="text-accent/40">&bull;</span>
+                <span>Natural Wine</span> <span class="text-accent/40">&bull;</span>
+            </span>
+            <span class="inline-flex items-center gap-8 px-4 text-sm font-medium text-muted/60 tracking-wider uppercase">
+                <span>Wood-Fired</span> <span class="text-accent/40">&bull;</span>
+                <span>Seasonal Plates</span> <span class="text-accent/40">&bull;</span>
+                <span>Craft Cocktails</span> <span class="text-accent/40">&bull;</span>
+                <span>Local Ingredients</span> <span class="text-accent/40">&bull;</span>
+                <span>Open Kitchen</span> <span class="text-accent/40">&bull;</span>
+                <span>Private Dining</span> <span class="text-accent/40">&bull;</span>
+                <span>Weekend Brunch</span> <span class="text-accent/40">&bull;</span>
+                <span>Natural Wine</span> <span class="text-accent/40">&bull;</span>
+            </span>
+        </div>
+    </div>
+
+
+    <!-- ═══════════════ ABOUT — ASYMMETRIC ═══════════════ -->
+    <section id="about" class="py-28 md:py-40 px-6 md:px-16 lg:px-[8vw]">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 items-center">
+                <!-- Image column -->
+                <div class="md:col-span-5 reveal-left">
+                    <div class="doppelrand">
+                        <div class="doppelrand-inner overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&h=1000&fit=crop&q=80"
+                                 alt="Chef preparing wood-fired dish"
+                                 class="w-full aspect-[4/5] object-cover img-zoom">
+                        </div>
+                    </div>
+                </div>
+                <!-- Text column -->
+                <div class="md:col-span-7 reveal-right">
+                    <span class="eyebrow">Our Story</span>
+                    <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-700 tracking-tight leading-[1.05] mt-5">
+                        Built around the hearth
+                    </h2>
+                    <p class="text-muted text-lg leading-relaxed mt-6 max-w-[58ch]">
+                        Kindling started with a custom-built wood oven and a conviction: food tastes better when you let fire do the talking. Our kitchen works with farms within 60 miles, adjusting the menu weekly to follow what grows.
+                    </p>
+                    <p class="text-muted text-lg leading-relaxed mt-4 max-w-[58ch]">
+                        Every dish is cooked over hardwood coals, finished with smoke and char, and served in a dining room designed to feel like a friend's house &mdash; if your friend had impeccable taste and a 900-degree oven.
+                    </p>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 mt-12">
+                        <div>
+                            <div class="font-display text-3xl md:text-4xl font-700 text-accent">7</div>
+                            <div class="text-sm text-muted mt-1">Years running</div>
+                        </div>
+                        <div>
+                            <div class="font-display text-3xl md:text-4xl font-700 text-accent">12</div>
+                            <div class="text-sm text-muted mt-1">Local farm partners</div>
+                        </div>
+                        <div>
+                            <div class="font-display text-3xl md:text-4xl font-700 text-accent">900&deg;</div>
+                            <div class="text-sm text-muted mt-1">Wood oven temp</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════ MENU — EDITORIAL LIST ═══════════════ -->
+    <section id="menu" class="py-28 md:py-40 bg-warm">
+        <div class="max-w-5xl mx-auto px-6 md:px-16">
+            <div class="text-center mb-20 reveal">
+                <span class="eyebrow">The Menu</span>
+                <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-700 tracking-tight mt-5">Seasonal highlights</h2>
+                <p class="text-muted text-lg mt-4 max-w-[48ch] mx-auto">Changes weekly. Always built around what arrives from the farms that morning.</p>
+            </div>
+
+            <!-- Small plates -->
+            <div class="reveal">
+                <h3 class="font-display text-2xl font-600 mb-8 flex items-center gap-4">
+                    <span>Small Plates</span>
+                    <span class="flex-1 h-px bg-ink/8"></span>
+                </h3>
+                <div class="space-y-0 stagger">
+                    <div class="menu-line relative flex items-baseline justify-between py-5 border-b border-ink/5 reveal">
+                        <div>
+                            <div class="font-semibold text-lg">Grilled Sourdough & Bone Marrow Butter</div>
+                            <div class="text-muted text-sm mt-0.5">house-milled flour, smoked sea salt, chive oil</div>
+                        </div>
+                        <div class="font-display text-lg font-600 ml-4 whitespace-nowrap text-accent">$14</div>
+                    </div>
+                    <div class="menu-line relative flex items-baseline justify-between py-5 border-b border-ink/5 reveal">
+                        <div>
+                            <div class="font-semibold text-lg">Coal-Roasted Beets</div>
+                            <div class="text-muted text-sm mt-0.5">whipped ricotta, pistachio, burnt honey vinaigrette</div>
+                        </div>
+                        <div class="font-display text-lg font-600 ml-4 whitespace-nowrap text-accent">$16</div>
+                    </div>
+                    <div class="menu-line relative flex items-baseline justify-between py-5 border-b border-ink/5 reveal">
+                        <div>
+                            <div class="font-semibold text-lg">Ember-Charred Octopus</div>
+                            <div class="text-muted text-sm mt-0.5">romesco, crispy potatoes, salsa verde</div>
+                        </div>
+                        <div class="font-display text-lg font-600 ml-4 whitespace-nowrap text-accent">$22</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mains -->
+            <div class="mt-16 reveal">
+                <h3 class="font-display text-2xl font-600 mb-8 flex items-center gap-4">
+                    <span>From the Hearth</span>
+                    <span class="flex-1 h-px bg-ink/8"></span>
+                </h3>
+                <div class="space-y-0 stagger">
+                    <div class="menu-line relative flex items-baseline justify-between py-5 border-b border-ink/5 reveal">
+                        <div>
+                            <div class="font-semibold text-lg">Whole Roasted Branzino</div>
+                            <div class="text-muted text-sm mt-0.5">fennel, citrus, capers, olive oil, grilled lemon</div>
+                        </div>
+                        <div class="font-display text-lg font-600 ml-4 whitespace-nowrap text-accent">$38</div>
+                    </div>
+                    <div class="menu-line relative flex items-baseline justify-between py-5 border-b border-ink/5 reveal">
+                        <div>
+                            <div class="font-semibold text-lg">Wood-Fired Dry-Aged Ribeye</div>
+                            <div class="text-muted text-sm mt-0.5">32oz, bone-in, chimichurri, charred alliums</div>
+                        </div>
+                        <div class="font-display text-lg font-600 ml-4 whitespace-nowrap text-accent">$68</div>
+                    </div>
+                    <div class="menu-line relative flex items-baseline justify-between py-5 border-b border-ink/5 reveal">
+                        <div>
+                            <div class="font-semibold text-lg">Mushroom & Gruyere Flatbread</div>
+                            <div class="text-muted text-sm mt-0.5">foraged mix, truffle cream, arugula, shaved parmesan</div>
+                        </div>
+                        <div class="font-display text-lg font-600 ml-4 whitespace-nowrap text-accent">$26</div>
+                    </div>
+                    <div class="menu-line relative flex items-baseline justify-between py-5 border-b border-ink/5 reveal">
+                        <div>
+                            <div class="font-semibold text-lg">Braised Short Rib</div>
+                            <div class="text-muted text-sm mt-0.5">smoked polenta, gremolata, red wine reduction</div>
+                        </div>
+                        <div class="font-display text-lg font-600 ml-4 whitespace-nowrap text-accent">$42</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cocktails -->
+            <div class="mt-16 reveal">
+                <h3 class="font-display text-2xl font-600 mb-8 flex items-center gap-4">
+                    <span>Cocktails</span>
+                    <span class="flex-1 h-px bg-ink/8"></span>
+                </h3>
+                <div class="space-y-0 stagger">
+                    <div class="menu-line relative flex items-baseline justify-between py-5 border-b border-ink/5 reveal">
+                        <div>
+                            <div class="font-semibold text-lg">Smoke Signal</div>
+                            <div class="text-muted text-sm mt-0.5">mezcal, charred pineapple, lime, ancho chili</div>
+                        </div>
+                        <div class="font-display text-lg font-600 ml-4 whitespace-nowrap text-accent">$16</div>
+                    </div>
+                    <div class="menu-line relative flex items-baseline justify-between py-5 border-b border-ink/5 reveal">
+                        <div>
+                            <div class="font-semibold text-lg">The Forager</div>
+                            <div class="text-muted text-sm mt-0.5">gin, elderflower, rosemary, grapefruit, sparkling</div>
+                        </div>
+                        <div class="font-display text-lg font-600 ml-4 whitespace-nowrap text-accent">$15</div>
+                    </div>
+                    <div class="menu-line relative flex items-baseline justify-between py-5 reveal">
+                        <div>
+                            <div class="font-semibold text-lg">Kindling Old Fashioned</div>
+                            <div class="text-muted text-sm mt-0.5">bourbon, smoked maple, walnut bitters, orange peel</div>
+                        </div>
+                        <div class="font-display text-lg font-600 ml-4 whitespace-nowrap text-accent">$17</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════ GALLERY — ASYMMETRIC BENTO ═══════════════ -->
+    <section id="gallery" class="py-28 md:py-40 px-6 md:px-16 lg:px-[8vw]">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16 reveal">
+                <span class="eyebrow">The Space</span>
+                <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-700 tracking-tight mt-5">Inside Kindling</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-3 stagger">
+                <div class="md:col-span-7 md:row-span-2 reveal-scale">
+                    <div class="doppelrand h-full">
+                        <div class="doppelrand-inner overflow-hidden h-full">
+                            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900&h=700&fit=crop&q=80"
+                                 alt="Restaurant interior"
+                                 class="w-full h-full object-cover img-zoom aspect-[4/3] md:aspect-auto">
+                        </div>
+                    </div>
+                </div>
+                <div class="md:col-span-5 reveal-scale">
+                    <div class="doppelrand">
+                        <div class="doppelrand-inner overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&h=400&fit=crop&q=80"
+                                 alt="Bar area"
+                                 class="w-full aspect-[3/2] object-cover img-zoom">
+                        </div>
+                    </div>
+                </div>
+                <div class="md:col-span-5 reveal-scale">
+                    <div class="doppelrand">
+                        <div class="doppelrand-inner overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop&q=80"
+                                 alt="Plated dish"
+                                 class="w-full aspect-[3/2] object-cover img-zoom">
+                        </div>
+                    </div>
+                </div>
+                <div class="md:col-span-4 reveal-scale">
+                    <div class="doppelrand">
+                        <div class="doppelrand-inner overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=500&h=500&fit=crop&q=80"
+                                 alt="Cocktail preparation"
+                                 class="w-full aspect-square object-cover img-zoom">
+                        </div>
+                    </div>
+                </div>
+                <div class="md:col-span-4 reveal-scale">
+                    <div class="doppelrand">
+                        <div class="doppelrand-inner overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=500&h=500&fit=crop&q=80"
+                                 alt="Wood-fired cooking"
+                                 class="w-full aspect-square object-cover img-zoom">
+                        </div>
+                    </div>
+                </div>
+                <div class="md:col-span-4 reveal-scale">
+                    <div class="doppelrand">
+                        <div class="doppelrand-inner overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=500&h=500&fit=crop&q=80"
+                                 alt="Dining atmosphere"
+                                 class="w-full aspect-square object-cover img-zoom">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════ REVIEWS ═══════════════ -->
+    <section id="reviews" class="py-28 md:py-40 bg-warm">
+        <div class="max-w-6xl mx-auto px-6 md:px-16">
+            <div class="text-center mb-20 reveal">
+                <span class="eyebrow">What People Say</span>
+                <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-700 tracking-tight mt-5">From our guests</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 stagger">
+                <div class="reveal-scale">
+                    <div class="doppelrand">
+                        <div class="doppelrand-inner p-8 md:p-10">
+                            <div class="flex gap-1 mb-4">
+                                <i class="ph-fill ph-star text-accent text-sm"></i>
+                                <i class="ph-fill ph-star text-accent text-sm"></i>
+                                <i class="ph-fill ph-star text-accent text-sm"></i>
+                                <i class="ph-fill ph-star text-accent text-sm"></i>
+                                <i class="ph-fill ph-star text-accent text-sm"></i>
+                            </div>
+                            <p class="text-ink/80 text-lg leading-relaxed">
+                                &ldquo;The ribeye alone is worth the drive from Seattle. You can taste the wood smoke in every bite. The cocktail program is just as thoughtful as the food.&rdquo;
+                            </p>
+                            <div class="flex items-center gap-3 mt-6 pt-6 border-t border-ink/5">
+                                <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent font-bold text-sm">MR</div>
+                                <div>
+                                    <div class="font-semibold text-sm">Marcus Reeves</div>
+                                    <div class="text-muted text-xs">3 weeks ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal-scale">
+                    <div class="doppelrand">
+                        <div class="doppelrand-inner p-8 md:p-10">
+                            <div class="flex gap-1 mb-4">
+                                <i class="ph-fill ph-star text-accent text-sm"></i>
+                                <i class="ph-fill ph-star text-accent text-sm"></i>
+                                <i class="ph-fill ph-star text-accent text-sm"></i>
+                                <i class="ph-fill ph-star text-accent text-sm"></i>
+                                <i class="ph-fill ph-star text-accent text-sm"></i>
+                            </div>
+                            <p class="text-ink/80 text-lg leading-relaxed">
+                                &ldquo;We did the tasting menu for our anniversary and it was the best meal we've had in Portland. Every course told a story. The coal-roasted beets were transcendent.&rdquo;
+                            </p>
+                            <div class="flex items-center gap-3 mt-6 pt-6 border-t border-ink/5">
+                                <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent font-bold text-sm">JT</div>
+                                <div>
+                                    <div class="font-semibold text-sm">Juliana Torres</div>
+                                    <div class="text-muted text-xs">1 month ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal-scale">
+                    <div class="doppelrand">
+                        <div class="doppelrand-inner p-8 md:p-10">
+                            <div class="flex gap-1 mb-4">
+                                <i class="ph-fill ph-star text-accent text-sm"></i>
+                                <i class="ph-fill ph-star text-accent text-sm"></i>
+                                <i class="ph-fill ph-star text-accent text-sm"></i>
+                                <i class="ph-fill ph-star text-accent text-sm"></i>
+                                <i class="ph ph-star text-accent/30 text-sm"></i>
+                            </div>
+                            <p class="text-ink/80 text-lg leading-relaxed">
+                                &ldquo;Atmosphere is stunning &mdash; warm wood, open flame, the smell of the oven the second you walk in. Felt like eating at a cabin designed by an architect.&rdquo;
+                            </p>
+                            <div class="flex items-center gap-3 mt-6 pt-6 border-t border-ink/5">
+                                <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent font-bold text-sm">NK</div>
+                                <div>
+                                    <div class="font-semibold text-sm">Nadia Kowalski</div>
+                                    <div class="text-muted text-xs">2 months ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal-scale">
+                    <div class="doppelrand">
+                        <div class="doppelrand-inner p-8 md:p-10">
+                            <div class="flex gap-1 mb-4">
+                                <i class="ph-fill ph-star text-accent text-sm"></i>
+                                <i class="ph-fill ph-star text-accent text-sm"></i>
+                                <i class="ph-fill ph-star text-accent text-sm"></i>
+                                <i class="ph-fill ph-star text-accent text-sm"></i>
+                                <i class="ph-fill ph-star text-accent text-sm"></i>
+                            </div>
+                            <p class="text-ink/80 text-lg leading-relaxed">
+                                &ldquo;The Smoke Signal cocktail is dangerously good. Staff genuinely knows every dish and can walk you through the sourcing. Rare to find that kind of care.&rdquo;
+                            </p>
+                            <div class="flex items-center gap-3 mt-6 pt-6 border-t border-ink/5">
+                                <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent font-bold text-sm">DH</div>
+                                <div>
+                                    <div class="font-semibold text-sm">Derek Holloway</div>
+                                    <div class="text-muted text-xs">3 weeks ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════ CONTACT — SPLIT LAYOUT ═══════════════ -->
+    <section id="contact" class="py-28 md:py-40 px-6 md:px-16 lg:px-[8vw]">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
+                <div class="md:col-span-5 reveal-left">
+                    <span class="eyebrow">Get in Touch</span>
+                    <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-700 tracking-tight leading-[1.05] mt-5">
+                        Come gather<br>around the fire
+                    </h2>
+                    <p class="text-muted text-lg leading-relaxed mt-6 max-w-[42ch]">
+                        Walk-ins are welcome at the bar. For the dining room, we recommend reserving ahead &mdash; especially Thursday through Saturday.
+                    </p>
+                    <div class="space-y-6 mt-10">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-accent/8 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i class="ph ph-map-pin text-accent"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-sm">Address</div>
+                                <div class="text-muted text-sm mt-0.5">2847 SE Hawthorne Blvd<br>Portland, OR 97214</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-accent/8 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i class="ph ph-clock text-accent"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-sm">Hours</div>
+                                <div class="text-muted text-sm mt-0.5">Tue &ndash; Thu: 5PM &ndash; 10PM<br>Fri &ndash; Sat: 5PM &ndash; 11PM<br>Sun Brunch: 10AM &ndash; 2PM<br>Mon: Closed</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-accent/8 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i class="ph ph-phone text-accent"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-sm">Phone</div>
+                                <div class="text-muted text-sm mt-0.5">(503) 847-2163</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-accent/8 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i class="ph ph-envelope text-accent"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-sm">Email</div>
+                                <div class="text-muted text-sm mt-0.5">hello@kindlingpdx.com</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 mt-10">
+                        <a href="#" class="w-10 h-10 rounded-full border border-ink/10 flex items-center justify-center text-muted hover:text-accent hover:border-accent/30 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] btn-press">
+                            <i class="ph ph-instagram-logo text-lg"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-ink/10 flex items-center justify-center text-muted hover:text-accent hover:border-accent/30 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] btn-press">
+                            <i class="ph ph-facebook-logo text-lg"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-ink/10 flex items-center justify-center text-muted hover:text-accent hover:border-accent/30 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] btn-press">
+                            <i class="ph ph-tiktok-logo text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Map / reservation card -->
+                <div class="md:col-span-7 reveal-right">
+                    <div class="doppelrand">
+                        <div class="doppelrand-inner overflow-hidden">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2796.2!2d-122.6347!3d45.5122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDXCsDMwJzQ0LjAiTiAxMjLCsDM4JzA0LjgiVw!5e0!3m2!1sen!2sus!4v1"
+                                width="100%" height="350" style="border:0; border-radius: calc(2rem - 6px) calc(2rem - 6px) 0 0;" allowfullscreen="" loading="lazy"></iframe>
+                            <div class="p-8 md:p-10">
+                                <h3 class="font-display text-2xl font-600">Make a reservation</h3>
+                                <p class="text-muted text-sm mt-2">Fill out the form and we'll confirm within 2 hours.</p>
+                                <form class="mt-6 space-y-4" onsubmit="event.preventDefault();">
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-xs font-semibold text-muted mb-1.5 uppercase tracking-wider">Name</label>
+                                            <input type="text" placeholder="Your name" class="w-full px-4 py-3 rounded-xl border border-ink/8 bg-surface text-sm focus:outline-none focus:border-accent/40 focus:ring-2 focus:ring-accent/10 transition-all duration-300">
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-semibold text-muted mb-1.5 uppercase tracking-wider">Phone</label>
+                                            <input type="tel" placeholder="(503) 000-0000" class="w-full px-4 py-3 rounded-xl border border-ink/8 bg-surface text-sm focus:outline-none focus:border-accent/40 focus:ring-2 focus:ring-accent/10 transition-all duration-300">
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-xs font-semibold text-muted mb-1.5 uppercase tracking-wider">Date</label>
+                                            <input type="date" class="w-full px-4 py-3 rounded-xl border border-ink/8 bg-surface text-sm focus:outline-none focus:border-accent/40 focus:ring-2 focus:ring-accent/10 transition-all duration-300">
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-semibold text-muted mb-1.5 uppercase tracking-wider">Party size</label>
+                                            <select class="w-full px-4 py-3 rounded-xl border border-ink/8 bg-surface text-sm focus:outline-none focus:border-accent/40 focus:ring-2 focus:ring-accent/10 transition-all duration-300">
+                                                <option>2 guests</option>
+                                                <option>3 guests</option>
+                                                <option>4 guests</option>
+                                                <option>5 guests</option>
+                                                <option>6 guests</option>
+                                                <option>7-8 guests</option>
+                                                <option>Private dining (9+)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-muted mb-1.5 uppercase tracking-wider">Special requests</label>
+                                        <textarea placeholder="Allergies, celebrations, seating preferences..." rows="3" class="w-full px-4 py-3 rounded-xl border border-ink/8 bg-surface text-sm focus:outline-none focus:border-accent/40 focus:ring-2 focus:ring-accent/10 transition-all duration-300 resize-none"></textarea>
+                                    </div>
+                                    <button type="submit" class="w-full bg-ink text-surface font-semibold py-3.5 rounded-full btn-press flex items-center justify-center gap-3 text-sm mt-2">
+                                        Request Reservation
+                                        <span class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center">
+                                            <i class="ph ph-arrow-right text-xs"></i>
+                                        </span>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <footer class="border-t border-ink/5 py-12 px-6 md:px-16 lg:px-[8vw]">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <span class="font-display text-xl font-bold">Kindling</span>
+                <span class="text-muted text-sm">Kitchen & Bar</span>
+            </div>
+            <div class="flex items-center gap-6 text-sm text-muted">
+                <a href="#about" class="hover:text-ink transition-colors duration-300">About</a>
+                <a href="#menu" class="hover:text-ink transition-colors duration-300">Menu</a>
+                <a href="#gallery" class="hover:text-ink transition-colors duration-300">Gallery</a>
+                <a href="#contact" class="hover:text-ink transition-colors duration-300">Contact</a>
+            </div>
+            <div class="text-sm text-muted/60">
+                &copy; 2026 Kindling Kitchen & Bar
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ═══════════════ SCRIPTS ═══════════════ -->
+    <script>
+        // Scroll reveal with IntersectionObserver
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // Mobile nav toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const hamburger = document.getElementById('hamburger');
+        let navOpen = false;
+
+        menuBtn.addEventListener('click', () => {
+            navOpen = !navOpen;
+            mobileNav.classList.toggle('open', navOpen);
+            const lines = hamburger.querySelectorAll('span');
+            if (navOpen) {
+                lines[0].style.transform = 'translateY(4.5px) rotate(45deg)';
+                lines[1].style.transform = 'translateY(-4.5px) rotate(-45deg)';
+            } else {
+                lines[0].style.transform = '';
+                lines[1].style.transform = '';
+            }
+        });
+
+        // Close mobile nav on link click
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navOpen = false;
+                mobileNav.classList.remove('open');
+                const lines = hamburger.querySelectorAll('span');
+                lines[0].style.transform = '';
+                lines[1].style.transform = '';
+            });
+        });
+
+        // Navbar background on scroll
+        const nav = document.querySelector('nav > div');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                nav.style.boxShadow = '0 4px 30px rgba(0,0,0,0.06)';
+            } else {
+                nav.style.boxShadow = '';
+            }
+        }, { passive: true });
+
+        // Initialize Phosphor icons
+        if (window.PhosphorIcons) {
+            // Icons auto-initialize
+        }
+    </script>
+</body>
+</html>
