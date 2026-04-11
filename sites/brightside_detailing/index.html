@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Licensed electricians for residential and commercial projects">
-    <title>Hylton Electric LLC — Licensed electricians for residential and commercial projects</title>
+    <meta name="description" content="Professional auto detailing that makes your vehicle look brand new">
+    <title>Brightside Detailing — Professional auto detailing that makes your vehicle look brand new</title>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -22,9 +22,9 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#b45309',
-                        secondary: '#f59e0b',
-                        accent: '#fef9c3',
+                        primary: '#7c2d12',
+                        secondary: '#ea580c',
+                        accent: '#fff7ed',
                     },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -82,9 +82,9 @@
         .hero-gradient {
             background: linear-gradient(
                 135deg,
-                #b4530999 0%,
-                #f59e0b99 50%,
-                #b4530999 100%
+                #7c2d1299 0%,
+                #ea580c99 50%,
+                #7c2d1299 100%
             );
         }
         .hero-pattern {
@@ -99,7 +99,7 @@
             100% { background-position: 0% 50%; }
         }
         .animated-gradient-text {
-            background: linear-gradient(270deg, #fff, #fef9c3, #fff, #f59e0b);
+            background: linear-gradient(270deg, #fff, #fff7ed, #fff, #ea580c);
             background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -150,8 +150,8 @@
 
         /* ── Service icon ring ─────────────────────────── */
         .icon-ring {
-            background: linear-gradient(135deg, #f59e0b15, #f59e0b08);
-            border: 1px solid #f59e0b20;
+            background: linear-gradient(135deg, #ea580c15, #ea580c08);
+            border: 1px solid #ea580c20;
         }
 
         /* ── Gallery hover overlay ─────────────────────── */
@@ -173,7 +173,7 @@
             position: absolute;
             inset: -4px;
             border-radius: inherit;
-            border: 2px solid #f59e0b;
+            border: 2px solid #ea580c;
             animation: pulse-ring 2s ease-out infinite;
         }
 
@@ -181,11 +181,11 @@
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f5f9; }
         ::-webkit-scrollbar-thumb {
-            background: #f59e0b60;
+            background: #ea580c60;
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #f59e0b;
+            background: #ea580c;
         }
     </style>
 </head>
@@ -198,7 +198,7 @@
 
 <a href="https://buy.stripe.com/14A14nbN85xO4Yu6S1bZe01" target="_blank" id="discount-bubble" style="position:fixed; bottom:20px; right:20px; z-index:9999; text-decoration:none; animation: bubble-pulse 2s ease-in-out infinite;">
     <div style="background:linear-gradient(135deg,#dc2626,#ea580c); border-radius:16px; padding:12px 16px; box-shadow:0 8px 32px rgba(220,38,38,0.4); max-width:200px; text-align:center; font-family:'Inter',system-ui,sans-serif;">
-        <div style="color:#fef08a; font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">&#9200; 7-DAY DEAL</div>
+        <div style="color:#fef08a; font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">&#9200; 48hr deal</div>
         <div style="display:flex; align-items:center; justify-content:center; gap:6px;">
             <span style="color:rgba(255,255,255,0.5); text-decoration:line-through; font-size:13px; font-weight:600;">$1250</span>
             <span style="color:#ffffff; font-size:22px; font-weight:800;">$500</span>
@@ -216,10 +216,10 @@
 <script>
     (function() {
         var key = 'discount_start_' + location.pathname;
-        var start = localStorage.getItem(key + '_ext');
-        if (!start) { start = Date.now(); localStorage.setItem(key + '_ext', start); }
+        var start = localStorage.getItem(key);
+        if (!start) { start = Date.now(); localStorage.setItem(key, start); }
         start = parseInt(start);
-        var end = start + 7 * 24 * 60 * 60 * 1000;
+        var end = start + 48 * 60 * 60 * 1000;
         var el = document.getElementById('countdown-timer');
         function tick() {
             var left = Math.max(0, end - Date.now());
@@ -244,7 +244,7 @@
             <!-- Logo / Brand -->
             <a href="#hero" class="flex items-center gap-2 group">
                 <span id="nav-brand" class="text-xl font-bold text-white transition-all duration-300 opacity-0 -translate-x-2">
-                    Hylton Electric LLC
+                    Brightside Detailing
                 </span>
             </a>
 
@@ -276,9 +276,9 @@
                     Contact
                 </a>
                 
-                <a href="tel:(863) 624-7000" class="ml-2 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary text-white text-sm font-semibold hover:bg-secondary/90 transition-all shadow-lg shadow-secondary/20 hover:shadow-secondary/40">
+                <a href="tel:(512) 890-2414" class="ml-2 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary text-white text-sm font-semibold hover:bg-secondary/90 transition-all shadow-lg shadow-secondary/20 hover:shadow-secondary/40">
                     <i data-lucide="phone" class="w-4 h-4"></i>
-                    (863) 624-7000
+                    (512) 890-2414
                 </a>
             </div>
 
@@ -307,7 +307,7 @@
             
             <a href="#contact" class="mobile-link text-2xl font-semibold text-primary hover:text-secondary transition-colors">Contact</a>
             
-            <a href="tel:(863) 624-7000" class="mt-4 inline-flex items-center gap-2 px-8 py-3 rounded-full bg-secondary text-white font-semibold text-lg">
+            <a href="tel:(512) 890-2414" class="mt-4 inline-flex items-center gap-2 px-8 py-3 rounded-full bg-secondary text-white font-semibold text-lg">
                 <i data-lucide="phone" class="w-5 h-5"></i>
                 Call Now
             </a>
@@ -319,13 +319,7 @@
 <!-- ════════════════════════════════════════════════════════
      HERO SECTION
      ════════════════════════════════════════════════════════ -->
-<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden" style="background: linear-gradient(135deg, #78350f 0%, #b45309 40%, #f59e0b 100%)">
-    
-    <!-- Real business photo as hero background -->
-    <div class="absolute inset-0 z-0">
-        <img src="assets/images/hero.jpg" alt="Hylton Electric LLC" class="w-full h-full object-cover">
-        <div class="absolute inset-0 hero-tint" style="background: linear-gradient(135deg, #78350f99 0%, #b4530999 40%, #f59e0b99 100%)"></div>
-    </div>
+<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden" style="background: linear-gradient(135deg, #431407 0%, #7c2d12 40%, #ea580c 100%)">
     
     <!-- Decorative floating shapes -->
     <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
@@ -338,34 +332,34 @@
         <!-- Eyebrow -->
         <div class="reveal inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/80 text-sm font-medium mb-8 backdrop-blur-sm">
             <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-            5 ★ rated · 102 Google reviews
+            5 ★ rated · 273 Google reviews
         </div>
 
         <!-- Main Heading -->
         <h1 class="reveal font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6" style="transition-delay:0.1s; color:#ffffff; text-shadow: 0 2px 20px rgba(0,0,0,0.3)">
-            Hylton Electric LLC
+            Brightside Detailing
         </h1>
 
         <!-- Animated Tagline -->
         <p class="reveal animated-gradient-text text-xl sm:text-2xl md:text-3xl font-semibold mb-6" style="transition-delay:0.2s; color: rgba(255,255,255,0.9)">
-            Licensed electricians for residential and commercial projects
+            Professional auto detailing that makes your vehicle look brand new
         </p>
 
         <!-- Sub-description -->
         <p class="reveal text-white/70 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed" style="transition-delay:0.3s">
-            Hylton Electric LLC — serving Tampa with professional electrician services. Rated 5/5 by 102 customers on Google. Call us at (863) 624-7000.
+            Brightside Detailing — serving Austin with professional auto detailing services. Rated 5/5 by 273 customers on Google. Call us at (512) 890-2414.
         </p>
 
         <!-- CTA Buttons -->
         <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4" style="transition-delay:0.4s">
             <a href="#contact" class="relative pulse-ring inline-flex items-center gap-2 px-8 py-4 rounded-full bg-secondary text-white font-bold text-lg hover:bg-secondary/90 transition-all shadow-2xl shadow-secondary/30">
-                Get a Free Estimate
+                Get a Quote
                 <i data-lucide="arrow-right" class="w-5 h-5"></i>
             </a>
             
-            <a href="tel:(863) 624-7000" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 border border-white/30 text-white font-semibold text-lg hover:bg-white/20 transition-all backdrop-blur-sm">
+            <a href="tel:(512) 890-2414" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 border border-white/30 text-white font-semibold text-lg hover:bg-white/20 transition-all backdrop-blur-sm">
                 <i data-lucide="phone" class="w-5 h-5"></i>
-                Emergency Service
+                Call Now
             </a>
             
         </div>
@@ -381,12 +375,12 @@
             
             <div class="flex items-center gap-2">
                 <i data-lucide="star" class="w-5 h-5"></i>
-                <span>102+ Reviews</span>
+                <span>273+ Reviews</span>
             </div>
             
             <div class="flex items-center gap-2">
                 <i data-lucide="clock" class="w-5 h-5"></i>
-                <span>Located in Tampa</span>
+                <span>Located in Austin</span>
             </div>
             
         </div>
@@ -408,11 +402,11 @@
         <div class="text-center max-w-3xl mx-auto mb-16">
             <p class="reveal text-secondary font-semibold text-sm uppercase tracking-widest mb-3">WHAT WE OFFER</p>
             <h2 class="reveal font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-6" style="transition-delay:0.1s">
-                Electrical Services
+                Detailing Services
             </h2>
             
             <p class="reveal text-gray-500 text-lg leading-relaxed" style="transition-delay:0.15s">
-                Licensed electricians providing safe, reliable electrical work for home and business.
+                Professional detailing that brings your vehicle back to showroom condition.
             </p>
             
         </div>
@@ -423,50 +417,52 @@
             
             <div class="reveal-scale card-hover bg-white rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.0s">
                 <div class="icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <i data-lucide="star" class="w-7 h-7 text-secondary"></i>
+                    <i data-lucide="sparkles" class="w-7 h-7 text-secondary"></i>
                 </div>
-                <h3 class="text-xl font-bold text-primary mb-3">Eddie and he was wonderful -</h3>
-                <p class="text-gray-500 leading-relaxed">he was timely, highly professional, and clearly experienced. Beyond that, I appreciated that he was respectful of my pro</p>
+                <h3 class="text-xl font-bold text-primary mb-3">Detailing
+
+Deep interior cleaning</h3>
+                <p class="text-gray-500 leading-relaxed">vacuuming, carpet scrubbing, plastics, seats, and windows done right.</p>
             </div>
             
             <div class="reveal-scale card-hover bg-white rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.08s">
                 <div class="icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                     <i data-lucide="star" class="w-7 h-7 text-secondary"></i>
                 </div>
-                <h3 class="text-xl font-bold text-primary mb-3">The reviews are true -</h3>
-                <p class="text-gray-500 leading-relaxed">don't hesitate to reach out to them!</p>
+                <h3 class="text-xl font-bold text-primary mb-3">Beasley's nano</h3>
+                <p class="text-gray-500 leading-relaxed">ceramic protection. 5-, 7-, and 25-year packages available.</p>
             </div>
             
             <div class="reveal-scale card-hover bg-white rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.16s">
                 <div class="icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <i data-lucide="star" class="w-7 h-7 text-secondary"></i>
+                    <i data-lucide="sparkles" class="w-7 h-7 text-secondary"></i>
                 </div>
-                <h3 class="text-xl font-bold text-primary mb-3">Hylton Electric LLC and Tech Christian</h3>
-                <p class="text-gray-500 leading-relaxed">“I had an exceptional experience with Hylton Electric LLC, particularly with Tech Christian. His professionalism and att</p>
+                <h3 class="text-xl font-bold text-primary mb-3">Marine detailing for boats and watercraft</h3>
+                <p class="text-gray-500 leading-relaxed">hull cleaning, upholstery, and surface protection.</p>
             </div>
             
             <div class="reveal-scale card-hover bg-white rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.24s">
                 <div class="icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                     <i data-lucide="star" class="w-7 h-7 text-secondary"></i>
                 </div>
-                <h3 class="text-xl font-bold text-primary mb-3">Christian for top</h3>
-                <p class="text-gray-500 leading-relaxed">notch service</p>
+                <h3 class="text-xl font-bold text-primary mb-3">Using eco</h3>
+                <p class="text-gray-500 leading-relaxed">friendly, waterless polymer technology, we deliver showroom-quality results while saving roughly 35 gallons of water per</p>
             </div>
             
             <div class="reveal-scale card-hover bg-white rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.32s">
                 <div class="icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <i data-lucide="star" class="w-7 h-7 text-secondary"></i>
+                    <i data-lucide="sparkles" class="w-7 h-7 text-secondary"></i>
                 </div>
-                <h3 class="text-xl font-bold text-primary mb-3">Gloria Arroyo</h3>
-                <p class="text-gray-500 leading-relaxed">Trustindex verifies that the original source of the review is Google.</p>
+                <h3 class="text-xl font-bold text-primary mb-3">Detailing serves the entire Austin metro</h3>
+                <p class="text-gray-500 leading-relaxed">from Zilker and Bouldin Creek to Cedar Park, Round Rock, and Georgetown. Whether your vehicle needs a full</p>
             </div>
             
             <div class="reveal-scale card-hover bg-white rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.4s">
                 <div class="icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <i data-lucide="wrench" class="w-7 h-7 text-secondary"></i>
+                    <i data-lucide="star" class="w-7 h-7 text-secondary"></i>
                 </div>
-                <h3 class="text-xl font-bold text-primary mb-3">Electrical Repairs</h3>
-                <p class="text-gray-500 leading-relaxed">Don’t hesitate to request Christian for top-notch service Joey was the electrician assigned with...</p>
+                <h3 class="text-xl font-bold text-primary mb-3">South Austin and comes to you</h3>
+                <p class="text-gray-500 leading-relaxed">at home, work, or any parking lot. Book online or give us a call. We'd love to take care of your vehicle.</p>
             </div>
             
         </div>
@@ -484,19 +480,15 @@
             <div class="reveal-left relative">
                 <div class="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
                     
-                    <img
-                        src="assets/images/about.jpg"
-                        alt="Hylton Electric LLC"
-                        class="w-full h-full object-cover"
-                        loading="lazy"
-                    >
-                    <div class="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
+                    <div class="w-full h-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                        <span class="text-6xl">🚗</span>
+                    </div>
                     
                 </div>
                 <!-- Floating stat card -->
                 
                 <div class="absolute -bottom-6 -right-6 sm:right-8 bg-white rounded-2xl p-6 shadow-xl border border-gray-100">
-                    <div class="text-4xl font-bold text-secondary mb-1">102</div>
+                    <div class="text-4xl font-bold text-secondary mb-1">273</div>
                     <div class="text-gray-500 text-sm font-medium">Google Reviews</div>
                 </div>
                 
@@ -506,10 +498,10 @@
             <div class="reveal-right">
                 <p class="text-secondary font-semibold text-sm uppercase tracking-widest mb-3">About Us</p>
                 <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-6 leading-tight">
-                    Why Choose Hylton Electric LLC?
+                    Why Choose Brightside Detailing?
                 </h2>
                 <p class="text-gray-600 text-lg leading-relaxed mb-8">
-                    Hylton Electric LLC is a electrician business located in Tampa. Rated 5 out of 5 stars based on 102 Google reviews. Located at 122 E Main St #115, Lakeland, FL 33801, USA. Call (863) 624-7000 to get in touch.
+                    Brightside Detailing is a auto detailing business located in Austin. Rated 5 out of 5 stars based on 273 Google reviews. Located at 1700 S Lamar Blvd #338, Austin, TX 78704, USA. Call (512) 890-2414 to get in touch.
                 </p>
 
                 <!-- About highlights -->
@@ -527,7 +519,7 @@
                         <div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0">
                             <i data-lucide="check" class="w-4 h-4 text-secondary"></i>
                         </div>
-                        <span class="text-primary font-medium">102+ Customer Reviews</span>
+                        <span class="text-primary font-medium">273+ Customer Reviews</span>
                     </div>
                     
                     <div class="flex items-center gap-3">
@@ -541,7 +533,7 @@
                         <div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0">
                             <i data-lucide="check" class="w-4 h-4 text-secondary"></i>
                         </div>
-                        <span class="text-primary font-medium">Serving Tampa</span>
+                        <span class="text-primary font-medium">Serving Austin</span>
                     </div>
                     
                 </div>
@@ -598,16 +590,16 @@
                             </div>
                             <!-- Quote -->
                             <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
-                                "What in the past has been a long and tedious day of installing lighting and fans, today was different.  Alex and Al (I hope I got their names right?) went above and beyond with their patience and willingness to make changes. The house is beautiful.  Thanks."
+                                "Top notch great people that provide unbelievably great services. I can’t recommend enough. The picture speaks for itself. I had a run in with those tall plastic hollow flimsy, lane dividers sometimes seen on freeways.  While I’ve been out of town (still haven’t seen car in person yet) all of my “embarrassment” was gone!  THANK YOU"
                             </blockquote>
                             <!-- Author -->
                             <div class="flex items-center gap-4">
                                 <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
-                                    B
+                                    C
                                 </div>
                                 <div>
-                                    <div class="font-semibold text-white">Bobbie Inger</div>
-                                    <div class="text-white/50 text-sm">2 years ago</div>
+                                    <div class="font-semibold text-white">CHUCK HENDERSON</div>
+                                    <div class="text-white/50 text-sm">a month ago</div>
                                 </div>
                             </div>
                         </div>
@@ -631,18 +623,19 @@
                             </div>
                             <!-- Quote -->
                             <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
-                                "Hylton Electric LLC and Tech Christian:
+                                "I was really skeptical. These people absolutely know what they’re doing. I was so impressed that I’m scheduling the next visits for my other cars. The ceramic job really makes the paint pop too!!
+So important, the 2 people were professional as well as friendly and accessible, patiently explaining and giving me the information I needed to confidently proceed with the work. I’m so very glad I did!
 
-“I had an exceptional experience with Hylton Electric LLC, particularly with Tech Christian. His professionalism and attention to detail were outstanding. He took thorough pictures of all the electrical issues and explained everything clearly, ensuring I understood the situation. Christian not only identified potential hazards but also promptly addressed a critical issue to ensure safety. Even made sure to remind me to check all my smoke detectors, I highly recommend Hylton Electric LLC for anyone needing electrical services in Pinellas County or nearby areas. Don’t hesitate to request Christian for top-notch service"
+tm"
                             </blockquote>
                             <!-- Author -->
                             <div class="flex items-center gap-4">
                                 <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
-                                    K
+                                    T
                                 </div>
                                 <div>
-                                    <div class="font-semibold text-white">Kenneth S</div>
-                                    <div class="text-white/50 text-sm">2 years ago</div>
+                                    <div class="font-semibold text-white">Tony Marazzo</div>
+                                    <div class="text-white/50 text-sm">a month ago</div>
                                 </div>
                             </div>
                         </div>
@@ -666,16 +659,16 @@
                             </div>
                             <!-- Quote -->
                             <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
-                                "Joey was the electrician assigned with installing a new 30-A outlet in our garage for our electric vehicle. He was responsive, efficient, thorough, and even went above and beyond by installing a hook for us once he was finished. Even after all that, he cleaned up after himself and was extremely professional the whole time! Definitely recommend Joey and Hylton Electric for any electrical needs!"
+                                "Brent came out to my place to remove some paint splatter that got on my Tesla, and he did an incredible job. You’d never know there was anything there. He was professional, showed up early, and charged a very fair price. Super convenient having him come to me instead of taking the car in. Highly recommend Brent for any detailing work!"
                             </blockquote>
                             <!-- Author -->
                             <div class="flex items-center gap-4">
                                 <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
-                                    L
+                                    R
                                 </div>
                                 <div>
-                                    <div class="font-semibold text-white">Laura Genao</div>
-                                    <div class="text-white/50 text-sm">2 years ago</div>
+                                    <div class="font-semibold text-white">Reese Reissig</div>
+                                    <div class="text-white/50 text-sm">5 months ago</div>
                                 </div>
                             </div>
                         </div>
@@ -699,16 +692,16 @@
                             </div>
                             <!-- Quote -->
                             <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
-                                "Ray was very responsive and sent his guys on time, every time. They did the work and were meticulous. They kept in communication throughout the project and sent me before and after pics of everything. Very professional staff."
+                                "This was my first time getting my car professionally detailed, and it definitely won’t be my last! The team was professional, thorough, and did an amazing job — my car looks brand new. Pricing was very reasonable, and the entire experience was smooth and easy. Highly recommend!"
                             </blockquote>
                             <!-- Author -->
                             <div class="flex items-center gap-4">
                                 <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
-                                    J
+                                    E
                                 </div>
                                 <div>
-                                    <div class="font-semibold text-white">Jim Kostas</div>
-                                    <div class="text-white/50 text-sm">3 years ago</div>
+                                    <div class="font-semibold text-white">Elisa Escalona</div>
+                                    <div class="text-white/50 text-sm">a month ago</div>
                                 </div>
                             </div>
                         </div>
@@ -732,16 +725,16 @@
                             </div>
                             <!-- Quote -->
                             <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
-                                "Al and Kawan came out to my place today to install a Tesla charger and also an outdoor socket to plug my generator into. The guys were super friendly and were hustling to get the project completed. I was really excited at how everything turned out. I could have never done this project on my own. Hylton Electric was great! Thanks!"
+                                "Brightside did an excellent job detailing both the interior and exterior of my truck. They are friendly, hard-working, and highly skilled at their trade. I’m very pleased with both of the service and the product. Highly recommended."
                             </blockquote>
                             <!-- Author -->
                             <div class="flex items-center gap-4">
                                 <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
-                                    B
+                                    T
                                 </div>
                                 <div>
-                                    <div class="font-semibold text-white">Brian Meert</div>
-                                    <div class="text-white/50 text-sm">3 years ago</div>
+                                    <div class="font-semibold text-white">Tim L</div>
+                                    <div class="text-white/50 text-sm">a month ago</div>
                                 </div>
                             </div>
                         </div>
@@ -782,100 +775,6 @@
      GALLERY / PORTFOLIO SECTION
      ════════════════════════════════════════════════════════ -->
 
-<section id="gallery" class="py-24 lg:py-32">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Section header -->
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <p class="reveal text-secondary font-semibold text-sm uppercase tracking-widest mb-3">Our Work</p>
-            <h2 class="reveal font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-6" style="transition-delay:0.1s">
-                Photos
-            </h2>
-        </div>
-
-        <!-- Gallery Grid -->
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-            
-            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group md:col-span-2 md:row-span-2" style="transition-delay:0.0s">
-                <div class="aspect-square md:aspect-[4/3]">
-                    <img
-                        src="assets/images/gallery_1.jpg"
-                        alt="Hylton Electric LLC photo 1"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                    >
-                </div>
-            </div>
-            
-            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group " style="transition-delay:0.06s">
-                <div class="aspect-square ">
-                    <img
-                        src="assets/images/gallery_2.jpg"
-                        alt="Hylton Electric LLC photo 2"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                    >
-                </div>
-            </div>
-            
-            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group " style="transition-delay:0.12s">
-                <div class="aspect-square ">
-                    <img
-                        src="assets/images/gallery_3.jpg"
-                        alt="Hylton Electric LLC photo 3"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                    >
-                </div>
-            </div>
-            
-            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group " style="transition-delay:0.18s">
-                <div class="aspect-square ">
-                    <img
-                        src="assets/images/gallery_4.jpg"
-                        alt="Hylton Electric LLC photo 4"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                    >
-                </div>
-            </div>
-            
-            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group " style="transition-delay:0.24s">
-                <div class="aspect-square ">
-                    <img
-                        src="assets/images/gallery_5.jpg"
-                        alt="Hylton Electric LLC photo 5"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                    >
-                </div>
-            </div>
-            
-            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group " style="transition-delay:0.3s">
-                <div class="aspect-square ">
-                    <img
-                        src="assets/images/gallery_6.jpg"
-                        alt="Hylton Electric LLC photo 6"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                    >
-                </div>
-            </div>
-            
-            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group " style="transition-delay:0.36s">
-                <div class="aspect-square ">
-                    <img
-                        src="assets/images/gallery_7.jpg"
-                        alt="Hylton Electric LLC photo 7"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                    >
-                </div>
-            </div>
-            
-        </div>
-    </div>
-</section>
-
 
 
 <!-- ════════════════════════════════════════════════════════
@@ -896,14 +795,14 @@
             Ready to Get Started?
         </h2>
         <p class="reveal text-white/70 text-lg sm:text-xl mb-10 max-w-2xl mx-auto" style="transition-delay:0.1s">
-            Get a Free Estimate
+            Book Your Detail
         </p>
         <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4" style="transition-delay:0.2s">
             <a href="#contact" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-primary font-bold text-lg hover:bg-gray-100 transition-all shadow-2xl">
-                Get a Free Estimate
+                Get a Quote
                 <i data-lucide="arrow-right" class="w-5 h-5"></i>
             </a>
-            <a href="tel:(863) 624-7000" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 border border-white/30 text-white font-semibold text-lg hover:bg-white/20 transition-all backdrop-blur-sm">
+            <a href="tel:(512) 890-2414" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 border border-white/30 text-white font-semibold text-lg hover:bg-white/20 transition-all backdrop-blur-sm">
                 <i data-lucide="phone" class="w-5 h-5"></i>
                 Call Now
             </a>
@@ -933,13 +832,13 @@
             <div class="lg:col-span-2 space-y-8">
                 <!-- Info cards -->
                 <div class="reveal-left space-y-4">
-                    <a href="tel:(863) 624-7000" class="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 card-hover group">
+                    <a href="tel:(512) 890-2414" class="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 card-hover group">
                         <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-secondary group-hover:text-white transition-colors">
                             <i data-lucide="phone" class="w-5 h-5 text-secondary group-hover:text-white transition-colors"></i>
                         </div>
                         <div>
                             <div class="font-semibold text-primary mb-1">Phone</div>
-                            <div class="text-gray-500">(863) 624-7000</div>
+                            <div class="text-gray-500">(512) 890-2414</div>
                         </div>
                     </a>
 
@@ -951,7 +850,7 @@
                         </div>
                         <div>
                             <div class="font-semibold text-primary mb-1">Address</div>
-                            <div class="text-gray-500">122 E Main St #115, Lakeland, FL 33801, USA</div>
+                            <div class="text-gray-500">1700 S Lamar Blvd #338, Austin, TX 78704, USA</div>
                         </div>
                     </div>
 
@@ -962,23 +861,7 @@
                         <div>
                             <div class="font-semibold text-primary mb-1">Hours</div>
                             
-                            <div class="text-gray-500 text-sm space-y-0.5">
-                                
-                                <div>Monday: Open 24 hours</div>
-                                
-                                <div>Tuesday: Open 24 hours</div>
-                                
-                                <div>Wednesday: Open 24 hours</div>
-                                
-                                <div>Thursday: Open 24 hours</div>
-                                
-                                <div>Friday: Open 24 hours</div>
-                                
-                                <div>Saturday: Open 24 hours</div>
-                                
-                                <div>Sunday: Open 24 hours</div>
-                                
-                            </div>
+                            <div class="text-gray-500">Contact us for hours</div>
                             
                         </div>
                     </div>
@@ -999,8 +882,8 @@
 
             <!-- Contact Form -->
             <div class="lg:col-span-3 reveal-right">
-                <form action="https://formsubmit.co/ray@hylton-electric.com" method="POST" class="bg-white rounded-2xl p-8 sm:p-10 border border-gray-100 shadow-lg">
-                    <input type="hidden" name="_subject" value="New inquiry from your website — Hylton Electric LLC">
+                <form action="#contact" method="POST" class="bg-white rounded-2xl p-8 sm:p-10 border border-gray-100 shadow-lg">
+                    <input type="hidden" name="_subject" value="New inquiry from your website — Brightside Detailing">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_next" value="#contact">
                     <div class="grid sm:grid-cols-2 gap-6 mb-6">
@@ -1027,17 +910,21 @@
                                     class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all text-gray-700">
                                 <option value="">Select a service</option>
                                 
-                                <option value="Eddie and he was wonderful -">Eddie and he was wonderful -</option>
+                                <option value="Detailing
+
+Deep interior cleaning">Detailing
+
+Deep interior cleaning</option>
                                 
-                                <option value="The reviews are true -">The reviews are true -</option>
+                                <option value="Beasley's nano">Beasley's nano</option>
                                 
-                                <option value="Hylton Electric LLC and Tech Christian">Hylton Electric LLC and Tech Christian</option>
+                                <option value="Marine detailing for boats and watercraft">Marine detailing for boats and watercraft</option>
                                 
-                                <option value="Christian for top">Christian for top</option>
+                                <option value="Using eco">Using eco</option>
                                 
-                                <option value="Gloria Arroyo">Gloria Arroyo</option>
+                                <option value="Detailing serves the entire Austin metro">Detailing serves the entire Austin metro</option>
                                 
-                                <option value="Electrical Repairs">Electrical Repairs</option>
+                                <option value="South Austin and comes to you">South Austin and comes to you</option>
                                 
                             </select>
                         </div>
@@ -1111,10 +998,10 @@
                 <script>
                     (function() {
                         var key = 'discount_start_' + location.pathname;
-                        var start = localStorage.getItem(key + '_ext');
-                        if (!start) { start = Date.now(); localStorage.setItem(key + '_ext', start); }
+                        var start = localStorage.getItem(key);
+                        if (!start) { start = Date.now(); localStorage.setItem(key, start); }
                         start = parseInt(start);
-                        var end = start + 7 * 24 * 60 * 60 * 1000;
+                        var end = start + 48 * 60 * 60 * 1000;
                         var el = document.getElementById('countdown-timer-bottom');
                         function tick() {
                             var left = Math.max(0, end - Date.now());
@@ -1189,10 +1076,10 @@
             <!-- Brand -->
             <div class="lg:col-span-1">
                 <div class="flex items-center gap-2 mb-4">
-                    <span class="text-xl font-bold">Hylton Electric LLC</span>
+                    <span class="text-xl font-bold">Brightside Detailing</span>
                 </div>
                 <p class="text-white/50 text-sm leading-relaxed mb-6">
-                    Licensed electricians for residential and commercial projects
+                    Professional auto detailing that makes your vehicle look brand new
                 </p>
                 <!-- Social Icons -->
                 <div class="flex items-center gap-3">
@@ -1226,17 +1113,19 @@
                 <h4 class="font-semibold text-white mb-4">Services</h4>
                 <ul class="space-y-3">
                     
-                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Eddie and he was wonderful -</a></li>
+                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Detailing
+
+Deep interior cleaning</a></li>
                     
-                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">The reviews are true -</a></li>
+                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Beasley's nano</a></li>
                     
-                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Hylton Electric LLC and Tech Christian</a></li>
+                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Marine detailing for boats and watercraft</a></li>
                     
-                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Christian for top</a></li>
+                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Using eco</a></li>
                     
-                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Gloria Arroyo</a></li>
+                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Detailing serves the entire Austin metro</a></li>
                     
-                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Electrical Repairs</a></li>
+                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">South Austin and comes to you</a></li>
                     
                 </ul>
             </div>
@@ -1246,16 +1135,16 @@
                 <h4 class="font-semibold text-white mb-4">Contact Us</h4>
                 <ul class="space-y-3 text-sm">
                     <li>
-                        <a href="tel:(863) 624-7000" class="flex items-center gap-2 text-white/50 hover:text-white transition-colors">
+                        <a href="tel:(512) 890-2414" class="flex items-center gap-2 text-white/50 hover:text-white transition-colors">
                             <i data-lucide="phone" class="w-4 h-4 flex-shrink-0"></i>
-                            (863) 624-7000
+                            (512) 890-2414
                         </a>
                     </li>
                     
                     <li>
                         <div class="flex items-start gap-2 text-white/50">
                             <i data-lucide="map-pin" class="w-4 h-4 flex-shrink-0 mt-0.5"></i>
-                            122 E Main St #115, Lakeland, FL 33801, USA
+                            1700 S Lamar Blvd #338, Austin, TX 78704, USA
                         </div>
                     </li>
                 </ul>
@@ -1266,7 +1155,7 @@
         <div class="border-t border-white/10 pt-8">
             <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
                 <p class="text-white/40 text-sm">
-                    &copy; 2026 Hylton Electric LLC. All rights reserved.
+                    &copy; 2026 Brightside Detailing. All rights reserved.
                 </p>
                 <p class="text-white/30 text-xs">
                     Full setup guide included after purchase &middot; Built with care
