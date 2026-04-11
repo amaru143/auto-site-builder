@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Quality childcare in a warm, engaging environment">
-    <title>O2B Kids Avalon Park — Quality childcare in a warm, engaging environment</title>
+    <meta name="description" content="Professional auto detailing that makes your vehicle look brand new">
+    <title>Perfection Auto Detailing — Professional auto detailing that makes your vehicle look brand new</title>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -22,9 +22,9 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#0d9488',
-                        secondary: '#14b8a6',
-                        accent: '#f0fdfa',
+                        primary: '#7c2d12',
+                        secondary: '#ea580c',
+                        accent: '#fff7ed',
                     },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -82,9 +82,9 @@
         .hero-gradient {
             background: linear-gradient(
                 135deg,
-                #0d948899 0%,
-                #14b8a699 50%,
-                #0d948899 100%
+                #7c2d1299 0%,
+                #ea580c99 50%,
+                #7c2d1299 100%
             );
         }
         .hero-pattern {
@@ -99,7 +99,7 @@
             100% { background-position: 0% 50%; }
         }
         .animated-gradient-text {
-            background: linear-gradient(270deg, #fff, #f0fdfa, #fff, #14b8a6);
+            background: linear-gradient(270deg, #fff, #fff7ed, #fff, #ea580c);
             background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -150,8 +150,8 @@
 
         /* ── Service icon ring ─────────────────────────── */
         .icon-ring {
-            background: linear-gradient(135deg, #14b8a615, #14b8a608);
-            border: 1px solid #14b8a620;
+            background: linear-gradient(135deg, #ea580c15, #ea580c08);
+            border: 1px solid #ea580c20;
         }
 
         /* ── Gallery hover overlay ─────────────────────── */
@@ -173,7 +173,7 @@
             position: absolute;
             inset: -4px;
             border-radius: inherit;
-            border: 2px solid #14b8a6;
+            border: 2px solid #ea580c;
             animation: pulse-ring 2s ease-out infinite;
         }
 
@@ -181,11 +181,11 @@
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f5f9; }
         ::-webkit-scrollbar-thumb {
-            background: #14b8a660;
+            background: #ea580c60;
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #14b8a6;
+            background: #ea580c;
         }
     </style>
 </head>
@@ -198,7 +198,7 @@
 
 <a href="https://buy.stripe.com/14A14nbN85xO4Yu6S1bZe01" target="_blank" id="discount-bubble" style="position:fixed; bottom:20px; right:20px; z-index:9999; text-decoration:none; animation: bubble-pulse 2s ease-in-out infinite;">
     <div style="background:linear-gradient(135deg,#dc2626,#ea580c); border-radius:16px; padding:12px 16px; box-shadow:0 8px 32px rgba(220,38,38,0.4); max-width:200px; text-align:center; font-family:'Inter',system-ui,sans-serif;">
-        <div style="color:#fef08a; font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">&#9200; 7-DAY DEAL</div>
+        <div style="color:#fef08a; font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">&#9200; 48hr deal</div>
         <div style="display:flex; align-items:center; justify-content:center; gap:6px;">
             <span style="color:rgba(255,255,255,0.5); text-decoration:line-through; font-size:13px; font-weight:600;">$1250</span>
             <span style="color:#ffffff; font-size:22px; font-weight:800;">$500</span>
@@ -216,10 +216,10 @@
 <script>
     (function() {
         var key = 'discount_start_' + location.pathname;
-        var start = localStorage.getItem(key + '_ext');
-        if (!start) { start = Date.now(); localStorage.setItem(key + '_ext', start); }
+        var start = localStorage.getItem(key);
+        if (!start) { start = Date.now(); localStorage.setItem(key, start); }
         start = parseInt(start);
-        var end = start + 7 * 24 * 60 * 60 * 1000;
+        var end = start + 48 * 60 * 60 * 1000;
         var el = document.getElementById('countdown-timer');
         function tick() {
             var left = Math.max(0, end - Date.now());
@@ -244,7 +244,7 @@
             <!-- Logo / Brand -->
             <a href="#hero" class="flex items-center gap-2 group">
                 <span id="nav-brand" class="text-xl font-bold text-white transition-all duration-300 opacity-0 -translate-x-2">
-                    O2B Kids Avalon Park
+                    Perfection Auto Detailing
                 </span>
             </a>
 
@@ -276,9 +276,9 @@
                     Contact
                 </a>
                 
-                <a href="tel:(407) 759-4880" class="ml-2 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary text-white text-sm font-semibold hover:bg-secondary/90 transition-all shadow-lg shadow-secondary/20 hover:shadow-secondary/40">
+                <a href="tel:(512) 745-1071" class="ml-2 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary text-white text-sm font-semibold hover:bg-secondary/90 transition-all shadow-lg shadow-secondary/20 hover:shadow-secondary/40">
                     <i data-lucide="phone" class="w-4 h-4"></i>
-                    (407) 759-4880
+                    (512) 745-1071
                 </a>
             </div>
 
@@ -307,7 +307,7 @@
             
             <a href="#contact" class="mobile-link text-2xl font-semibold text-primary hover:text-secondary transition-colors">Contact</a>
             
-            <a href="tel:(407) 759-4880" class="mt-4 inline-flex items-center gap-2 px-8 py-3 rounded-full bg-secondary text-white font-semibold text-lg">
+            <a href="tel:(512) 745-1071" class="mt-4 inline-flex items-center gap-2 px-8 py-3 rounded-full bg-secondary text-white font-semibold text-lg">
                 <i data-lucide="phone" class="w-5 h-5"></i>
                 Call Now
             </a>
@@ -319,13 +319,7 @@
 <!-- ════════════════════════════════════════════════════════
      HERO SECTION
      ════════════════════════════════════════════════════════ -->
-<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden" style="background: linear-gradient(135deg, #134e4a 0%, #0d9488 40%, #14b8a6 100%)">
-    
-    <!-- Real business photo as hero background -->
-    <div class="absolute inset-0 z-0">
-        <img src="assets/images/hero.jpg" alt="O2B Kids Avalon Park" class="w-full h-full object-cover">
-        <div class="absolute inset-0 hero-tint" style="background: linear-gradient(135deg, #134e4a99 0%, #0d948899 40%, #14b8a699 100%)"></div>
-    </div>
+<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden" style="background: linear-gradient(135deg, #431407 0%, #7c2d12 40%, #ea580c 100%)">
     
     <!-- Decorative floating shapes -->
     <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
@@ -338,32 +332,32 @@
         <!-- Eyebrow -->
         <div class="reveal inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/80 text-sm font-medium mb-8 backdrop-blur-sm">
             <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-            4.8 ★ rated · 136 Google reviews
+            4.9 ★ rated · 119 Google reviews
         </div>
 
         <!-- Main Heading -->
         <h1 class="reveal font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6" style="transition-delay:0.1s; color:#ffffff; text-shadow: 0 2px 20px rgba(0,0,0,0.3)">
-            O2B Kids Avalon Park
+            Perfection Auto Detailing
         </h1>
 
         <!-- Animated Tagline -->
         <p class="reveal animated-gradient-text text-xl sm:text-2xl md:text-3xl font-semibold mb-6" style="transition-delay:0.2s; color: rgba(255,255,255,0.9)">
-            Quality childcare in a warm, engaging environment
+            Professional auto detailing that makes your vehicle look brand new
         </p>
 
         <!-- Sub-description -->
         <p class="reveal text-white/70 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed" style="transition-delay:0.3s">
-            O2B Kids Avalon Park — serving Orlando with professional daycare services. Rated 4.8/5 by 136 customers on Google. Call us at (407) 759-4880.
+            Perfection Auto Detailing — serving Austin with professional auto detailing services. Rated 4.9/5 by 119 customers on Google. Call us at (512) 745-1071.
         </p>
 
         <!-- CTA Buttons -->
         <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4" style="transition-delay:0.4s">
             <a href="#contact" class="relative pulse-ring inline-flex items-center gap-2 px-8 py-4 rounded-full bg-secondary text-white font-bold text-lg hover:bg-secondary/90 transition-all shadow-2xl shadow-secondary/30">
-                Schedule a Tour
+                Get a Quote
                 <i data-lucide="arrow-right" class="w-5 h-5"></i>
             </a>
             
-            <a href="tel:(407) 759-4880" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 border border-white/30 text-white font-semibold text-lg hover:bg-white/20 transition-all backdrop-blur-sm">
+            <a href="tel:(512) 745-1071" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 border border-white/30 text-white font-semibold text-lg hover:bg-white/20 transition-all backdrop-blur-sm">
                 <i data-lucide="phone" class="w-5 h-5"></i>
                 Call Now
             </a>
@@ -376,17 +370,17 @@
             
             <div class="flex items-center gap-2">
                 <i data-lucide="shield-check" class="w-5 h-5"></i>
-                <span>4.8-Star Rated</span>
+                <span>4.9-Star Rated</span>
             </div>
             
             <div class="flex items-center gap-2">
                 <i data-lucide="star" class="w-5 h-5"></i>
-                <span>136+ Reviews</span>
+                <span>119+ Reviews</span>
             </div>
             
             <div class="flex items-center gap-2">
                 <i data-lucide="clock" class="w-5 h-5"></i>
-                <span>Located in Orlando</span>
+                <span>Located in Austin</span>
             </div>
             
         </div>
@@ -408,11 +402,11 @@
         <div class="text-center max-w-3xl mx-auto mb-16">
             <p class="reveal text-secondary font-semibold text-sm uppercase tracking-widest mb-3">WHAT WE OFFER</p>
             <h2 class="reveal font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-6" style="transition-delay:0.1s">
-                Our Programs
+                Detailing Services
             </h2>
             
             <p class="reveal text-gray-500 text-lg leading-relaxed" style="transition-delay:0.15s">
-                Age-appropriate programs in a safe, nurturing environment.
+                Professional detailing that brings your vehicle back to showroom condition.
             </p>
             
         </div>
@@ -423,54 +417,50 @@
             
             <div class="reveal-scale card-hover bg-white rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.0s">
                 <div class="icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <i data-lucide="star" class="w-7 h-7 text-secondary"></i>
+                    <i data-lucide="sparkles" class="w-7 h-7 text-secondary"></i>
                 </div>
-                <h3 class="text-xl font-bold text-primary mb-3">Avalon Park</h3>
-                <p class="text-gray-500 leading-relaxed">Orlando, FL - O2B Kids</p>
+                <h3 class="text-xl font-bold text-primary mb-3">Full Detail</h3>
+                <p class="text-gray-500 leading-relaxed">This is definitely where I will recommend people to come for a spotless detail, and where I look...</p>
             </div>
             
             <div class="reveal-scale card-hover bg-white rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.08s">
                 <div class="icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <i data-lucide="star" class="w-7 h-7 text-secondary"></i>
+                    <i data-lucide="palette" class="w-7 h-7 text-secondary"></i>
                 </div>
-                <h3 class="text-xl font-bold text-primary mb-3">Seminole County
-
-Avalon Park</h3>
-                <p class="text-gray-500 leading-relaxed">Orlando, FL</p>
+                <h3 class="text-xl font-bold text-primary mb-3">Paint Correction</h3>
+                <p class="text-gray-500 leading-relaxed">Multi-stage paint correction to remove scratches and swirl marks.</p>
             </div>
             
             <div class="reveal-scale card-hover bg-white rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.16s">
                 <div class="icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <i data-lucide="star" class="w-7 h-7 text-secondary"></i>
+                    <i data-lucide="shield" class="w-7 h-7 text-secondary"></i>
                 </div>
-                <h3 class="text-xl font-bold text-primary mb-3">Honeycomb</h3>
-                <p class="text-gray-500 leading-relaxed">You’ll receive daily photos of special moments and achievement badges through our parent communication portal, Honeycomb</p>
+                <h3 class="text-xl font-bold text-primary mb-3">Ceramic Coating</h3>
+                <p class="text-gray-500 leading-relaxed">Long-lasting ceramic coating for ultimate paint protection.</p>
             </div>
             
             <div class="reveal-scale card-hover bg-white rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.24s">
                 <div class="icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <i data-lucide="smile" class="w-7 h-7 text-secondary"></i>
+                    <i data-lucide="armchair" class="w-7 h-7 text-secondary"></i>
                 </div>
-                <h3 class="text-xl font-bold text-primary mb-3">Provide Your Child Well</h3>
-                <p class="text-gray-500 leading-relaxed">Balanced Meals and Snacks</p>
+                <h3 class="text-xl font-bold text-primary mb-3">Interior Detail</h3>
+                <p class="text-gray-500 leading-relaxed">Deep cleaning, conditioning, and protection of all interior surfaces.</p>
             </div>
             
             <div class="reveal-scale card-hover bg-white rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.32s">
                 <div class="icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <i data-lucide="star" class="w-7 h-7 text-secondary"></i>
+                    <i data-lucide="gem" class="w-7 h-7 text-secondary"></i>
                 </div>
-                <h3 class="text-xl font-bold text-primary mb-3">Up Strong
-
-Research shows that well</h3>
-                <p class="text-gray-500 leading-relaxed">nourished children are healthier, more attentive, and are better mental performers!</p>
+                <h3 class="text-xl font-bold text-primary mb-3">Exterior Wash & Wax</h3>
+                <p class="text-gray-500 leading-relaxed">Hand wash and premium wax for a brilliant, protected shine.</p>
             </div>
             
             <div class="reveal-scale card-hover bg-white rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.4s">
                 <div class="icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <i data-lucide="star" class="w-7 h-7 text-secondary"></i>
+                    <i data-lucide="lock" class="w-7 h-7 text-secondary"></i>
                 </div>
-                <h3 class="text-xl font-bold text-primary mb-3">Now offering Pick-Your-Days Part</h3>
-                <p class="text-gray-500 leading-relaxed">Time Care – choose the days that work best for your family! Contact the school for rates.</p>
+                <h3 class="text-xl font-bold text-primary mb-3">Paint Protection Film</h3>
+                <p class="text-gray-500 leading-relaxed">Invisible film to protect against chips, scratches, and road debris.</p>
             </div>
             
         </div>
@@ -488,19 +478,15 @@ Research shows that well</h3>
             <div class="reveal-left relative">
                 <div class="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
                     
-                    <img
-                        src="assets/images/about.jpg"
-                        alt="O2B Kids Avalon Park"
-                        class="w-full h-full object-cover"
-                        loading="lazy"
-                    >
-                    <div class="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
+                    <div class="w-full h-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                        <span class="text-6xl">🚗</span>
+                    </div>
                     
                 </div>
                 <!-- Floating stat card -->
                 
                 <div class="absolute -bottom-6 -right-6 sm:right-8 bg-white rounded-2xl p-6 shadow-xl border border-gray-100">
-                    <div class="text-4xl font-bold text-secondary mb-1">136</div>
+                    <div class="text-4xl font-bold text-secondary mb-1">119</div>
                     <div class="text-gray-500 text-sm font-medium">Google Reviews</div>
                 </div>
                 
@@ -510,10 +496,10 @@ Research shows that well</h3>
             <div class="reveal-right">
                 <p class="text-secondary font-semibold text-sm uppercase tracking-widest mb-3">About Us</p>
                 <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-6 leading-tight">
-                    Why Choose O2B Kids Avalon Park?
+                    Why Choose Perfection Auto Detailing?
                 </h2>
                 <p class="text-gray-600 text-lg leading-relaxed mb-8">
-                    O2B Kids Avalon Park is a daycare business located in Orlando. Rated 4.8 out of 5 stars based on 136 Google reviews. Located at 15565 Golden Isle Blvd, Orlando, FL 32828, USA. Call (407) 759-4880 to get in touch.
+                    Perfection Auto Detailing is a auto detailing business located in Austin. Rated 4.9 out of 5 stars based on 119 Google reviews. Located at 4506 S Congress Ave, Austin, TX 78745, USA. Call (512) 745-1071 to get in touch.
                 </p>
 
                 <!-- About highlights -->
@@ -524,14 +510,14 @@ Research shows that well</h3>
                         <div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0">
                             <i data-lucide="check" class="w-4 h-4 text-secondary"></i>
                         </div>
-                        <span class="text-primary font-medium">4.8-Star Google Rating</span>
+                        <span class="text-primary font-medium">4.9-Star Google Rating</span>
                     </div>
                     
                     <div class="flex items-center gap-3">
                         <div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0">
                             <i data-lucide="check" class="w-4 h-4 text-secondary"></i>
                         </div>
-                        <span class="text-primary font-medium">136+ Customer Reviews</span>
+                        <span class="text-primary font-medium">119+ Customer Reviews</span>
                     </div>
                     
                     <div class="flex items-center gap-3">
@@ -545,7 +531,7 @@ Research shows that well</h3>
                         <div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0">
                             <i data-lucide="check" class="w-4 h-4 text-secondary"></i>
                         </div>
-                        <span class="text-primary font-medium">Serving Orlando</span>
+                        <span class="text-primary font-medium">Serving Austin</span>
                     </div>
                     
                 </div>
@@ -602,16 +588,16 @@ Research shows that well</h3>
                             </div>
                             <!-- Quote -->
                             <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
-                                "Let me just start by saying I absolutely love o2b kids Avalon Park! My daughter has been there for 2 years and over time, it just gets better and better. She enjoys school and all it has to offer. My daughter’s teacher, Mrs. Aimee is the best! Mrs. Aimee is an awesome teacher, and an even sweeter nurturer.  Tatum has grown so much since being in her class. They are always doing fun, hands on, activities. Mrs. Aimee knows her content and keeps me abreast of everything going on in class. We are so grateful to have Mrs. Aimee as our sweet girl’s teacher, we can’t thank her enough for always loving on Tatum, encouraging her to be her best, and giving her multiple opportunities to learn and grow!"
+                                "Jim at Perfection Auto Dealing is the real deal. My car was a total mess, and he did a super thorough job bringing it back to life—great work, great price, and a great guy. Highly recommend!"
                             </blockquote>
                             <!-- Author -->
                             <div class="flex items-center gap-4">
                                 <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
-                                    J
+                                    K
                                 </div>
                                 <div>
-                                    <div class="font-semibold text-white">Jazmine Bright</div>
-                                    <div class="text-white/50 text-sm">a month ago</div>
+                                    <div class="font-semibold text-white">Kory Kilpatrick</div>
+                                    <div class="text-white/50 text-sm">2 months ago</div>
                                 </div>
                             </div>
                         </div>
@@ -635,118 +621,8 @@ Research shows that well</h3>
                             </div>
                             <!-- Quote -->
                             <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
-                                "My 4-year-old son has been attending this preschool for almost a year, and he really enjoys it!
-
-The staff is awesome! We are greeted by name each morning by Ms. Ciara, who is incredibly sweet and welcoming. She even shared her O2B Croc jibbitz with my son, which meant the world to him.
-Also, Ms. Syeda is always there to comfort him when he feels sad at drop-off. Her patience and care make those transitions much easier. Ms. Lauren is also incredibly supportive and always takes the time to address any questions or concerns I have even in passing.
-
-Ms. Joanne and Ms. Paola do an amazing job in the classroom. They make learning fun through engaging activities, singing, reading multiple books each day, and encouraging the children to build independence and confidence.
-Ms. Gloria also goes above and beyond. She creates thoughtful, educational activities for parents to continue learning at home and consistently encourages the children to reach their highest potential. At pick-up, Ms. LaToria warmly greets me and is proactive about communicating any incidents, which I truly appreciate.
-
-We are so grateful to be part of a school community where my child feels excited to learn each day."
-                            </blockquote>
-                            <!-- Author -->
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
-                                    J
-                                </div>
-                                <div>
-                                    <div class="font-semibold text-white">Johnetta D</div>
-                                    <div class="text-white/50 text-sm">a month ago</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-slide w-full flex-shrink-0 px-4">
-                        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 sm:p-10 max-w-3xl mx-auto">
-                            <!-- Stars -->
-                            <div class="flex items-center gap-1 mb-6">
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                            </div>
-                            <!-- Quote -->
-                            <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
-                                "⭐️⭐️⭐️⭐️⭐️
-O2B Kids Avalon has truly stood out to our family, and a huge part of that is because of Ciara at the front desk. I’ve had children in childcare for over 10 years, and she is the first administrator who took the time to learn my name instead of just calling me “Mama,” like so many other places do. That small but meaningful gesture says everything about the kind of person she is. Ciara makes everyone feel seen, valued, and genuinely welcomed every single day.
-She consistently goes above and beyond, but one moment in particular meant the world to our family, she spent her own money to buy my son a book from the book fair for his birthday. That level of kindness and thoughtfulness is rare, and it speaks volumes about her character and her love for the children and families she serves.
-I also want to highlight how wonderful of a fit my son’s VPK teacher, Shelia, has been. She is amazing at providing practical, actionable feedback that truly helps us support our son’s growth. She has worked thoughtfully with his accommodations, ensuring he feels included, supported, and confident in his learning environment. It’s clear she is deeply invested in her students’ success and well-being.
-Between Ciara’s warmth and Shelia’s intentional, supportive teaching, O2B Kids Avalon has made our family feel cared for in a way that is truly special. We are so grateful for this team and highly recommend this location to any family looking for a nurturing and inclusive environment for their child."
-                            </blockquote>
-                            <!-- Author -->
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
-                                    H
-                                </div>
-                                <div>
-                                    <div class="font-semibold text-white">Haley Winston</div>
-                                    <div class="text-white/50 text-sm">a month ago</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-slide w-full flex-shrink-0 px-4">
-                        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 sm:p-10 max-w-3xl mx-auto">
-                            <!-- Stars -->
-                            <div class="flex items-center gap-1 mb-6">
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                            </div>
-                            <!-- Quote -->
-                            <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
-                                "Mrs. Hunsha has taught all three of our children, and we truly could not have asked for a better teacher. She builds such an amazing connection with her students and makes every child feel seen, valued, and supported. At the same time, she teaches at such a high level and challenges her students to grow academically and personally.
-
-Watching each of our kids thrive in her classroom has been a blessing. We are so grateful for the lasting impact she has had on our family!"
-                            </blockquote>
-                            <!-- Author -->
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
-                                    J
-                                </div>
-                                <div>
-                                    <div class="font-semibold text-white">Jamala Syed</div>
-                                    <div class="text-white/50 text-sm">a month ago</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-slide w-full flex-shrink-0 px-4">
-                        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 sm:p-10 max-w-3xl mx-auto">
-                            <!-- Stars -->
-                            <div class="flex items-center gap-1 mb-6">
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                            </div>
-                            <!-- Quote -->
-                            <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
-                                "We have been blessed to have met some amazing teachers here. Mrs. Sasha and Mrs. Angie were so amazing in acclimating my baby into her new school. They taught her so well and she grew so much because of them. As she progressed she has since been taught my Ms. Savanna. She’s such a gem. She teaches my baby and loves on my baby so much. My daughter grew so much with her as well. Mrs. Aimee and Ms. Avianna have been so amazing with taking her to the next level in her education. They take their time with all of these littles. Ms. Latoria has always looked out for my baby. She always puts a smile on my girl’s face and if anything is of concern, she always makes sure I am able to address it to correct it. Thank you so much to the amazing teachers of O2B Avalon. We appreciate you all!"
+                                "Great job at an affordable price 👏
+I have a 15+ year old car that was super dirty. Jim spent something like 11 hours cleaning it and it looks like new! He didn't even charge extra."
                             </blockquote>
                             <!-- Author -->
                             <div class="flex items-center gap-4">
@@ -754,8 +630,107 @@ Watching each of our kids thrive in her classroom has been a blessing. We are so
                                     R
                                 </div>
                                 <div>
-                                    <div class="font-semibold text-white">Regina Ackron</div>
-                                    <div class="text-white/50 text-sm">a month ago</div>
+                                    <div class="font-semibold text-white">Razieh Nokhbeh Zaeem</div>
+                                    <div class="text-white/50 text-sm">2 months ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide w-full flex-shrink-0 px-4">
+                        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 sm:p-10 max-w-3xl mx-auto">
+                            <!-- Stars -->
+                            <div class="flex items-center gap-1 mb-6">
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                            </div>
+                            <!-- Quote -->
+                            <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
+                                "Jim is INCREDIBLE!! Dropped my car off at 8am, and he was done by 4. My vehicle wasn’t even this clean when I bought it! I am so so happy with the results, all for an extremely fair price. Jim is also the nicest guy. This is definitely where I will recommend people to come for a spotless detail, and where I look forward to bringing my vehicle in the future!"
+                            </blockquote>
+                            <!-- Author -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
+                                    T
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-white">Tori Olivas</div>
+                                    <div class="text-white/50 text-sm">7 months ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide w-full flex-shrink-0 px-4">
+                        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 sm:p-10 max-w-3xl mx-auto">
+                            <!-- Stars -->
+                            <div class="flex items-center gap-1 mb-6">
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                            </div>
+                            <!-- Quote -->
+                            <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
+                                "Jim knows what he’s doing. He made my six year old car look as good as the day I bought it. Jim doesn’t cut corners and clearly takes a lot pride in his work. He’s friendly, professional, and easy to work with. I cannot recommend this place enough. Thank you!"
+                            </blockquote>
+                            <!-- Author -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
+                                    P
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-white">Pierre Meystre</div>
+                                    <div class="text-white/50 text-sm">2 years ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide w-full flex-shrink-0 px-4">
+                        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 sm:p-10 max-w-3xl mx-auto">
+                            <!-- Stars -->
+                            <div class="flex items-center gap-1 mb-6">
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                            </div>
+                            <!-- Quote -->
+                            <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
+                                "This is the place to go in Austin for car detailing folks!  Jim is a super friendly man of integrity who really takes pride in his work. If he can't buff it or clean it I doubt it's safely buffable or cleanable!  Fantastic experience and impeccable work at a great price.  Great communication and coordination, the car looks brand new inside and out, the outcome exceeded my expectations and there were only good surprises.  This is the guy to trust with your baby!"
+                            </blockquote>
+                            <!-- Author -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
+                                    A
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-white">Aaron Roberts</div>
+                                    <div class="text-white/50 text-sm">3 years ago</div>
                                 </div>
                             </div>
                         </div>
@@ -796,100 +771,6 @@ Watching each of our kids thrive in her classroom has been a blessing. We are so
      GALLERY / PORTFOLIO SECTION
      ════════════════════════════════════════════════════════ -->
 
-<section id="gallery" class="py-24 lg:py-32">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Section header -->
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <p class="reveal text-secondary font-semibold text-sm uppercase tracking-widest mb-3">Our Work</p>
-            <h2 class="reveal font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-6" style="transition-delay:0.1s">
-                Photos
-            </h2>
-        </div>
-
-        <!-- Gallery Grid -->
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-            
-            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group md:col-span-2 md:row-span-2" style="transition-delay:0.0s">
-                <div class="aspect-square md:aspect-[4/3]">
-                    <img
-                        src="assets/images/gallery_1.jpg"
-                        alt="O2B Kids Avalon Park photo 1"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                    >
-                </div>
-            </div>
-            
-            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group " style="transition-delay:0.06s">
-                <div class="aspect-square ">
-                    <img
-                        src="assets/images/gallery_2.jpg"
-                        alt="O2B Kids Avalon Park photo 2"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                    >
-                </div>
-            </div>
-            
-            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group " style="transition-delay:0.12s">
-                <div class="aspect-square ">
-                    <img
-                        src="assets/images/gallery_3.jpg"
-                        alt="O2B Kids Avalon Park photo 3"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                    >
-                </div>
-            </div>
-            
-            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group " style="transition-delay:0.18s">
-                <div class="aspect-square ">
-                    <img
-                        src="assets/images/gallery_4.jpg"
-                        alt="O2B Kids Avalon Park photo 4"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                    >
-                </div>
-            </div>
-            
-            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group " style="transition-delay:0.24s">
-                <div class="aspect-square ">
-                    <img
-                        src="assets/images/gallery_5.jpg"
-                        alt="O2B Kids Avalon Park photo 5"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                    >
-                </div>
-            </div>
-            
-            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group " style="transition-delay:0.3s">
-                <div class="aspect-square ">
-                    <img
-                        src="assets/images/gallery_6.jpg"
-                        alt="O2B Kids Avalon Park photo 6"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                    >
-                </div>
-            </div>
-            
-            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group " style="transition-delay:0.36s">
-                <div class="aspect-square ">
-                    <img
-                        src="assets/images/gallery_7.jpg"
-                        alt="O2B Kids Avalon Park photo 7"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                    >
-                </div>
-            </div>
-            
-        </div>
-    </div>
-</section>
-
 
 
 <!-- ════════════════════════════════════════════════════════
@@ -910,14 +791,14 @@ Watching each of our kids thrive in her classroom has been a blessing. We are so
             Ready to Get Started?
         </h2>
         <p class="reveal text-white/70 text-lg sm:text-xl mb-10 max-w-2xl mx-auto" style="transition-delay:0.1s">
-            Schedule a Tour
+            Book Your Detail
         </p>
         <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4" style="transition-delay:0.2s">
             <a href="#contact" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-primary font-bold text-lg hover:bg-gray-100 transition-all shadow-2xl">
-                Schedule a Tour
+                Get a Quote
                 <i data-lucide="arrow-right" class="w-5 h-5"></i>
             </a>
-            <a href="tel:(407) 759-4880" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 border border-white/30 text-white font-semibold text-lg hover:bg-white/20 transition-all backdrop-blur-sm">
+            <a href="tel:(512) 745-1071" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 border border-white/30 text-white font-semibold text-lg hover:bg-white/20 transition-all backdrop-blur-sm">
                 <i data-lucide="phone" class="w-5 h-5"></i>
                 Call Now
             </a>
@@ -947,13 +828,13 @@ Watching each of our kids thrive in her classroom has been a blessing. We are so
             <div class="lg:col-span-2 space-y-8">
                 <!-- Info cards -->
                 <div class="reveal-left space-y-4">
-                    <a href="tel:(407) 759-4880" class="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 card-hover group">
+                    <a href="tel:(512) 745-1071" class="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 card-hover group">
                         <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-secondary group-hover:text-white transition-colors">
                             <i data-lucide="phone" class="w-5 h-5 text-secondary group-hover:text-white transition-colors"></i>
                         </div>
                         <div>
                             <div class="font-semibold text-primary mb-1">Phone</div>
-                            <div class="text-gray-500">(407) 759-4880</div>
+                            <div class="text-gray-500">(512) 745-1071</div>
                         </div>
                     </a>
 
@@ -965,7 +846,7 @@ Watching each of our kids thrive in her classroom has been a blessing. We are so
                         </div>
                         <div>
                             <div class="font-semibold text-primary mb-1">Address</div>
-                            <div class="text-gray-500">15565 Golden Isle Blvd, Orlando, FL 32828, USA</div>
+                            <div class="text-gray-500">4506 S Congress Ave, Austin, TX 78745, USA</div>
                         </div>
                     </div>
 
@@ -976,23 +857,7 @@ Watching each of our kids thrive in her classroom has been a blessing. We are so
                         <div>
                             <div class="font-semibold text-primary mb-1">Hours</div>
                             
-                            <div class="text-gray-500 text-sm space-y-0.5">
-                                
-                                <div>Monday: 6:30 AM – 6:00 PM</div>
-                                
-                                <div>Tuesday: 6:30 AM – 6:00 PM</div>
-                                
-                                <div>Wednesday: 6:30 AM – 6:00 PM</div>
-                                
-                                <div>Thursday: 6:30 AM – 6:00 PM</div>
-                                
-                                <div>Friday: 6:30 AM – 6:00 PM</div>
-                                
-                                <div>Saturday: Closed</div>
-                                
-                                <div>Sunday: Closed</div>
-                                
-                            </div>
+                            <div class="text-gray-500">Contact us for hours</div>
                             
                         </div>
                     </div>
@@ -1013,8 +878,8 @@ Watching each of our kids thrive in her classroom has been a blessing. We are so
 
             <!-- Contact Form -->
             <div class="lg:col-span-3 reveal-right">
-                <form action="https://formsubmit.co/websiteinquiry@o2bkids.com" method="POST" class="bg-white rounded-2xl p-8 sm:p-10 border border-gray-100 shadow-lg">
-                    <input type="hidden" name="_subject" value="New inquiry from your website — O2B Kids Avalon Park">
+                <form action="#contact" method="POST" class="bg-white rounded-2xl p-8 sm:p-10 border border-gray-100 shadow-lg">
+                    <input type="hidden" name="_subject" value="New inquiry from your website — Perfection Auto Detailing">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_next" value="#contact">
                     <div class="grid sm:grid-cols-2 gap-6 mb-6">
@@ -1041,25 +906,17 @@ Watching each of our kids thrive in her classroom has been a blessing. We are so
                                     class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all text-gray-700">
                                 <option value="">Select a service</option>
                                 
-                                <option value="Avalon Park">Avalon Park</option>
+                                <option value="Full Detail">Full Detail</option>
                                 
-                                <option value="Seminole County
-
-Avalon Park">Seminole County
-
-Avalon Park</option>
+                                <option value="Paint Correction">Paint Correction</option>
                                 
-                                <option value="Honeycomb">Honeycomb</option>
+                                <option value="Ceramic Coating">Ceramic Coating</option>
                                 
-                                <option value="Provide Your Child Well">Provide Your Child Well</option>
+                                <option value="Interior Detail">Interior Detail</option>
                                 
-                                <option value="Up Strong
-
-Research shows that well">Up Strong
-
-Research shows that well</option>
+                                <option value="Exterior Wash & Wax">Exterior Wash & Wax</option>
                                 
-                                <option value="Now offering Pick-Your-Days Part">Now offering Pick-Your-Days Part</option>
+                                <option value="Paint Protection Film">Paint Protection Film</option>
                                 
                             </select>
                         </div>
@@ -1133,10 +990,10 @@ Research shows that well</option>
                 <script>
                     (function() {
                         var key = 'discount_start_' + location.pathname;
-                        var start = localStorage.getItem(key + '_ext');
-                        if (!start) { start = Date.now(); localStorage.setItem(key + '_ext', start); }
+                        var start = localStorage.getItem(key);
+                        if (!start) { start = Date.now(); localStorage.setItem(key, start); }
                         start = parseInt(start);
-                        var end = start + 7 * 24 * 60 * 60 * 1000;
+                        var end = start + 48 * 60 * 60 * 1000;
                         var el = document.getElementById('countdown-timer-bottom');
                         function tick() {
                             var left = Math.max(0, end - Date.now());
@@ -1211,10 +1068,10 @@ Research shows that well</option>
             <!-- Brand -->
             <div class="lg:col-span-1">
                 <div class="flex items-center gap-2 mb-4">
-                    <span class="text-xl font-bold">O2B Kids Avalon Park</span>
+                    <span class="text-xl font-bold">Perfection Auto Detailing</span>
                 </div>
                 <p class="text-white/50 text-sm leading-relaxed mb-6">
-                    Quality childcare in a warm, engaging environment
+                    Professional auto detailing that makes your vehicle look brand new
                 </p>
                 <!-- Social Icons -->
                 <div class="flex items-center gap-3">
@@ -1248,21 +1105,17 @@ Research shows that well</option>
                 <h4 class="font-semibold text-white mb-4">Services</h4>
                 <ul class="space-y-3">
                     
-                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Avalon Park</a></li>
+                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Full Detail</a></li>
                     
-                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Seminole County
-
-Avalon Park</a></li>
+                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Paint Correction</a></li>
                     
-                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Honeycomb</a></li>
+                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Ceramic Coating</a></li>
                     
-                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Provide Your Child Well</a></li>
+                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Interior Detail</a></li>
                     
-                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Up Strong
-
-Research shows that well</a></li>
+                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Exterior Wash & Wax</a></li>
                     
-                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Now offering Pick-Your-Days Part</a></li>
+                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Paint Protection Film</a></li>
                     
                 </ul>
             </div>
@@ -1272,16 +1125,16 @@ Research shows that well</a></li>
                 <h4 class="font-semibold text-white mb-4">Contact Us</h4>
                 <ul class="space-y-3 text-sm">
                     <li>
-                        <a href="tel:(407) 759-4880" class="flex items-center gap-2 text-white/50 hover:text-white transition-colors">
+                        <a href="tel:(512) 745-1071" class="flex items-center gap-2 text-white/50 hover:text-white transition-colors">
                             <i data-lucide="phone" class="w-4 h-4 flex-shrink-0"></i>
-                            (407) 759-4880
+                            (512) 745-1071
                         </a>
                     </li>
                     
                     <li>
                         <div class="flex items-start gap-2 text-white/50">
                             <i data-lucide="map-pin" class="w-4 h-4 flex-shrink-0 mt-0.5"></i>
-                            15565 Golden Isle Blvd, Orlando, FL 32828, USA
+                            4506 S Congress Ave, Austin, TX 78745, USA
                         </div>
                     </li>
                 </ul>
@@ -1292,7 +1145,7 @@ Research shows that well</a></li>
         <div class="border-t border-white/10 pt-8">
             <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
                 <p class="text-white/40 text-sm">
-                    &copy; 2026 O2B Kids Avalon Park. All rights reserved.
+                    &copy; 2026 Perfection Auto Detailing. All rights reserved.
                 </p>
                 <p class="text-white/30 text-xs">
                     Full setup guide included after purchase &middot; Built with care
