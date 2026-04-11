@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional photography that tells your story beautifully">
-    <title>Picture Legacy Photography — Professional photography that tells your story beautifully</title>
+    <meta name="description" content="Professional auto detailing that makes your vehicle look brand new">
+    <title>Premier Wash and Detail Austin — Professional auto detailing that makes your vehicle look brand new</title>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -22,9 +22,9 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#1f2937',
-                        secondary: '#6b7280',
-                        accent: '#f9fafb',
+                        primary: '#7c2d12',
+                        secondary: '#ea580c',
+                        accent: '#fff7ed',
                     },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -82,9 +82,9 @@
         .hero-gradient {
             background: linear-gradient(
                 135deg,
-                #1f293799 0%,
-                #6b728099 50%,
-                #1f293799 100%
+                #7c2d1299 0%,
+                #ea580c99 50%,
+                #7c2d1299 100%
             );
         }
         .hero-pattern {
@@ -99,7 +99,7 @@
             100% { background-position: 0% 50%; }
         }
         .animated-gradient-text {
-            background: linear-gradient(270deg, #fff, #f9fafb, #fff, #6b7280);
+            background: linear-gradient(270deg, #fff, #fff7ed, #fff, #ea580c);
             background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -150,8 +150,8 @@
 
         /* ── Service icon ring ─────────────────────────── */
         .icon-ring {
-            background: linear-gradient(135deg, #6b728015, #6b728008);
-            border: 1px solid #6b728020;
+            background: linear-gradient(135deg, #ea580c15, #ea580c08);
+            border: 1px solid #ea580c20;
         }
 
         /* ── Gallery hover overlay ─────────────────────── */
@@ -173,7 +173,7 @@
             position: absolute;
             inset: -4px;
             border-radius: inherit;
-            border: 2px solid #6b7280;
+            border: 2px solid #ea580c;
             animation: pulse-ring 2s ease-out infinite;
         }
 
@@ -181,11 +181,11 @@
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f5f9; }
         ::-webkit-scrollbar-thumb {
-            background: #6b728060;
+            background: #ea580c60;
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #6b7280;
+            background: #ea580c;
         }
     </style>
 </head>
@@ -198,7 +198,7 @@
 
 <a href="https://buy.stripe.com/14A14nbN85xO4Yu6S1bZe01" target="_blank" id="discount-bubble" style="position:fixed; bottom:20px; right:20px; z-index:9999; text-decoration:none; animation: bubble-pulse 2s ease-in-out infinite;">
     <div style="background:linear-gradient(135deg,#dc2626,#ea580c); border-radius:16px; padding:12px 16px; box-shadow:0 8px 32px rgba(220,38,38,0.4); max-width:200px; text-align:center; font-family:'Inter',system-ui,sans-serif;">
-        <div style="color:#fef08a; font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">&#9200; 7-DAY DEAL</div>
+        <div style="color:#fef08a; font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">&#9200; 48hr deal</div>
         <div style="display:flex; align-items:center; justify-content:center; gap:6px;">
             <span style="color:rgba(255,255,255,0.5); text-decoration:line-through; font-size:13px; font-weight:600;">$1250</span>
             <span style="color:#ffffff; font-size:22px; font-weight:800;">$500</span>
@@ -216,10 +216,10 @@
 <script>
     (function() {
         var key = 'discount_start_' + location.pathname;
-        var start = localStorage.getItem(key + '_ext');
-        if (!start) { start = Date.now(); localStorage.setItem(key + '_ext', start); }
+        var start = localStorage.getItem(key);
+        if (!start) { start = Date.now(); localStorage.setItem(key, start); }
         start = parseInt(start);
-        var end = start + 7 * 24 * 60 * 60 * 1000;
+        var end = start + 48 * 60 * 60 * 1000;
         var el = document.getElementById('countdown-timer');
         function tick() {
             var left = Math.max(0, end - Date.now());
@@ -244,7 +244,7 @@
             <!-- Logo / Brand -->
             <a href="#hero" class="flex items-center gap-2 group">
                 <span id="nav-brand" class="text-xl font-bold text-white transition-all duration-300 opacity-0 -translate-x-2">
-                    Picture Legacy Photography
+                    Premier Wash and Detail Austin
                 </span>
             </a>
 
@@ -276,9 +276,9 @@
                     Contact
                 </a>
                 
-                <a href="tel:(425) 444-4447" class="ml-2 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary text-white text-sm font-semibold hover:bg-secondary/90 transition-all shadow-lg shadow-secondary/20 hover:shadow-secondary/40">
+                <a href="tel:(512) 289-1279" class="ml-2 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary text-white text-sm font-semibold hover:bg-secondary/90 transition-all shadow-lg shadow-secondary/20 hover:shadow-secondary/40">
                     <i data-lucide="phone" class="w-4 h-4"></i>
-                    (425) 444-4447
+                    (512) 289-1279
                 </a>
             </div>
 
@@ -307,7 +307,7 @@
             
             <a href="#contact" class="mobile-link text-2xl font-semibold text-primary hover:text-secondary transition-colors">Contact</a>
             
-            <a href="tel:(425) 444-4447" class="mt-4 inline-flex items-center gap-2 px-8 py-3 rounded-full bg-secondary text-white font-semibold text-lg">
+            <a href="tel:(512) 289-1279" class="mt-4 inline-flex items-center gap-2 px-8 py-3 rounded-full bg-secondary text-white font-semibold text-lg">
                 <i data-lucide="phone" class="w-5 h-5"></i>
                 Call Now
             </a>
@@ -319,13 +319,7 @@
 <!-- ════════════════════════════════════════════════════════
      HERO SECTION
      ════════════════════════════════════════════════════════ -->
-<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden" style="background: linear-gradient(135deg, #111827 0%, #1f2937 40%, #6b7280 100%)">
-    
-    <!-- Real business photo as hero background -->
-    <div class="absolute inset-0 z-0">
-        <img src="assets/images/hero.jpg" alt="Picture Legacy Photography" class="w-full h-full object-cover">
-        <div class="absolute inset-0 hero-tint" style="background: linear-gradient(135deg, #11182799 0%, #1f293799 40%, #6b728099 100%)"></div>
-    </div>
+<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden" style="background: linear-gradient(135deg, #431407 0%, #7c2d12 40%, #ea580c 100%)">
     
     <!-- Decorative floating shapes -->
     <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
@@ -338,34 +332,34 @@
         <!-- Eyebrow -->
         <div class="reveal inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/80 text-sm font-medium mb-8 backdrop-blur-sm">
             <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-            5 ★ rated · 86 Google reviews
+            5 ★ rated · 117 Google reviews
         </div>
 
         <!-- Main Heading -->
         <h1 class="reveal font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6" style="transition-delay:0.1s; color:#ffffff; text-shadow: 0 2px 20px rgba(0,0,0,0.3)">
-            Picture Legacy Photography
+            Premier Wash and Detail Austin
         </h1>
 
         <!-- Animated Tagline -->
         <p class="reveal animated-gradient-text text-xl sm:text-2xl md:text-3xl font-semibold mb-6" style="transition-delay:0.2s; color: rgba(255,255,255,0.9)">
-            Professional photography that tells your story beautifully
+            Professional auto detailing that makes your vehicle look brand new
         </p>
 
         <!-- Sub-description -->
         <p class="reveal text-white/70 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed" style="transition-delay:0.3s">
-            Picture Legacy Photography — serving Irving with professional photography services. Rated 5/5 by 86 customers on Google. Call us at (425) 444-4447.
+            Premier Wash and Detail Austin — serving Austin with professional auto detailing services. Rated 5/5 by 117 customers on Google. Call us at (512) 289-1279.
         </p>
 
         <!-- CTA Buttons -->
         <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4" style="transition-delay:0.4s">
             <a href="#contact" class="relative pulse-ring inline-flex items-center gap-2 px-8 py-4 rounded-full bg-secondary text-white font-bold text-lg hover:bg-secondary/90 transition-all shadow-2xl shadow-secondary/30">
-                Book a Session
+                Get a Quote
                 <i data-lucide="arrow-right" class="w-5 h-5"></i>
             </a>
             
-            <a href="tel:(425) 444-4447" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 border border-white/30 text-white font-semibold text-lg hover:bg-white/20 transition-all backdrop-blur-sm">
+            <a href="tel:(512) 289-1279" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 border border-white/30 text-white font-semibold text-lg hover:bg-white/20 transition-all backdrop-blur-sm">
                 <i data-lucide="phone" class="w-5 h-5"></i>
-                View Portfolio
+                Call Now
             </a>
             
         </div>
@@ -381,12 +375,12 @@
             
             <div class="flex items-center gap-2">
                 <i data-lucide="star" class="w-5 h-5"></i>
-                <span>86+ Reviews</span>
+                <span>117+ Reviews</span>
             </div>
             
             <div class="flex items-center gap-2">
                 <i data-lucide="clock" class="w-5 h-5"></i>
-                <span>Located in Irving</span>
+                <span>Located in Austin</span>
             </div>
             
         </div>
@@ -408,11 +402,11 @@
         <div class="text-center max-w-3xl mx-auto mb-16">
             <p class="reveal text-secondary font-semibold text-sm uppercase tracking-widest mb-3">WHAT WE OFFER</p>
             <h2 class="reveal font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-6" style="transition-delay:0.1s">
-                Photography Services
+                Detailing Services
             </h2>
             
             <p class="reveal text-gray-500 text-lg leading-relaxed" style="transition-delay:0.15s">
-                Capturing your most important moments with artistry and care.
+                Professional detailing that brings your vehicle back to showroom condition.
             </p>
             
         </div>
@@ -423,50 +417,57 @@
             
             <div class="reveal-scale card-hover bg-white rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.0s">
                 <div class="icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <i data-lucide="user" class="w-7 h-7 text-secondary"></i>
+                    <i data-lucide="star" class="w-7 h-7 text-secondary"></i>
                 </div>
-                <h3 class="text-xl font-bold text-primary mb-3">Portraits</h3>
-                <p class="text-gray-500 leading-relaxed">Individual, family, and professional headshot sessions.</p>
+                <h3 class="text-xl font-bold text-primary mb-3">Monday</h3>
+                <p class="text-gray-500 leading-relaxed">Saturday :  7am-6pm</p>
             </div>
             
             <div class="reveal-scale card-hover bg-white rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.08s">
                 <div class="icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <i data-lucide="heart" class="w-7 h-7 text-secondary"></i>
+                    <i data-lucide="sparkles" class="w-7 h-7 text-secondary"></i>
                 </div>
-                <h3 class="text-xl font-bold text-primary mb-3">Weddings</h3>
-                <p class="text-gray-500 leading-relaxed">Full wedding day coverage with edited digital gallery.</p>
+                <h3 class="text-xl font-bold text-primary mb-3">LE DETAILING ACROSS TRAVIS COUNTY
+
+ 
+High</h3>
+                <p class="text-gray-500 leading-relaxed">end detailing, ceramic coatings, and window tinting — brought to you anywhere in Austin and beyond.</p>
             </div>
             
             <div class="reveal-scale card-hover bg-white rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.16s">
                 <div class="icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <i data-lucide="party-popper" class="w-7 h-7 text-secondary"></i>
+                    <i data-lucide="star" class="w-7 h-7 text-secondary"></i>
                 </div>
-                <h3 class="text-xl font-bold text-primary mb-3">Events</h3>
-                <p class="text-gray-500 leading-relaxed">Corporate events, parties, and milestone celebrations.</p>
+                <h3 class="text-xl font-bold text-primary mb-3">The result is a mirror</h3>
+                <p class="text-gray-500 leading-relaxed">like finish that stays cleaner, longer.</p>
             </div>
             
             <div class="reveal-scale card-hover bg-white rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.24s">
                 <div class="icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <i data-lucide="package" class="w-7 h-7 text-secondary"></i>
+                    <i data-lucide="hammer" class="w-7 h-7 text-secondary"></i>
                 </div>
-                <h3 class="text-xl font-bold text-primary mb-3">Product Photography</h3>
-                <p class="text-gray-500 leading-relaxed">Clean, professional product photos for your business.</p>
+                <h3 class="text-xl font-bold text-primary mb-3">Window Tinting
+
+We install high</h3>
+                <p class="text-gray-500 leading-relaxed">performance window films that reduce heat, block harmful rays, and enhance your privacy. Choose from a range of shades t</p>
             </div>
             
             <div class="reveal-scale card-hover bg-white rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.32s">
                 <div class="icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <i data-lucide="home" class="w-7 h-7 text-secondary"></i>
+                    <i data-lucide="star" class="w-7 h-7 text-secondary"></i>
                 </div>
-                <h3 class="text-xl font-bold text-primary mb-3">Real Estate</h3>
-                <p class="text-gray-500 leading-relaxed">High-quality property photos that help listings sell faster.</p>
+                <h3 class="text-xl font-bold text-primary mb-3">City
+
+--</h3>
+                <p class="text-gray-500 leading-relaxed">Select state ---</p>
             </div>
             
             <div class="reveal-scale card-hover bg-white rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.4s">
                 <div class="icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <i data-lucide="award" class="w-7 h-7 text-secondary"></i>
+                    <i data-lucide="star" class="w-7 h-7 text-secondary"></i>
                 </div>
-                <h3 class="text-xl font-bold text-primary mb-3">Senior Portraits</h3>
-                <p class="text-gray-500 leading-relaxed">Memorable senior portrait sessions for graduating students.</p>
+                <h3 class="text-xl font-bold text-primary mb-3">Mobile Luxury Car Care</h3>
+                <p class="text-gray-500 leading-relaxed">Make your vehicle look brand new with the shine of a ceramic coating allowing for easy cleaning and UV protection.</p>
             </div>
             
         </div>
@@ -484,19 +485,15 @@
             <div class="reveal-left relative">
                 <div class="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
                     
-                    <img
-                        src="assets/images/about.jpg"
-                        alt="Picture Legacy Photography"
-                        class="w-full h-full object-cover"
-                        loading="lazy"
-                    >
-                    <div class="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
+                    <div class="w-full h-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                        <span class="text-6xl">🚗</span>
+                    </div>
                     
                 </div>
                 <!-- Floating stat card -->
                 
                 <div class="absolute -bottom-6 -right-6 sm:right-8 bg-white rounded-2xl p-6 shadow-xl border border-gray-100">
-                    <div class="text-4xl font-bold text-secondary mb-1">86</div>
+                    <div class="text-4xl font-bold text-secondary mb-1">117</div>
                     <div class="text-gray-500 text-sm font-medium">Google Reviews</div>
                 </div>
                 
@@ -506,10 +503,10 @@
             <div class="reveal-right">
                 <p class="text-secondary font-semibold text-sm uppercase tracking-widest mb-3">About Us</p>
                 <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-6 leading-tight">
-                    Why Choose Picture Legacy Photography?
+                    Why Choose Premier Wash and Detail Austin?
                 </h2>
                 <p class="text-gray-600 text-lg leading-relaxed mb-8">
-                    Picture Legacy Photography is a photography business located in Irving. Rated 5 out of 5 stars based on 86 Google reviews. Located at 920 Blue Jay Ln, Coppell, TX 75019, USA. Call (425) 444-4447 to get in touch.
+                    Premier Wash and Detail Austin is a auto detailing business located in Austin. Rated 5 out of 5 stars based on 117 Google reviews. Located at 1601 Bench Mark Dr c 2, Austin, TX 78728, USA. Call (512) 289-1279 to get in touch.
                 </p>
 
                 <!-- About highlights -->
@@ -527,7 +524,7 @@
                         <div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0">
                             <i data-lucide="check" class="w-4 h-4 text-secondary"></i>
                         </div>
-                        <span class="text-primary font-medium">86+ Customer Reviews</span>
+                        <span class="text-primary font-medium">117+ Customer Reviews</span>
                     </div>
                     
                     <div class="flex items-center gap-3">
@@ -541,7 +538,7 @@
                         <div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0">
                             <i data-lucide="check" class="w-4 h-4 text-secondary"></i>
                         </div>
-                        <span class="text-primary font-medium">Serving Irving</span>
+                        <span class="text-primary font-medium">Serving Austin</span>
                     </div>
                     
                 </div>
@@ -598,155 +595,148 @@
                             </div>
                             <!-- Quote -->
                             <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
-                                "We had such a wonderful experience with Maya! She was incredibly knowledgeable, so sweet, and very complimentary the entire time. She helped us with posing and positioning so we felt comfortable and confident in every shot. These are truly some of the best holiday photos we’ve had in years, and we absolutely can’t wait to see the final gallery. Highly recommend! 📸✨"
+                                "Reggie came out and took amazing care of my car. He and his associate Scott were both friendly and professional. Setting u appointment was easy. Communication: great! Pricing was what I was expecting and better than the dealership! The work was top notch and my car looked brand new inside and out again. I love their attention to detail and highly recommend! Will definitely use them again and have recommended them to my neighbors as well!"
                             </blockquote>
                             <!-- Author -->
                             <div class="flex items-center gap-4">
                                 <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
-                                    S
+                                    M
                                 </div>
                                 <div>
-                                    <div class="font-semibold text-white">Steph Patel</div>
+                                    <div class="font-semibold text-white">Mark Taylor</div>
+                                    <div class="text-white/50 text-sm">a year ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide w-full flex-shrink-0 px-4">
+                        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 sm:p-10 max-w-3xl mx-auto">
+                            <!-- Stars -->
+                            <div class="flex items-center gap-1 mb-6">
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                            </div>
+                            <!-- Quote -->
+                            <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
+                                "Reggie and his crew did a fantastic job detailing our mobile clinic after helping with the Leander flood relief. Looks better than when we got it! I’ll definitely be using him again in the future for all my detailing needs both personal and business. Looking forward to using him in the future!"
+                            </blockquote>
+                            <!-- Author -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
+                                    G
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-white">Grant M.</div>
+                                    <div class="text-white/50 text-sm">8 months ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide w-full flex-shrink-0 px-4">
+                        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 sm:p-10 max-w-3xl mx-auto">
+                            <!-- Stars -->
+                            <div class="flex items-center gap-1 mb-6">
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                            </div>
+                            <!-- Quote -->
+                            <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
+                                "These dudes came to my house and made my 9yo car look essentially brand new. Hadn’t looked this way since being off the lot. 10/10, plus super nice guys. Will definitely be booking them for future detailing needs! Thanks Reggie and team."
+                            </blockquote>
+                            <!-- Author -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
+                                    G
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-white">Gracie Ramsdell</div>
+                                    <div class="text-white/50 text-sm">11 months ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide w-full flex-shrink-0 px-4">
+                        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 sm:p-10 max-w-3xl mx-auto">
+                            <!-- Stars -->
+                            <div class="flex items-center gap-1 mb-6">
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                            </div>
+                            <!-- Quote -->
+                            <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
+                                "Reggie and his team did an exceptional job on our coach. He went above and beyond with some many bugs being stuck on the nose. We will definitely use them when in Austin. Thank you from team ALW🙏🏻"
+                            </blockquote>
+                            <!-- Author -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
+                                    E
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-white">Eric Wooley</div>
+                                    <div class="text-white/50 text-sm">10 months ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide w-full flex-shrink-0 px-4">
+                        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 sm:p-10 max-w-3xl mx-auto">
+                            <!-- Stars -->
+                            <div class="flex items-center gap-1 mb-6">
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                            </div>
+                            <!-- Quote -->
+                            <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
+                                "Fantastic job cleaning my 4Runner. You can tell Reggie takes pride in his work and knows what he's talking about. Super down to earth guy, has one of the best rates in town, and gives great advice on future maintenance. It's a rare thing, but he cares about the quality of his work: he told me he would come back free of charge if I found something not to my liking. Can't ask for more than that."
+                            </blockquote>
+                            <!-- Author -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
+                                    Z
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-white">Z U</div>
                                     <div class="text-white/50 text-sm">4 months ago</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-slide w-full flex-shrink-0 px-4">
-                        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 sm:p-10 max-w-3xl mx-auto">
-                            <!-- Stars -->
-                            <div class="flex items-center gap-1 mb-6">
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                            </div>
-                            <!-- Quote -->
-                            <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
-                                "Maya was such a pleasure to work with, she was great with our little one and getting him to smile! Our pictures could not have turned out better. We will definitely be reaching out to work with her again in the future!"
-                            </blockquote>
-                            <!-- Author -->
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
-                                    C
-                                </div>
-                                <div>
-                                    <div class="font-semibold text-white">Candice Lacey</div>
-                                    <div class="text-white/50 text-sm">6 months ago</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-slide w-full flex-shrink-0 px-4">
-                        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 sm:p-10 max-w-3xl mx-auto">
-                            <!-- Stars -->
-                            <div class="flex items-center gap-1 mb-6">
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                            </div>
-                            <!-- Quote -->
-                            <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
-                                "Picture Legacy is the place you must go to.   Maya is an amazing photographer. She takes her time and very patient with kids. Her photo props are amazingly beautiful.  I have been her customer for the past 5 years! Her Mother’s Day package makes any mom feels like a queen. I get pampered before the photo session. Get my hair and makeup done by a professional!!!
-She does a great job with photoshop and can do anything you ask her for.
-All my family and friends wait for our holiday card that’s made by Maya!! Thanks beautiful
-I would recommend her over and over!!!"
-                            </blockquote>
-                            <!-- Author -->
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
-                                    N
-                                </div>
-                                <div>
-                                    <div class="font-semibold text-white">Nadeen Barghouthi</div>
-                                    <div class="text-white/50 text-sm">3 years ago</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-slide w-full flex-shrink-0 px-4">
-                        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 sm:p-10 max-w-3xl mx-auto">
-                            <!-- Stars -->
-                            <div class="flex items-center gap-1 mb-6">
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                            </div>
-                            <!-- Quote -->
-                            <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
-                                "5 stars isn’t enough for this incredible photographer! Maya has been doing photography her whole life, and you can tell that she truly has a passion for it! I needed help creating a portfolio, and I am beyond glad I found Picture Legacy Photography!
-
-Maya’s creativity, professionalism, and talent truly shines through every picture she takes! She was well-prepared for the shoot, bringing a modifier. She had multiple locations in mind for the shoot, and she emailed me locations that she thought would be good beforehand! She also knew all the spots to take pictures at and told me poses to do, making it easy to model.
-
-Mid-shoot, it started raining. While most would’ve packed up, Maya went above and beyond turning the disastrous rain into photographical magic! If you’re looking for someone who will go the extra mile (and then some), this is your person. Maya will capture moments you’ll treasure forever! I highly recommend Maya to everyone for any photography needs!"
-                            </blockquote>
-                            <!-- Author -->
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
-                                    R
-                                </div>
-                                <div>
-                                    <div class="font-semibold text-white">Raghuram Reddy</div>
-                                    <div class="text-white/50 text-sm">10 months ago</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-slide w-full flex-shrink-0 px-4">
-                        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 sm:p-10 max-w-3xl mx-auto">
-                            <!-- Stars -->
-                            <div class="flex items-center gap-1 mb-6">
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                            </div>
-                            <!-- Quote -->
-                            <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
-                                "I’ve never had professional photos taken before and have never been a natural at taking photos but Maya made this experience easy and fun. She already had poses in mind and specific spots in my location of choice picked out which helped decrease my anxiety for the entire process. My photos turned out better than I expected. During a very hectic graduation season, Maya was very accommodating and I’m very grateful for how everything came together. I highly recommend!"
-                            </blockquote>
-                            <!-- Author -->
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
-                                    A
-                                </div>
-                                <div>
-                                    <div class="font-semibold text-white">Alyssa S.</div>
-                                    <div class="text-white/50 text-sm">10 months ago</div>
                                 </div>
                             </div>
                         </div>
@@ -787,100 +777,6 @@ Mid-shoot, it started raining. While most would’ve packed up, Maya went above 
      GALLERY / PORTFOLIO SECTION
      ════════════════════════════════════════════════════════ -->
 
-<section id="gallery" class="py-24 lg:py-32">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Section header -->
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <p class="reveal text-secondary font-semibold text-sm uppercase tracking-widest mb-3">Our Work</p>
-            <h2 class="reveal font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-6" style="transition-delay:0.1s">
-                Photos
-            </h2>
-        </div>
-
-        <!-- Gallery Grid -->
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-            
-            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group md:col-span-2 md:row-span-2" style="transition-delay:0.0s">
-                <div class="aspect-square md:aspect-[4/3]">
-                    <img
-                        src="assets/images/gallery_1.jpg"
-                        alt="Picture Legacy Photography photo 1"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                    >
-                </div>
-            </div>
-            
-            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group " style="transition-delay:0.06s">
-                <div class="aspect-square ">
-                    <img
-                        src="assets/images/gallery_2.jpg"
-                        alt="Picture Legacy Photography photo 2"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                    >
-                </div>
-            </div>
-            
-            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group " style="transition-delay:0.12s">
-                <div class="aspect-square ">
-                    <img
-                        src="assets/images/gallery_3.jpg"
-                        alt="Picture Legacy Photography photo 3"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                    >
-                </div>
-            </div>
-            
-            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group " style="transition-delay:0.18s">
-                <div class="aspect-square ">
-                    <img
-                        src="assets/images/gallery_4.jpg"
-                        alt="Picture Legacy Photography photo 4"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                    >
-                </div>
-            </div>
-            
-            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group " style="transition-delay:0.24s">
-                <div class="aspect-square ">
-                    <img
-                        src="assets/images/gallery_5.jpg"
-                        alt="Picture Legacy Photography photo 5"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                    >
-                </div>
-            </div>
-            
-            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group " style="transition-delay:0.3s">
-                <div class="aspect-square ">
-                    <img
-                        src="assets/images/gallery_6.jpg"
-                        alt="Picture Legacy Photography photo 6"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                    >
-                </div>
-            </div>
-            
-            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group " style="transition-delay:0.36s">
-                <div class="aspect-square ">
-                    <img
-                        src="assets/images/gallery_7.jpg"
-                        alt="Picture Legacy Photography photo 7"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                    >
-                </div>
-            </div>
-            
-        </div>
-    </div>
-</section>
-
 
 
 <!-- ════════════════════════════════════════════════════════
@@ -901,14 +797,14 @@ Mid-shoot, it started raining. While most would’ve packed up, Maya went above 
             Ready to Get Started?
         </h2>
         <p class="reveal text-white/70 text-lg sm:text-xl mb-10 max-w-2xl mx-auto" style="transition-delay:0.1s">
-            Book a Session
+            Book Your Detail
         </p>
         <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4" style="transition-delay:0.2s">
             <a href="#contact" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-primary font-bold text-lg hover:bg-gray-100 transition-all shadow-2xl">
-                Book a Session
+                Get a Quote
                 <i data-lucide="arrow-right" class="w-5 h-5"></i>
             </a>
-            <a href="tel:(425) 444-4447" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 border border-white/30 text-white font-semibold text-lg hover:bg-white/20 transition-all backdrop-blur-sm">
+            <a href="tel:(512) 289-1279" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 border border-white/30 text-white font-semibold text-lg hover:bg-white/20 transition-all backdrop-blur-sm">
                 <i data-lucide="phone" class="w-5 h-5"></i>
                 Call Now
             </a>
@@ -938,13 +834,13 @@ Mid-shoot, it started raining. While most would’ve packed up, Maya went above 
             <div class="lg:col-span-2 space-y-8">
                 <!-- Info cards -->
                 <div class="reveal-left space-y-4">
-                    <a href="tel:(425) 444-4447" class="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 card-hover group">
+                    <a href="tel:(512) 289-1279" class="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 card-hover group">
                         <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-secondary group-hover:text-white transition-colors">
                             <i data-lucide="phone" class="w-5 h-5 text-secondary group-hover:text-white transition-colors"></i>
                         </div>
                         <div>
                             <div class="font-semibold text-primary mb-1">Phone</div>
-                            <div class="text-gray-500">(425) 444-4447</div>
+                            <div class="text-gray-500">(512) 289-1279</div>
                         </div>
                     </a>
 
@@ -956,7 +852,7 @@ Mid-shoot, it started raining. While most would’ve packed up, Maya went above 
                         </div>
                         <div>
                             <div class="font-semibold text-primary mb-1">Address</div>
-                            <div class="text-gray-500">920 Blue Jay Ln, Coppell, TX 75019, USA</div>
+                            <div class="text-gray-500">1601 Bench Mark Dr c 2, Austin, TX 78728, USA</div>
                         </div>
                     </div>
 
@@ -988,8 +884,8 @@ Mid-shoot, it started raining. While most would’ve packed up, Maya went above 
 
             <!-- Contact Form -->
             <div class="lg:col-span-3 reveal-right">
-                <form action="https://formsubmit.co/picturelegacy@gmail.com" method="POST" class="bg-white rounded-2xl p-8 sm:p-10 border border-gray-100 shadow-lg">
-                    <input type="hidden" name="_subject" value="New inquiry from your website — Picture Legacy Photography">
+                <form action="#contact" method="POST" class="bg-white rounded-2xl p-8 sm:p-10 border border-gray-100 shadow-lg">
+                    <input type="hidden" name="_subject" value="New inquiry from your website — Premier Wash and Detail Austin">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_next" value="#contact">
                     <div class="grid sm:grid-cols-2 gap-6 mb-6">
@@ -1016,17 +912,31 @@ Mid-shoot, it started raining. While most would’ve packed up, Maya went above 
                                     class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all text-gray-700">
                                 <option value="">Select a service</option>
                                 
-                                <option value="Portraits">Portraits</option>
+                                <option value="Monday">Monday</option>
                                 
-                                <option value="Weddings">Weddings</option>
+                                <option value="LE DETAILING ACROSS TRAVIS COUNTY
+
+ 
+High">LE DETAILING ACROSS TRAVIS COUNTY
+
+ 
+High</option>
                                 
-                                <option value="Events">Events</option>
+                                <option value="The result is a mirror">The result is a mirror</option>
                                 
-                                <option value="Product Photography">Product Photography</option>
+                                <option value="Window Tinting
+
+We install high">Window Tinting
+
+We install high</option>
                                 
-                                <option value="Real Estate">Real Estate</option>
+                                <option value="City
+
+--">City
+
+--</option>
                                 
-                                <option value="Senior Portraits">Senior Portraits</option>
+                                <option value="Mobile Luxury Car Care">Mobile Luxury Car Care</option>
                                 
                             </select>
                         </div>
@@ -1100,10 +1010,10 @@ Mid-shoot, it started raining. While most would’ve packed up, Maya went above 
                 <script>
                     (function() {
                         var key = 'discount_start_' + location.pathname;
-                        var start = localStorage.getItem(key + '_ext');
-                        if (!start) { start = Date.now(); localStorage.setItem(key + '_ext', start); }
+                        var start = localStorage.getItem(key);
+                        if (!start) { start = Date.now(); localStorage.setItem(key, start); }
                         start = parseInt(start);
-                        var end = start + 7 * 24 * 60 * 60 * 1000;
+                        var end = start + 48 * 60 * 60 * 1000;
                         var el = document.getElementById('countdown-timer-bottom');
                         function tick() {
                             var left = Math.max(0, end - Date.now());
@@ -1178,10 +1088,10 @@ Mid-shoot, it started raining. While most would’ve packed up, Maya went above 
             <!-- Brand -->
             <div class="lg:col-span-1">
                 <div class="flex items-center gap-2 mb-4">
-                    <span class="text-xl font-bold">Picture Legacy Photography</span>
+                    <span class="text-xl font-bold">Premier Wash and Detail Austin</span>
                 </div>
                 <p class="text-white/50 text-sm leading-relaxed mb-6">
-                    Professional photography that tells your story beautifully
+                    Professional auto detailing that makes your vehicle look brand new
                 </p>
                 <!-- Social Icons -->
                 <div class="flex items-center gap-3">
@@ -1215,17 +1125,24 @@ Mid-shoot, it started raining. While most would’ve packed up, Maya went above 
                 <h4 class="font-semibold text-white mb-4">Services</h4>
                 <ul class="space-y-3">
                     
-                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Portraits</a></li>
+                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Monday</a></li>
                     
-                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Weddings</a></li>
+                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">LE DETAILING ACROSS TRAVIS COUNTY
+
+ 
+High</a></li>
                     
-                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Events</a></li>
+                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">The result is a mirror</a></li>
                     
-                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Product Photography</a></li>
+                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Window Tinting
+
+We install high</a></li>
                     
-                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Real Estate</a></li>
+                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">City
+
+--</a></li>
                     
-                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Senior Portraits</a></li>
+                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Mobile Luxury Car Care</a></li>
                     
                 </ul>
             </div>
@@ -1235,16 +1152,16 @@ Mid-shoot, it started raining. While most would’ve packed up, Maya went above 
                 <h4 class="font-semibold text-white mb-4">Contact Us</h4>
                 <ul class="space-y-3 text-sm">
                     <li>
-                        <a href="tel:(425) 444-4447" class="flex items-center gap-2 text-white/50 hover:text-white transition-colors">
+                        <a href="tel:(512) 289-1279" class="flex items-center gap-2 text-white/50 hover:text-white transition-colors">
                             <i data-lucide="phone" class="w-4 h-4 flex-shrink-0"></i>
-                            (425) 444-4447
+                            (512) 289-1279
                         </a>
                     </li>
                     
                     <li>
                         <div class="flex items-start gap-2 text-white/50">
                             <i data-lucide="map-pin" class="w-4 h-4 flex-shrink-0 mt-0.5"></i>
-                            920 Blue Jay Ln, Coppell, TX 75019, USA
+                            1601 Bench Mark Dr c 2, Austin, TX 78728, USA
                         </div>
                     </li>
                 </ul>
@@ -1255,7 +1172,7 @@ Mid-shoot, it started raining. While most would’ve packed up, Maya went above 
         <div class="border-t border-white/10 pt-8">
             <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
                 <p class="text-white/40 text-sm">
-                    &copy; 2026 Picture Legacy Photography. All rights reserved.
+                    &copy; 2026 Premier Wash and Detail Austin. All rights reserved.
                 </p>
                 <p class="text-white/30 text-xs">
                     Full setup guide included after purchase &middot; Built with care
