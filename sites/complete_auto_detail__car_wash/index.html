@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Delicious food and seamless service for your next event">
-    <title>Orlando Caterers and Commissary — Delicious food and seamless service for your next event</title>
+    <meta name="description" content="Professional auto detailing that makes your vehicle look brand new">
+    <title>Complete Auto Detail & Car Wash — Professional auto detailing that makes your vehicle look brand new</title>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -22,9 +22,9 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#991b1b',
-                        secondary: '#dc2626',
-                        accent: '#fef2f2',
+                        primary: '#7c2d12',
+                        secondary: '#ea580c',
+                        accent: '#fff7ed',
                     },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -82,9 +82,9 @@
         .hero-gradient {
             background: linear-gradient(
                 135deg,
-                #991b1b99 0%,
-                #dc262699 50%,
-                #991b1b99 100%
+                #7c2d1299 0%,
+                #ea580c99 50%,
+                #7c2d1299 100%
             );
         }
         .hero-pattern {
@@ -99,7 +99,7 @@
             100% { background-position: 0% 50%; }
         }
         .animated-gradient-text {
-            background: linear-gradient(270deg, #fff, #fef2f2, #fff, #dc2626);
+            background: linear-gradient(270deg, #fff, #fff7ed, #fff, #ea580c);
             background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -150,8 +150,8 @@
 
         /* ── Service icon ring ─────────────────────────── */
         .icon-ring {
-            background: linear-gradient(135deg, #dc262615, #dc262608);
-            border: 1px solid #dc262620;
+            background: linear-gradient(135deg, #ea580c15, #ea580c08);
+            border: 1px solid #ea580c20;
         }
 
         /* ── Gallery hover overlay ─────────────────────── */
@@ -173,7 +173,7 @@
             position: absolute;
             inset: -4px;
             border-radius: inherit;
-            border: 2px solid #dc2626;
+            border: 2px solid #ea580c;
             animation: pulse-ring 2s ease-out infinite;
         }
 
@@ -181,11 +181,11 @@
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f5f9; }
         ::-webkit-scrollbar-thumb {
-            background: #dc262660;
+            background: #ea580c60;
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #dc2626;
+            background: #ea580c;
         }
     </style>
 </head>
@@ -198,7 +198,7 @@
 
 <a href="https://buy.stripe.com/14A14nbN85xO4Yu6S1bZe01" target="_blank" id="discount-bubble" style="position:fixed; bottom:20px; right:20px; z-index:9999; text-decoration:none; animation: bubble-pulse 2s ease-in-out infinite;">
     <div style="background:linear-gradient(135deg,#dc2626,#ea580c); border-radius:16px; padding:12px 16px; box-shadow:0 8px 32px rgba(220,38,38,0.4); max-width:200px; text-align:center; font-family:'Inter',system-ui,sans-serif;">
-        <div style="color:#fef08a; font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">&#9200; 7-DAY DEAL</div>
+        <div style="color:#fef08a; font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">&#9200; 48hr deal</div>
         <div style="display:flex; align-items:center; justify-content:center; gap:6px;">
             <span style="color:rgba(255,255,255,0.5); text-decoration:line-through; font-size:13px; font-weight:600;">$1250</span>
             <span style="color:#ffffff; font-size:22px; font-weight:800;">$500</span>
@@ -216,10 +216,10 @@
 <script>
     (function() {
         var key = 'discount_start_' + location.pathname;
-        var start = localStorage.getItem(key + '_ext');
-        if (!start) { start = Date.now(); localStorage.setItem(key + '_ext', start); }
+        var start = localStorage.getItem(key);
+        if (!start) { start = Date.now(); localStorage.setItem(key, start); }
         start = parseInt(start);
-        var end = start + 7 * 24 * 60 * 60 * 1000;
+        var end = start + 48 * 60 * 60 * 1000;
         var el = document.getElementById('countdown-timer');
         function tick() {
             var left = Math.max(0, end - Date.now());
@@ -244,7 +244,7 @@
             <!-- Logo / Brand -->
             <a href="#hero" class="flex items-center gap-2 group">
                 <span id="nav-brand" class="text-xl font-bold text-white transition-all duration-300 opacity-0 -translate-x-2">
-                    Orlando Caterers and Commissary
+                    Complete Auto Detail & Car Wash
                 </span>
             </a>
 
@@ -276,9 +276,9 @@
                     Contact
                 </a>
                 
-                <a href="tel:(407) 900-4219" class="ml-2 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary text-white text-sm font-semibold hover:bg-secondary/90 transition-all shadow-lg shadow-secondary/20 hover:shadow-secondary/40">
+                <a href="tel:(512) 436-8222" class="ml-2 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary text-white text-sm font-semibold hover:bg-secondary/90 transition-all shadow-lg shadow-secondary/20 hover:shadow-secondary/40">
                     <i data-lucide="phone" class="w-4 h-4"></i>
-                    (407) 900-4219
+                    (512) 436-8222
                 </a>
             </div>
 
@@ -307,7 +307,7 @@
             
             <a href="#contact" class="mobile-link text-2xl font-semibold text-primary hover:text-secondary transition-colors">Contact</a>
             
-            <a href="tel:(407) 900-4219" class="mt-4 inline-flex items-center gap-2 px-8 py-3 rounded-full bg-secondary text-white font-semibold text-lg">
+            <a href="tel:(512) 436-8222" class="mt-4 inline-flex items-center gap-2 px-8 py-3 rounded-full bg-secondary text-white font-semibold text-lg">
                 <i data-lucide="phone" class="w-5 h-5"></i>
                 Call Now
             </a>
@@ -319,13 +319,7 @@
 <!-- ════════════════════════════════════════════════════════
      HERO SECTION
      ════════════════════════════════════════════════════════ -->
-<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden" style="background: linear-gradient(135deg, #450a0a 0%, #991b1b 40%, #dc2626 100%)">
-    
-    <!-- Real business photo as hero background -->
-    <div class="absolute inset-0 z-0">
-        <img src="assets/images/hero.jpg" alt="Orlando Caterers and Commissary" class="w-full h-full object-cover">
-        <div class="absolute inset-0 hero-tint" style="background: linear-gradient(135deg, #450a0a99 0%, #991b1b99 40%, #dc262699 100%)"></div>
-    </div>
+<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden" style="background: linear-gradient(135deg, #431407 0%, #7c2d12 40%, #ea580c 100%)">
     
     <!-- Decorative floating shapes -->
     <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
@@ -338,34 +332,34 @@
         <!-- Eyebrow -->
         <div class="reveal inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/80 text-sm font-medium mb-8 backdrop-blur-sm">
             <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-            5 ★ rated · 179 Google reviews
+            4.6 ★ rated · 1821 Google reviews
         </div>
 
         <!-- Main Heading -->
         <h1 class="reveal font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6" style="transition-delay:0.1s; color:#ffffff; text-shadow: 0 2px 20px rgba(0,0,0,0.3)">
-            Orlando Caterers and Commissary
+            Complete Auto Detail & Car Wash
         </h1>
 
         <!-- Animated Tagline -->
         <p class="reveal animated-gradient-text text-xl sm:text-2xl md:text-3xl font-semibold mb-6" style="transition-delay:0.2s; color: rgba(255,255,255,0.9)">
-            Delicious food and seamless service for your next event
+            Professional auto detailing that makes your vehicle look brand new
         </p>
 
         <!-- Sub-description -->
         <p class="reveal text-white/70 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed" style="transition-delay:0.3s">
-            Orlando Caterers and Commissary — serving Orlando with professional catering services. Rated 5/5 by 179 customers on Google. Call us at (407) 900-4219.
+            Complete Auto Detail & Car Wash — serving Austin with professional auto detailing services. Rated 4.6/5 by 1821 customers on Google. Call us at (512) 436-8222.
         </p>
 
         <!-- CTA Buttons -->
         <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4" style="transition-delay:0.4s">
             <a href="#contact" class="relative pulse-ring inline-flex items-center gap-2 px-8 py-4 rounded-full bg-secondary text-white font-bold text-lg hover:bg-secondary/90 transition-all shadow-2xl shadow-secondary/30">
-                Request a Quote
+                Get a Quote
                 <i data-lucide="arrow-right" class="w-5 h-5"></i>
             </a>
             
-            <a href="tel:(407) 900-4219" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 border border-white/30 text-white font-semibold text-lg hover:bg-white/20 transition-all backdrop-blur-sm">
+            <a href="tel:(512) 436-8222" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 border border-white/30 text-white font-semibold text-lg hover:bg-white/20 transition-all backdrop-blur-sm">
                 <i data-lucide="phone" class="w-5 h-5"></i>
-                View Menu
+                Call Now
             </a>
             
         </div>
@@ -376,17 +370,17 @@
             
             <div class="flex items-center gap-2">
                 <i data-lucide="shield-check" class="w-5 h-5"></i>
-                <span>5-Star Rated</span>
+                <span>4.6-Star Rated</span>
             </div>
             
             <div class="flex items-center gap-2">
                 <i data-lucide="star" class="w-5 h-5"></i>
-                <span>179+ Reviews</span>
+                <span>1821+ Reviews</span>
             </div>
             
             <div class="flex items-center gap-2">
                 <i data-lucide="clock" class="w-5 h-5"></i>
-                <span>Located in Orlando</span>
+                <span>Located in Austin</span>
             </div>
             
         </div>
@@ -408,11 +402,11 @@
         <div class="text-center max-w-3xl mx-auto mb-16">
             <p class="reveal text-secondary font-semibold text-sm uppercase tracking-widest mb-3">WHAT WE OFFER</p>
             <h2 class="reveal font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-6" style="transition-delay:0.1s">
-                Catering Services
+                Detailing Services
             </h2>
             
             <p class="reveal text-gray-500 text-lg leading-relaxed" style="transition-delay:0.15s">
-                Delicious food and seamless service for events of every size.
+                Professional detailing that brings your vehicle back to showroom condition.
             </p>
             
         </div>
@@ -423,50 +417,52 @@
             
             <div class="reveal-scale card-hover bg-white rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.0s">
                 <div class="icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <i data-lucide="building" class="w-7 h-7 text-secondary"></i>
+                    <i data-lucide="star" class="w-7 h-7 text-secondary"></i>
                 </div>
-                <h3 class="text-xl font-bold text-primary mb-3">Corporate Catering</h3>
-                <p class="text-gray-500 leading-relaxed">Professional catering for meetings, conferences, and office events.</p>
+                <h3 class="text-xl font-bold text-primary mb-3">Your car will be treated like royalty</h3>
+                <p class="text-gray-500 leading-relaxed">attention to detail is everything. It will be 100% hand washed with only the finest and environmentally friendly product</p>
             </div>
             
             <div class="reveal-scale card-hover bg-white rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.08s">
                 <div class="icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <i data-lucide="heart" class="w-7 h-7 text-secondary"></i>
+                    <i data-lucide="droplets" class="w-7 h-7 text-secondary"></i>
                 </div>
-                <h3 class="text-xl font-bold text-primary mb-3">Wedding Catering</h3>
-                <p class="text-gray-500 leading-relaxed">Custom menus and full-service catering for your big day.</p>
+                <h3 class="text-xl font-bold text-primary mb-3">Truly the best wash</h3>
+                <p class="text-gray-500 leading-relaxed">my car looks like new! I would definitely recommend this place.</p>
             </div>
             
             <div class="reveal-scale card-hover bg-white rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.16s">
                 <div class="icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <i data-lucide="party-popper" class="w-7 h-7 text-secondary"></i>
+                    <i data-lucide="star" class="w-7 h-7 text-secondary"></i>
                 </div>
-                <h3 class="text-xl font-bold text-primary mb-3">Private Events</h3>
-                <p class="text-gray-500 leading-relaxed">Birthdays, anniversaries, and private party catering.</p>
+                <h3 class="text-xl font-bold text-primary mb-3">Katelin
+
+I love this place</h3>
+                <p class="text-gray-500 leading-relaxed">they always take care of my car! I definitely recommend you to get a monthly membership here!!</p>
             </div>
             
             <div class="reveal-scale card-hover bg-white rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.24s">
                 <div class="icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <i data-lucide="utensils" class="w-7 h-7 text-secondary"></i>
+                    <i data-lucide="sparkles" class="w-7 h-7 text-secondary"></i>
                 </div>
-                <h3 class="text-xl font-bold text-primary mb-3">Buffet Service</h3>
-                <p class="text-gray-500 leading-relaxed">Buffet-style catering with a wide variety of options.</p>
+                <h3 class="text-xl font-bold text-primary mb-3">Full Detail</h3>
+                <p class="text-gray-500 leading-relaxed">I got a mini detail for my 4runner.</p>
             </div>
             
             <div class="reveal-scale card-hover bg-white rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.32s">
                 <div class="icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <i data-lucide="truck" class="w-7 h-7 text-secondary"></i>
+                    <i data-lucide="sparkles" class="w-7 h-7 text-secondary"></i>
                 </div>
-                <h3 class="text-xl font-bold text-primary mb-3">Drop-Off Catering</h3>
-                <p class="text-gray-500 leading-relaxed">Convenient delivery catering for easy, no-fuss events.</p>
+                <h3 class="text-xl font-bold text-primary mb-3">Interior Cleaning</h3>
+                <p class="text-gray-500 leading-relaxed">The interior was great but for $210 I expect a pretty damn thorough wash.</p>
             </div>
             
             <div class="reveal-scale card-hover bg-white rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.4s">
                 <div class="icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <i data-lucide="book-open" class="w-7 h-7 text-secondary"></i>
+                    <i data-lucide="droplets" class="w-7 h-7 text-secondary"></i>
                 </div>
-                <h3 class="text-xl font-bold text-primary mb-3">Custom Menus</h3>
-                <p class="text-gray-500 leading-relaxed">Tailored menus to fit your theme, dietary needs, and budget.</p>
+                <h3 class="text-xl font-bold text-primary mb-3">Exterior Wash</h3>
+                <p class="text-gray-500 leading-relaxed">The interior was great but for $210 I expect a pretty damn thorough wash.</p>
             </div>
             
         </div>
@@ -484,19 +480,15 @@
             <div class="reveal-left relative">
                 <div class="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
                     
-                    <img
-                        src="assets/images/about.jpg"
-                        alt="Orlando Caterers and Commissary"
-                        class="w-full h-full object-cover"
-                        loading="lazy"
-                    >
-                    <div class="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
+                    <div class="w-full h-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                        <span class="text-6xl">🚗</span>
+                    </div>
                     
                 </div>
                 <!-- Floating stat card -->
                 
                 <div class="absolute -bottom-6 -right-6 sm:right-8 bg-white rounded-2xl p-6 shadow-xl border border-gray-100">
-                    <div class="text-4xl font-bold text-secondary mb-1">179</div>
+                    <div class="text-4xl font-bold text-secondary mb-1">1821</div>
                     <div class="text-gray-500 text-sm font-medium">Google Reviews</div>
                 </div>
                 
@@ -506,10 +498,10 @@
             <div class="reveal-right">
                 <p class="text-secondary font-semibold text-sm uppercase tracking-widest mb-3">About Us</p>
                 <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-6 leading-tight">
-                    Why Choose Orlando Caterers and Commissary?
+                    Why Choose Complete Auto Detail & Car Wash?
                 </h2>
                 <p class="text-gray-600 text-lg leading-relaxed mb-8">
-                    Orlando Caterers and Commissary is a catering business located in Orlando. Rated 5 out of 5 stars based on 179 Google reviews. Located at 1020 W Michigan St, Orlando, FL 32805, USA. Call (407) 900-4219 to get in touch.
+                    Complete Auto Detail & Car Wash is a auto detailing business located in Austin. Rated 4.6 out of 5 stars based on 1821 Google reviews. Located at 1514 W 5th St, Austin, TX 78703, USA. Call (512) 436-8222 to get in touch.
                 </p>
 
                 <!-- About highlights -->
@@ -520,14 +512,14 @@
                         <div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0">
                             <i data-lucide="check" class="w-4 h-4 text-secondary"></i>
                         </div>
-                        <span class="text-primary font-medium">5-Star Google Rating</span>
+                        <span class="text-primary font-medium">4.6-Star Google Rating</span>
                     </div>
                     
                     <div class="flex items-center gap-3">
                         <div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0">
                             <i data-lucide="check" class="w-4 h-4 text-secondary"></i>
                         </div>
-                        <span class="text-primary font-medium">179+ Customer Reviews</span>
+                        <span class="text-primary font-medium">1821+ Customer Reviews</span>
                     </div>
                     
                     <div class="flex items-center gap-3">
@@ -541,7 +533,7 @@
                         <div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0">
                             <i data-lucide="check" class="w-4 h-4 text-secondary"></i>
                         </div>
-                        <span class="text-primary font-medium">Serving Orlando</span>
+                        <span class="text-primary font-medium">Serving Austin</span>
                     </div>
                     
                 </div>
@@ -587,64 +579,23 @@
                                 
                                 <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
                                 
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
                             </div>
                             <!-- Quote -->
                             <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
-                                "I been through a lot trying to get my food trailer up and running and some how I ended up calling the right company that knows the business Orlando Catererd and commercery  walk me through every think I need to know  and guide me to the end. I  found them to be  true to their business and  loyal to the cause of helping people with much passion and patience thank you to the man that answered the phone Mr.Herbert he gave me the confidence and assurance to finish to the end.
-much love from:
-(Pop Belly's island flavors )"
-                            </blockquote>
-                            <!-- Author -->
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
-                                    P
-                                </div>
-                                <div>
-                                    <div class="font-semibold text-white">Pop belly's island flavors</div>
-                                    <div class="text-white/50 text-sm">4 months ago</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-slide w-full flex-shrink-0 px-4">
-                        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 sm:p-10 max-w-3xl mx-auto">
-                            <!-- Stars -->
-                            <div class="flex items-center gap-1 mb-6">
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                            </div>
-                            <!-- Quote -->
-                            <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
-                                "Orlando Caterers and Commissary has been an absolute game-changer for me as I work toward establishing my baking business. Not only is their commercial kitchen clean, well-organized, and professional, but the support and guidance they provide is truly invaluable. They generously shared so much helpful information about licensing, setup, and best practices, which made the entire process feel far less overwhelming. It’s clear they genuinely care about helping small businesses succeed. I’m beyond grateful for their knowledge, encouragement, and professionalism. I highly recommend Orlando Caterers and Commissary to anyone looking to start or grow a food business!
+                                "I'm extremely disappointed with my recent car detailing experience here. After paying $250 (including tip), I expected a high standard of service, but instead discovered noticeable dirt and scratches still on my vehicle. It was clear that key areas had been overlooked.
 
-Herbert is  a GEM✨"
+To make matters worse, I've made four attempts to contact the shop to resolve this -- but their voicemail box is full, making it impossible to even leave a message. That level of unresponsiveness is unacceptable for any business, especially when a customer is trying to resolve a serious issue.
+
+I've been a loyal customer and have appreciated their work in the past, but this experience has completely changed my view. Unless this is made right with a refund or some accountability, I won't be returning -- and I'll be considering next steps through my insurance if necessary. I have more photos if need be."
                             </blockquote>
                             <!-- Author -->
                             <div class="flex items-center gap-4">
                                 <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
-                                    M
+                                    L
                                 </div>
                                 <div>
-                                    <div class="font-semibold text-white">Maleigha Liburdi</div>
-                                    <div class="text-white/50 text-sm">3 months ago</div>
+                                    <div class="font-semibold text-white">London DeGori</div>
+                                    <div class="text-white/50 text-sm">5 months ago</div>
                                 </div>
                             </div>
                         </div>
@@ -657,27 +608,35 @@ Herbert is  a GEM✨"
                                 
                                 <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
                                 
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
                             </div>
                             <!-- Quote -->
                             <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
-                                "Josh and Rebecca were very professional and helpful. And Josh was very patient with us. And made the food licensing process very smooth. We appreciate their help navigating the food licensing process. If you or anyone need to go through food licensing Josh and Rebecca are a great and supportive team to help you throughout that process. Thank you all very much for you all's support."
+                                "Avoid this place.
+Zero accountability and incredibly bad attitude.
+
+I’ve been bringing my truck here regularly since July, but after my last visit, they left a large scratch that tore off part of my wrap, about the size of two quarters. When I calmly pointed it out, the owner immediately got defensive and accused me of arriving with the damage, instead of even considering that his team caused it. No investigation, no apology, just aggressive attitude.
+
+He eventually pulled out his phone and tried to show me grainy footage from at least 30 feet away, claiming it “proved” the scratch was already there. I looked at him in disbelief.
+
+I come to this place almost every week, as my building is just a block away. I asked my building to pull footage of my truck leaving the garage at 12:12 p.m., right before I drove that one block to the wash. I’m posting that footage below, it clearly shows my truck was undamaged when I left. There’s no question where the damage happened, and the beauty of this day, is that I have witnesses that I happened to bring with me.
+
+When I asked why his employees don’t take photos when they notice damage, he told me they “wash too many cars” to do that. Later that same afternoon, I found out from a colleague that she was given the exact opposite story a few weeks back. Same owner showed her a picture, claiming her vehicle showed up that way. She was skeptical in her gut, but couldn't do anything about it. Now we’re confident he staged the picture.
+
+After reading other reviews here, it’s obvious we’re not the only ones who've dealt with the same denial, blame-shifting, and lack of accountability. Shady owner. Shady business.
+
+Accidents happen, that’s understandable. But being treated like a liar by a business I’ve supported for months is unacceptable. The lack of professionalism, honesty, and basic respect from the owner speaks volumes.
+
+Avoid this place.
+Attorney and reimbursement for repairs on the way."
                             </blockquote>
                             <!-- Author -->
                             <div class="flex items-center gap-4">
                                 <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
-                                    B
+                                    S
                                 </div>
                                 <div>
-                                    <div class="font-semibold text-white">Brother Chuka - Student Of Yah</div>
-                                    <div class="text-white/50 text-sm">2 months ago</div>
+                                    <div class="font-semibold text-white">Soroosh Seyhoon</div>
+                                    <div class="text-white/50 text-sm">5 months ago</div>
                                 </div>
                             </div>
                         </div>
@@ -690,26 +649,22 @@ Herbert is  a GEM✨"
                                 
                                 <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
                                 
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
-                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
-                                
                             </div>
                             <!-- Quote -->
                             <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
-                                "Josh and Rebeca were a great help to me in getting my license. They made the licensing process smooth. Thank you again for being so supportive through it all."
+                                "I brought my car here to get tree sap removed and paid for the Premium Wash Package, because apparently I enjoy believing words mean things. Spoiler alert: the sap was still very much there when they were done. When I pointed this out, I was told I’d need to speak to a manager… who conveniently wouldn’t be in until the next day. Even better, they explained that I should have specifically requested sap removal. Right, because when you pay for a premium wash, it’s unreasonable to expect the visible, sticky substance on your car to be addressed unless you formally submit a sap-specific waiver.
+
+And sure, maybe sap requires some magical, top-secret process, but if that’s the case, why not mention it before taking my money? They clearly saw it. To top it off, the employee’s attitude was basically, “oh well, not my problem,” and I was dismissed with a casual suggestion to come back and talk to the manager if I didn’t like it.
+
+For what they charge, I expected actual service and at least a baseline level of customer care. Instead, I got a shiny car… with the same sap and a side of indifference. Premium experience, indeed."
                             </blockquote>
                             <!-- Author -->
                             <div class="flex items-center gap-4">
                                 <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
-                                    Y
+                                    0
                                 </div>
                                 <div>
-                                    <div class="font-semibold text-white">Yanet Garcia</div>
+                                    <div class="font-semibold text-white">0 2</div>
                                     <div class="text-white/50 text-sm">a month ago</div>
                                 </div>
                             </div>
@@ -725,6 +680,33 @@ Herbert is  a GEM✨"
                                 
                                 <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
                                 
+                            </div>
+                            <!-- Quote -->
+                            <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
+                                "Maybe I had a one off experience?  I got a mini detail for my 4runner...went to the has station...and noticed they didnt even wash the roof.  Don't charge me for a truck if you are going to wash the roof...of the truck.  The interior was great but for $210 I expect a pretty damn thorough wash."
+                            </blockquote>
+                            <!-- Author -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
+                                    M
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-white">Mike Ferreira</div>
+                                    <div class="text-white/50 text-sm">6 months ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide w-full flex-shrink-0 px-4">
+                        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 sm:p-10 max-w-3xl mx-auto">
+                            <!-- Stars -->
+                            <div class="flex items-center gap-1 mb-6">
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
+                                <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
+                                
                                 <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
                                 
                                 <i data-lucide="star" class="w-5 h-5 text-accent fill-accent"></i>
@@ -734,18 +716,16 @@ Herbert is  a GEM✨"
                             </div>
                             <!-- Quote -->
                             <blockquote class="text-lg sm:text-xl leading-relaxed text-white/90 mb-8">
-                                "Rebeca and Josh were great with helping me with getting my license. Herbert and his team have also been very helpful with helping to get my business certified.
-
-Thank you for being attentive and willing to help!"
+                                "If you’ve been frustrated by less-than acceptable service and outcome when it comes to car washes, come and give these guys a try. I was so happy with the way they left my car washed and the friendly customer service, that I decided to purchase a membership to both my vehicles. It’s so nice to have a cold beverage offered every time I come, aside from not worrying if my car will come out completely clean. One hundred percent recommended 👍🏼"
                             </blockquote>
                             <!-- Author -->
                             <div class="flex items-center gap-4">
                                 <div class="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center text-white font-bold text-lg">
-                                    J
+                                    A
                                 </div>
                                 <div>
-                                    <div class="font-semibold text-white">JT Moore</div>
-                                    <div class="text-white/50 text-sm">2 months ago</div>
+                                    <div class="font-semibold text-white">Angel Franco</div>
+                                    <div class="text-white/50 text-sm">7 months ago</div>
                                 </div>
                             </div>
                         </div>
@@ -786,100 +766,6 @@ Thank you for being attentive and willing to help!"
      GALLERY / PORTFOLIO SECTION
      ════════════════════════════════════════════════════════ -->
 
-<section id="gallery" class="py-24 lg:py-32">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Section header -->
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <p class="reveal text-secondary font-semibold text-sm uppercase tracking-widest mb-3">Our Work</p>
-            <h2 class="reveal font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-6" style="transition-delay:0.1s">
-                Photos
-            </h2>
-        </div>
-
-        <!-- Gallery Grid -->
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-            
-            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group md:col-span-2 md:row-span-2" style="transition-delay:0.0s">
-                <div class="aspect-square md:aspect-[4/3]">
-                    <img
-                        src="assets/images/gallery_1.jpg"
-                        alt="Orlando Caterers and Commissary photo 1"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                    >
-                </div>
-            </div>
-            
-            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group " style="transition-delay:0.06s">
-                <div class="aspect-square ">
-                    <img
-                        src="assets/images/gallery_2.jpg"
-                        alt="Orlando Caterers and Commissary photo 2"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                    >
-                </div>
-            </div>
-            
-            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group " style="transition-delay:0.12s">
-                <div class="aspect-square ">
-                    <img
-                        src="assets/images/gallery_3.jpg"
-                        alt="Orlando Caterers and Commissary photo 3"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                    >
-                </div>
-            </div>
-            
-            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group " style="transition-delay:0.18s">
-                <div class="aspect-square ">
-                    <img
-                        src="assets/images/gallery_4.jpg"
-                        alt="Orlando Caterers and Commissary photo 4"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                    >
-                </div>
-            </div>
-            
-            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group " style="transition-delay:0.24s">
-                <div class="aspect-square ">
-                    <img
-                        src="assets/images/gallery_5.jpg"
-                        alt="Orlando Caterers and Commissary photo 5"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                    >
-                </div>
-            </div>
-            
-            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group " style="transition-delay:0.3s">
-                <div class="aspect-square ">
-                    <img
-                        src="assets/images/gallery_6.jpg"
-                        alt="Orlando Caterers and Commissary photo 6"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                    >
-                </div>
-            </div>
-            
-            <div class="reveal-scale gallery-item relative rounded-2xl overflow-hidden cursor-pointer group " style="transition-delay:0.36s">
-                <div class="aspect-square ">
-                    <img
-                        src="assets/images/gallery_7.jpg"
-                        alt="Orlando Caterers and Commissary photo 7"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                    >
-                </div>
-            </div>
-            
-        </div>
-    </div>
-</section>
-
 
 
 <!-- ════════════════════════════════════════════════════════
@@ -900,14 +786,14 @@ Thank you for being attentive and willing to help!"
             Ready to Get Started?
         </h2>
         <p class="reveal text-white/70 text-lg sm:text-xl mb-10 max-w-2xl mx-auto" style="transition-delay:0.1s">
-            Request a Quote
+            Book Your Detail
         </p>
         <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4" style="transition-delay:0.2s">
             <a href="#contact" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-primary font-bold text-lg hover:bg-gray-100 transition-all shadow-2xl">
-                Request a Quote
+                Get a Quote
                 <i data-lucide="arrow-right" class="w-5 h-5"></i>
             </a>
-            <a href="tel:(407) 900-4219" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 border border-white/30 text-white font-semibold text-lg hover:bg-white/20 transition-all backdrop-blur-sm">
+            <a href="tel:(512) 436-8222" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 border border-white/30 text-white font-semibold text-lg hover:bg-white/20 transition-all backdrop-blur-sm">
                 <i data-lucide="phone" class="w-5 h-5"></i>
                 Call Now
             </a>
@@ -937,13 +823,13 @@ Thank you for being attentive and willing to help!"
             <div class="lg:col-span-2 space-y-8">
                 <!-- Info cards -->
                 <div class="reveal-left space-y-4">
-                    <a href="tel:(407) 900-4219" class="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 card-hover group">
+                    <a href="tel:(512) 436-8222" class="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 card-hover group">
                         <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-secondary group-hover:text-white transition-colors">
                             <i data-lucide="phone" class="w-5 h-5 text-secondary group-hover:text-white transition-colors"></i>
                         </div>
                         <div>
                             <div class="font-semibold text-primary mb-1">Phone</div>
-                            <div class="text-gray-500">(407) 900-4219</div>
+                            <div class="text-gray-500">(512) 436-8222</div>
                         </div>
                     </a>
 
@@ -955,7 +841,7 @@ Thank you for being attentive and willing to help!"
                         </div>
                         <div>
                             <div class="font-semibold text-primary mb-1">Address</div>
-                            <div class="text-gray-500">1020 W Michigan St, Orlando, FL 32805, USA</div>
+                            <div class="text-gray-500">1514 W 5th St, Austin, TX 78703, USA</div>
                         </div>
                     </div>
 
@@ -966,23 +852,7 @@ Thank you for being attentive and willing to help!"
                         <div>
                             <div class="font-semibold text-primary mb-1">Hours</div>
                             
-                            <div class="text-gray-500 text-sm space-y-0.5">
-                                
-                                <div>Monday: Open 24 hours</div>
-                                
-                                <div>Tuesday: Open 24 hours</div>
-                                
-                                <div>Wednesday: Open 24 hours</div>
-                                
-                                <div>Thursday: Open 24 hours</div>
-                                
-                                <div>Friday: Open 24 hours</div>
-                                
-                                <div>Saturday: Open 24 hours</div>
-                                
-                                <div>Sunday: Open 24 hours</div>
-                                
-                            </div>
+                            <div class="text-gray-500">Contact us for hours</div>
                             
                         </div>
                     </div>
@@ -1003,8 +873,8 @@ Thank you for being attentive and willing to help!"
 
             <!-- Contact Form -->
             <div class="lg:col-span-3 reveal-right">
-                <form action="https://formsubmit.co/info@orlandocaterers.com" method="POST" class="bg-white rounded-2xl p-8 sm:p-10 border border-gray-100 shadow-lg">
-                    <input type="hidden" name="_subject" value="New inquiry from your website — Orlando Caterers and Commissary">
+                <form action="#contact" method="POST" class="bg-white rounded-2xl p-8 sm:p-10 border border-gray-100 shadow-lg">
+                    <input type="hidden" name="_subject" value="New inquiry from your website — Complete Auto Detail & Car Wash">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_next" value="#contact">
                     <div class="grid sm:grid-cols-2 gap-6 mb-6">
@@ -1031,17 +901,21 @@ Thank you for being attentive and willing to help!"
                                     class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all text-gray-700">
                                 <option value="">Select a service</option>
                                 
-                                <option value="Corporate Catering">Corporate Catering</option>
+                                <option value="Your car will be treated like royalty">Your car will be treated like royalty</option>
                                 
-                                <option value="Wedding Catering">Wedding Catering</option>
+                                <option value="Truly the best wash">Truly the best wash</option>
                                 
-                                <option value="Private Events">Private Events</option>
+                                <option value="Katelin
+
+I love this place">Katelin
+
+I love this place</option>
                                 
-                                <option value="Buffet Service">Buffet Service</option>
+                                <option value="Full Detail">Full Detail</option>
                                 
-                                <option value="Drop-Off Catering">Drop-Off Catering</option>
+                                <option value="Interior Cleaning">Interior Cleaning</option>
                                 
-                                <option value="Custom Menus">Custom Menus</option>
+                                <option value="Exterior Wash">Exterior Wash</option>
                                 
                             </select>
                         </div>
@@ -1115,10 +989,10 @@ Thank you for being attentive and willing to help!"
                 <script>
                     (function() {
                         var key = 'discount_start_' + location.pathname;
-                        var start = localStorage.getItem(key + '_ext');
-                        if (!start) { start = Date.now(); localStorage.setItem(key + '_ext', start); }
+                        var start = localStorage.getItem(key);
+                        if (!start) { start = Date.now(); localStorage.setItem(key, start); }
                         start = parseInt(start);
-                        var end = start + 7 * 24 * 60 * 60 * 1000;
+                        var end = start + 48 * 60 * 60 * 1000;
                         var el = document.getElementById('countdown-timer-bottom');
                         function tick() {
                             var left = Math.max(0, end - Date.now());
@@ -1193,10 +1067,10 @@ Thank you for being attentive and willing to help!"
             <!-- Brand -->
             <div class="lg:col-span-1">
                 <div class="flex items-center gap-2 mb-4">
-                    <span class="text-xl font-bold">Orlando Caterers and Commissary</span>
+                    <span class="text-xl font-bold">Complete Auto Detail & Car Wash</span>
                 </div>
                 <p class="text-white/50 text-sm leading-relaxed mb-6">
-                    Delicious food and seamless service for your next event
+                    Professional auto detailing that makes your vehicle look brand new
                 </p>
                 <!-- Social Icons -->
                 <div class="flex items-center gap-3">
@@ -1230,17 +1104,19 @@ Thank you for being attentive and willing to help!"
                 <h4 class="font-semibold text-white mb-4">Services</h4>
                 <ul class="space-y-3">
                     
-                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Corporate Catering</a></li>
+                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Your car will be treated like royalty</a></li>
                     
-                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Wedding Catering</a></li>
+                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Truly the best wash</a></li>
                     
-                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Private Events</a></li>
+                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Katelin
+
+I love this place</a></li>
                     
-                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Buffet Service</a></li>
+                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Full Detail</a></li>
                     
-                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Drop-Off Catering</a></li>
+                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Interior Cleaning</a></li>
                     
-                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Custom Menus</a></li>
+                    <li><a href="#services" class="text-white/50 hover:text-white transition-colors text-sm">Exterior Wash</a></li>
                     
                 </ul>
             </div>
@@ -1250,16 +1126,16 @@ Thank you for being attentive and willing to help!"
                 <h4 class="font-semibold text-white mb-4">Contact Us</h4>
                 <ul class="space-y-3 text-sm">
                     <li>
-                        <a href="tel:(407) 900-4219" class="flex items-center gap-2 text-white/50 hover:text-white transition-colors">
+                        <a href="tel:(512) 436-8222" class="flex items-center gap-2 text-white/50 hover:text-white transition-colors">
                             <i data-lucide="phone" class="w-4 h-4 flex-shrink-0"></i>
-                            (407) 900-4219
+                            (512) 436-8222
                         </a>
                     </li>
                     
                     <li>
                         <div class="flex items-start gap-2 text-white/50">
                             <i data-lucide="map-pin" class="w-4 h-4 flex-shrink-0 mt-0.5"></i>
-                            1020 W Michigan St, Orlando, FL 32805, USA
+                            1514 W 5th St, Austin, TX 78703, USA
                         </div>
                     </li>
                 </ul>
@@ -1270,7 +1146,7 @@ Thank you for being attentive and willing to help!"
         <div class="border-t border-white/10 pt-8">
             <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
                 <p class="text-white/40 text-sm">
-                    &copy; 2026 Orlando Caterers and Commissary. All rights reserved.
+                    &copy; 2026 Complete Auto Detail & Car Wash. All rights reserved.
                 </p>
                 <p class="text-white/30 text-xs">
                     Full setup guide included after purchase &middot; Built with care
