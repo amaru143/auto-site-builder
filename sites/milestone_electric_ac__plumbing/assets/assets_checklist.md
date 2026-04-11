@@ -2,7 +2,7 @@
 
 ## Required Images
 - [ ] Logo (PNG, transparent background, min 200x200px)
-- [ ] Hero background image (1920x1080px, high quality photo related to electrician)
+- [ ] Hero background image (1920x1080px, high quality photo related to plumbing)
 - [ ] About section image (800x600px, team photo or workplace)
 - [ ] Service images (6 images, 600x400px each)
 - [ ] Gallery images (6-8 images, 800x600px)
