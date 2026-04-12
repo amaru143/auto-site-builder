@@ -22,9 +22,9 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#92400e',
-                        secondary: '#d97706',
-                        accent: '#fffbeb',
+                        primary: '#78350f',
+                        secondary: '#b45309',
+                        accent: '#fef3c7',
                         surface: '#FDFBF7',
                         ink: '#1a1714',
                         muted: '#78716c',
@@ -95,9 +95,9 @@
         .hero-gradient {
             background: linear-gradient(
                 135deg,
-                #92400e40 0%,
-                #d9770640 50%,
-                #92400e40 100%
+                #78350f40 0%,
+                #b4530940 50%,
+                #78350f40 100%
             );
         }
 
@@ -150,8 +150,8 @@
             font-weight: 600;
             padding: 6px 14px;
             border-radius: 9999px;
-            background: #d9770614;
-            color: #d97706;
+            background: #b4530914;
+            color: #b45309;
         }
 
         /* -- Menu line hover ------------------------------------- */
@@ -160,7 +160,7 @@
             position: absolute;
             bottom: 0; left: 0; right: 0;
             height: 1px;
-            background: linear-gradient(90deg, transparent, #d977064d, transparent);
+            background: linear-gradient(90deg, transparent, #b453094d, transparent);
             transform: scaleX(0);
             transition: transform 0.5s cubic-bezier(0.32,0.72,0,1);
         }
@@ -195,8 +195,8 @@
         /* -- Custom scrollbar ------------------------------------ */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #d9770640; border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background: #d97706; }
+        ::-webkit-scrollbar-thumb { background: #b4530940; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #b45309; }
 
         /* -- Dark theme overrides -------------------------------- */
         
@@ -208,36 +208,6 @@
 <!-- ================================================================
      FLOATING DISCOUNT BUBBLE (preview only)
      ================================================================ -->
-
-<a href="https://buy.stripe.com/14A14nbN85xO4Yu6S1bZe01" target="_blank" id="discount-bubble" style="position:fixed; bottom:20px; right:20px; z-index:9999; text-decoration:none; animation: bubble-pulse 2s ease-in-out infinite;">
-    <div style="background:linear-gradient(135deg,#d97706,#92400e); border-radius:2rem; padding:14px 18px; box-shadow:0 8px 32px rgba(0,0,0,0.2); max-width:200px; text-align:center; font-family:'Plus Jakarta Sans',system-ui,sans-serif;">
-        <div style="color:#fed7aa; font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">48hr deal</div>
-        <div style="display:flex; align-items:center; justify-content:center; gap:6px;">
-            <span style="color:rgba(255,255,255,0.5); text-decoration:line-through; font-size:13px; font-weight:600;">$1250</span>
-            <span style="color:#ffffff; font-size:22px; font-weight:800;">$500</span>
-        </div>
-        <div style="color:#ffffff; font-size:10px; font-weight:700; margin-top:2px;" id="countdown-timer">48:00:00</div>
-        <div style="color:rgba(255,200,200,0.7); font-size:7px; font-weight:700; margin-top:4px;">Not on final site</div>
-    </div>
-</a>
-<style>
-    @keyframes bubble-pulse { 0%,100% { transform:scale(1); } 50% { transform:scale(1.05); } }
-</style>
-<script>
-    (function(){
-        var key='discount_start_'+location.pathname;
-        var start=localStorage.getItem(key);
-        if(!start){start=Date.now();localStorage.setItem(key,start);}
-        start=parseInt(start); var end=start+48*3600000;
-        var el=document.getElementById('countdown-timer');
-        function tick(){
-            var left=Math.max(0,end-Date.now());
-            var h=Math.floor(left/3600000),m=Math.floor((left%3600000)/60000),s=Math.floor((left%60000)/1000);
-            el.textContent=h.toString().padStart(2,'0')+':'+m.toString().padStart(2,'0')+':'+s.toString().padStart(2,'0');
-            if(left>0)requestAnimationFrame(tick); else el.textContent='EXPIRED';
-        } tick();
-    })();
-</script>
 
 
 
@@ -260,9 +230,9 @@
             
             <a href="#contact" class="nav-link px-4 py-2 text-sm font-medium text-muted hover:text-ink rounded-full hover:bg-black/[0.03] transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]">Contact</a>
         </div>
-        <a href="tel:(661) 831-5775" class="hidden md:flex items-center gap-2 ml-3 bg-ink text-surface text-sm font-semibold px-5 py-2.5 rounded-full btn-press">
+        <a href="tel:(661) 831-5775" class="hidden md:flex items-center gap-2 ml-3 bg-ink text-surface text-sm font-semibold px-5 py-2.5 rounded-full btn-press whitespace-nowrap">
             (661) 831-5775
-            <span class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center">
+            <span class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
                 <i class="ph ph-phone text-xs"></i>
             </span>
         </a>
@@ -305,7 +275,7 @@
             <h1 class="font-display text-5xl md:text-7xl lg:text-[5.5rem] font-700 tracking-tight leading-[0.95] mt-6 reveal" style="transition-delay:80ms">
                 Flooring America by Casa Moore
             </h1>
-            <p class="reveal tagline-text text-xl md:text-2xl font-medium mt-4" style="transition-delay:120ms; color:#d97706">
+            <p class="reveal tagline-text text-xl md:text-2xl font-medium mt-4" style="transition-delay:120ms; color:#b45309">
                 Hardwood, tile, carpet, and vinyl flooring solutions
             </p>
             <p class="text-muted text-lg md:text-xl leading-relaxed mt-4 max-w-[42ch] reveal" style="transition-delay:160ms">
@@ -362,7 +332,7 @@
     <div class="hidden md:block absolute right-0 top-0 bottom-0 w-[55%] overflow-hidden">
         <div class="hero-img-mask w-full h-full">
             <img src="assets/images/hero.jpg" alt="Flooring America by Casa Moore" class="w-full h-full object-cover">
-            <div class="absolute inset-0 hero-tint" style="background: linear-gradient(135deg, #92400e40 0%, #d9770640 40%, #92400e40 100%)"></div>
+            <div class="absolute inset-0 hero-tint" style="background: linear-gradient(135deg, #78350f40 0%, #b4530940 40%, #78350f40 100%)"></div>
         </div>
     </div>
     
@@ -378,21 +348,21 @@
         
         <span class="inline-flex items-center gap-8 px-4 text-sm font-medium text-muted/60 tracking-wider uppercase">
             
-            <span>4.8-Star Rated</span> <span style="color:#d9770640">&bull;</span>
+            <span>4.8-Star Rated</span> <span style="color:#b4530940">&bull;</span>
             
-            <span>20 Reviews</span> <span style="color:#d9770640">&bull;</span>
+            <span>20 Reviews</span> <span style="color:#b4530940">&bull;</span>
             
-            <span>Located in Bakersfield</span> <span style="color:#d9770640">&bull;</span>
+            <span>Located in Bakersfield</span> <span style="color:#b4530940">&bull;</span>
             
         </span>
         
         <span class="inline-flex items-center gap-8 px-4 text-sm font-medium text-muted/60 tracking-wider uppercase">
             
-            <span>4.8-Star Rated</span> <span style="color:#d9770640">&bull;</span>
+            <span>4.8-Star Rated</span> <span style="color:#b4530940">&bull;</span>
             
-            <span>20 Reviews</span> <span style="color:#d9770640">&bull;</span>
+            <span>20 Reviews</span> <span style="color:#b4530940">&bull;</span>
             
-            <span>Located in Bakersfield</span> <span style="color:#d9770640">&bull;</span>
+            <span>Located in Bakersfield</span> <span style="color:#b4530940">&bull;</span>
             
         </span>
         
@@ -506,8 +476,8 @@
                         <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mb-6">
                             <i class="ph ph-star text-xl text-secondary"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Saturday Hours</h3>
-                        <p class="text-muted leading-relaxed">10:00 AM - 4:00 PM</p>
+                        <h3 class="text-xl font-bold mb-3">Carpet</h3>
+                        <p class="text-muted leading-relaxed">Now I am back looking to have a rug made and I'm confident that it will be as beautiful as my new...</p>
                     </div>
                 </div>
             </div>
@@ -516,16 +486,10 @@
                 <div class="doppelrand card-hover h-full">
                     <div class="doppelrand-inner p-8 md:p-10 h-full">
                         <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mb-6">
-                            <i class="ph ph-grid-nine text-xl text-secondary"></i>
+                            <i class="ph ph-star text-xl text-secondary"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Explore Tile 
-
- 
-
-Laminate
-
-Tile</h3>
-                        <p class="text-muted leading-relaxed">and wood-look styles at an affordable price point.</p>
+                        <h3 class="text-xl font-bold mb-3">Vinyl/LVP</h3>
+                        <p class="text-muted leading-relaxed">He also installed laminate flooring and fixed another contractor’s mistakes at a very reasonable...</p>
                     </div>
                 </div>
             </div>
@@ -534,10 +498,10 @@ Tile</h3>
                 <div class="doppelrand card-hover h-full">
                     <div class="doppelrand-inner p-8 md:p-10 h-full">
                         <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mb-6">
-                            <i class="ph ph-star text-xl text-secondary"></i>
+                            <i class="ph ph-tree text-xl text-secondary"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Data from</h3>
-                        <p class="text-muted leading-relaxed">WHY PHILLIPS FLOORING AMERICA?</p>
+                        <h3 class="text-xl font-bold mb-3">Hardwood Flooring</h3>
+                        <p class="text-muted leading-relaxed">Installation, refinishing, and repair of hardwood floors.</p>
                     </div>
                 </div>
             </div>
@@ -546,10 +510,10 @@ Tile</h3>
                 <div class="doppelrand card-hover h-full">
                     <div class="doppelrand-inner p-8 md:p-10 h-full">
                         <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mb-6">
-                            <i class="ph ph-star text-xl text-secondary"></i>
+                            <i class="ph ph-grid-four text-xl text-secondary"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">We offer</h3>
-                        <p class="text-muted leading-relaxed">An industry-leading warranty, the Adore Your Floor™ Guarantee</p>
+                        <h3 class="text-xl font-bold mb-3">Tile Installation</h3>
+                        <p class="text-muted leading-relaxed">Ceramic, porcelain, and natural stone tile for any room.</p>
                     </div>
                 </div>
             </div>
@@ -558,10 +522,10 @@ Tile</h3>
                 <div class="doppelrand card-hover h-full">
                     <div class="doppelrand-inner p-8 md:p-10 h-full">
                         <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mb-6">
-                            <i class="ph ph-star text-xl text-secondary"></i>
+                            <i class="ph ph-squares-four text-xl text-secondary"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Expert measurement and worry</h3>
-                        <p class="text-muted leading-relaxed">free professional installation</p>
+                        <h3 class="text-xl font-bold mb-3">Carpet Installation</h3>
+                        <p class="text-muted leading-relaxed">Quality carpet installation with wide selection of styles.</p>
                     </div>
                 </div>
             </div>
@@ -570,10 +534,10 @@ Tile</h3>
                 <div class="doppelrand card-hover h-full">
                     <div class="doppelrand-inner p-8 md:p-10 h-full">
                         <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mb-6">
-                            <i class="ph ph-grid-nine text-xl text-secondary"></i>
+                            <i class="ph ph-stack text-xl text-secondary"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Explore Flooring Products</h3>
-                        <p class="text-muted leading-relaxed">Finding your perfect floor</p>
+                        <h3 class="text-xl font-bold mb-3">Vinyl & LVP</h3>
+                        <p class="text-muted leading-relaxed">Luxury vinyl plank and waterproof flooring solutions.</p>
                     </div>
                 </div>
             </div>
@@ -999,29 +963,17 @@ Basically, I won't ever go somewhere else after this. Flooring America has my bu
                                         <select name="service" class="w-full px-4 py-3 rounded-xl border border-ink/8 bg-surface text-sm focus:outline-none focus:border-secondary/40 focus:ring-2 focus:ring-secondary/10 transition-all duration-300">
                                             <option value="">Select a service</option>
                                             
-                                            <option value="Saturday Hours">Saturday Hours</option>
+                                            <option value="Carpet">Carpet</option>
                                             
-                                            <option value="Explore Tile 
-
- 
-
-Laminate
-
-Tile">Explore Tile 
-
- 
-
-Laminate
-
-Tile</option>
+                                            <option value="Vinyl/LVP">Vinyl/LVP</option>
                                             
-                                            <option value="Data from">Data from</option>
+                                            <option value="Hardwood Flooring">Hardwood Flooring</option>
                                             
-                                            <option value="We offer">We offer</option>
+                                            <option value="Tile Installation">Tile Installation</option>
                                             
-                                            <option value="Expert measurement and worry">Expert measurement and worry</option>
+                                            <option value="Carpet Installation">Carpet Installation</option>
                                             
-                                            <option value="Explore Flooring Products">Explore Flooring Products</option>
+                                            <option value="Vinyl & LVP">Vinyl & LVP</option>
                                             
                                         </select>
                                     </div>
@@ -1049,111 +1001,6 @@ Tile</option>
 <!-- ================================================================
      PAYMENT / GET THIS WEBSITE SECTION
      ================================================================ -->
-
-<section id="get-website" class="py-20 lg:py-24">
-    <div class="max-w-3xl mx-auto px-6">
-        <div class="doppelrand">
-            <div class="doppelrand-inner overflow-hidden relative">
-                <div class="absolute inset-0 hero-gradient opacity-95"></div>
-                <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" aria-hidden="true"></div>
-
-                <div class="relative z-10 p-10 sm:p-14 text-center">
-                    <span class="eyebrow" style="background:rgba(255,255,255,0.1); color:#fff;">Premium Website</span>
-                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-4 mb-4">Get This Website</h2>
-                    <p class="text-white/60 text-lg mb-2">A professionally built, fully customized website just like this one.</p>
-
-                    <div class="grid grid-cols-3 gap-3 max-w-lg mx-auto my-8">
-                        <div class="bg-white/5 border border-white/10 rounded-2xl p-3 text-center">
-                            <p class="text-white/30 text-[10px] uppercase tracking-wider mb-1">Agencies</p>
-                            <p class="text-white/40 line-through text-lg font-bold">$3,000+</p>
-                            <p class="text-red-400/60 text-[10px]">4-8 weeks</p>
-                        </div>
-                        <div class="bg-white/5 border border-white/10 rounded-2xl p-3 text-center">
-                            <p class="text-white/30 text-[10px] uppercase tracking-wider mb-1">Freelancers</p>
-                            <p class="text-white/40 line-through text-lg font-bold">$2,000+</p>
-                            <p class="text-red-400/60 text-[10px]">2-4 weeks</p>
-                        </div>
-                        <div class="bg-secondary/20 border-2 border-secondary/50 rounded-2xl p-3 text-center ring-2 ring-secondary/20">
-                            <p class="text-secondary text-[10px] uppercase tracking-wider font-bold mb-1">Us</p>
-                            <p class="text-white text-lg font-extrabold">$500</p>
-                            <p class="text-green-400 text-[10px] font-semibold">Ready now</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center justify-center gap-4 my-6">
-                        <span class="text-2xl text-white/40 line-through font-bold">$1250</span>
-                        <span class="text-5xl font-extrabold text-white">$500</span>
-                    </div>
-                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/20 border border-red-400/30 text-red-300 text-sm font-bold mb-6">
-                        Expires in <span id="countdown-timer-bottom" class="font-mono ml-1">48:00:00</span>
-                    </div>
-                    <script>
-                        (function(){
-                            var key='discount_start_'+location.pathname; var start=localStorage.getItem(key);
-                            if(!start){start=Date.now();localStorage.setItem(key,start);}
-                            start=parseInt(start); var end=start+48*3600000;
-                            var el=document.getElementById('countdown-timer-bottom');
-                            function tick(){
-                                var left=Math.max(0,end-Date.now());
-                                var h=Math.floor(left/3600000),m=Math.floor((left%3600000)/60000),s=Math.floor((left%60000)/1000);
-                                el.textContent=h.toString().padStart(2,'0')+':'+m.toString().padStart(2,'0')+':'+s.toString().padStart(2,'0');
-                                if(left>0)requestAnimationFrame(tick); else el.textContent='EXPIRED';
-                            } tick();
-                        })();
-                    </script>
-                    <ul class="text-left max-w-md mx-auto space-y-3 mb-10">
-                        
-                        
-                        <li class="flex items-center gap-3 text-white/80">
-                            <i class="ph ph-check-circle text-lg text-secondary flex-shrink-0"></i>
-                            <span>Fully responsive, mobile-first design</span>
-                        </li>
-                        
-                        <li class="flex items-center gap-3 text-white/80">
-                            <i class="ph ph-check-circle text-lg text-secondary flex-shrink-0"></i>
-                            <span>Unlimited free revisions — colors, fonts, layout, spacing, content</span>
-                        </li>
-                        
-                        <li class="flex items-center gap-3 text-white/80">
-                            <i class="ph ph-check-circle text-lg text-secondary flex-shrink-0"></i>
-                            <span>SEO-optimized structure</span>
-                        </li>
-                        
-                        <li class="flex items-center gap-3 text-white/80">
-                            <i class="ph ph-check-circle text-lg text-secondary flex-shrink-0"></i>
-                            <span>Real photos & reviews from your business</span>
-                        </li>
-                        
-                        <li class="flex items-center gap-3 text-white/80">
-                            <i class="ph ph-check-circle text-lg text-secondary flex-shrink-0"></i>
-                            <span>Add your logo, menu items, services, social links anytime</span>
-                        </li>
-                        
-                        <li class="flex items-center gap-3 text-white/80">
-                            <i class="ph ph-check-circle text-lg text-secondary flex-shrink-0"></i>
-                            <span>Rearrange sections, change themes, update text — just reply to any email</span>
-                        </li>
-                        
-                        <li class="flex items-center gap-3 text-white/80">
-                            <i class="ph ph-check-circle text-lg text-secondary flex-shrink-0"></i>
-                            <span>Full setup guide included after purchase</span>
-                        </li>
-                        
-                    </ul>
-                    <a href="https://buy.stripe.com/14A14nbN85xO4Yu6S1bZe01" target="_blank" class="inline-flex items-center gap-3 px-14 py-5 rounded-full bg-green-500 text-white font-extrabold text-lg btn-press shadow-2xl shadow-green-500/30" style="text-decoration:none;">
-                        Claim Your Website
-                        <span class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
-                            <i class="ph ph-arrow-right text-sm"></i>
-                        </span>
-                    </a>
-                    <p class="text-white/40 text-sm mt-6">Secure payment via Stripe. Full setup guide included after purchase.</p>
-                    <p class="text-white/20 text-[10px] mt-3">By completing your purchase you agree to our <a href="https://amaru143.github.io/auto-site-builder/terms.html" class="underline text-white/25 hover:text-white/40" target="_blank">Terms of Service</a>.</p>
-                    <p class="text-red-400 text-[10px] font-bold mt-4 border border-red-400/30 rounded-full px-3 py-1 inline-block">This payment section will NOT appear on your final website</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 
 
@@ -1203,23 +1050,17 @@ Tile</option>
                 <h4 class="font-semibold mb-4">Services</h4>
                 <ul class="space-y-3">
                     
-                    <li><a href="#services" class="text-muted hover:text-ink transition-colors text-sm">Saturday Hours</a></li>
+                    <li><a href="#services" class="text-muted hover:text-ink transition-colors text-sm">Carpet</a></li>
                     
-                    <li><a href="#services" class="text-muted hover:text-ink transition-colors text-sm">Explore Tile 
-
- 
-
-Laminate
-
-Tile</a></li>
+                    <li><a href="#services" class="text-muted hover:text-ink transition-colors text-sm">Vinyl/LVP</a></li>
                     
-                    <li><a href="#services" class="text-muted hover:text-ink transition-colors text-sm">Data from</a></li>
+                    <li><a href="#services" class="text-muted hover:text-ink transition-colors text-sm">Hardwood Flooring</a></li>
                     
-                    <li><a href="#services" class="text-muted hover:text-ink transition-colors text-sm">We offer</a></li>
+                    <li><a href="#services" class="text-muted hover:text-ink transition-colors text-sm">Tile Installation</a></li>
                     
-                    <li><a href="#services" class="text-muted hover:text-ink transition-colors text-sm">Expert measurement and worry</a></li>
+                    <li><a href="#services" class="text-muted hover:text-ink transition-colors text-sm">Carpet Installation</a></li>
                     
-                    <li><a href="#services" class="text-muted hover:text-ink transition-colors text-sm">Explore Flooring Products</a></li>
+                    <li><a href="#services" class="text-muted hover:text-ink transition-colors text-sm">Vinyl & LVP</a></li>
                     
                 </ul>
             </div>

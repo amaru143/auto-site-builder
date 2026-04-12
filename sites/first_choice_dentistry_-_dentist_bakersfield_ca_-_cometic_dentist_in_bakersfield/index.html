@@ -209,36 +209,6 @@
      FLOATING DISCOUNT BUBBLE (preview only)
      ================================================================ -->
 
-<a href="https://buy.stripe.com/14A14nbN85xO4Yu6S1bZe01" target="_blank" id="discount-bubble" style="position:fixed; bottom:20px; right:20px; z-index:9999; text-decoration:none; animation: bubble-pulse 2s ease-in-out infinite;">
-    <div style="background:linear-gradient(135deg,#0ea5e9,#0369a1); border-radius:2rem; padding:14px 18px; box-shadow:0 8px 32px rgba(0,0,0,0.2); max-width:200px; text-align:center; font-family:'Plus Jakarta Sans',system-ui,sans-serif;">
-        <div style="color:#fed7aa; font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">48hr deal</div>
-        <div style="display:flex; align-items:center; justify-content:center; gap:6px;">
-            <span style="color:rgba(255,255,255,0.5); text-decoration:line-through; font-size:13px; font-weight:600;">$1250</span>
-            <span style="color:#ffffff; font-size:22px; font-weight:800;">$500</span>
-        </div>
-        <div style="color:#ffffff; font-size:10px; font-weight:700; margin-top:2px;" id="countdown-timer">48:00:00</div>
-        <div style="color:rgba(255,200,200,0.7); font-size:7px; font-weight:700; margin-top:4px;">Not on final site</div>
-    </div>
-</a>
-<style>
-    @keyframes bubble-pulse { 0%,100% { transform:scale(1); } 50% { transform:scale(1.05); } }
-</style>
-<script>
-    (function(){
-        var key='discount_start_'+location.pathname;
-        var start=localStorage.getItem(key);
-        if(!start){start=Date.now();localStorage.setItem(key,start);}
-        start=parseInt(start); var end=start+48*3600000;
-        var el=document.getElementById('countdown-timer');
-        function tick(){
-            var left=Math.max(0,end-Date.now());
-            var h=Math.floor(left/3600000),m=Math.floor((left%3600000)/60000),s=Math.floor((left%60000)/1000);
-            el.textContent=h.toString().padStart(2,'0')+':'+m.toString().padStart(2,'0')+':'+s.toString().padStart(2,'0');
-            if(left>0)requestAnimationFrame(tick); else el.textContent='EXPIRED';
-        } tick();
-    })();
-</script>
-
 
 
 <!-- ================================================================
@@ -260,9 +230,9 @@
             
             <a href="#contact" class="nav-link px-4 py-2 text-sm font-medium text-muted hover:text-ink rounded-full hover:bg-black/[0.03] transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]">Contact</a>
         </div>
-        <a href="tel:(661) 999-1501" class="hidden md:flex items-center gap-2 ml-3 bg-ink text-surface text-sm font-semibold px-5 py-2.5 rounded-full btn-press">
+        <a href="tel:(661) 999-1501" class="hidden md:flex items-center gap-2 ml-3 bg-ink text-surface text-sm font-semibold px-5 py-2.5 rounded-full btn-press whitespace-nowrap">
             (661) 999-1501
-            <span class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center">
+            <span class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
                 <i class="ph ph-phone text-xs"></i>
             </span>
         </a>
@@ -506,8 +476,8 @@
                         <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mb-6">
                             <i class="ph ph-star text-xl text-secondary"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Phone</h3>
-                        <p class="text-muted leading-relaxed">(661) 999-1501</p>
+                        <h3 class="text-xl font-bold mb-3">General Dentistry</h3>
+                        <p class="text-muted leading-relaxed">The girl that did my cleaning, Isa, talked me through everything that was happening which made the...</p>
                     </div>
                 </div>
             </div>
@@ -518,8 +488,8 @@
                         <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mb-6">
                             <i class="ph ph-star text-xl text-secondary"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Including</h3>
-                        <p class="text-muted leading-relaxed">Financing Options</p>
+                        <h3 class="text-xl font-bold mb-3">Root Canal</h3>
+                        <p class="text-muted leading-relaxed">I’ve never had issues with any of my fillings, crowns or root canals!</p>
                     </div>
                 </div>
             </div>
@@ -528,10 +498,10 @@
                 <div class="doppelrand card-hover h-full">
                     <div class="doppelrand-inner p-8 md:p-10 h-full">
                         <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mb-6">
-                            <i class="ph ph-star text-xl text-secondary"></i>
+                            <i class="ph ph-sparkle text-xl text-secondary"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">General Dentistry</h3>
-                        <p class="text-muted leading-relaxed">Cleaning and Exams</p>
+                        <h3 class="text-xl font-bold mb-3">Cosmetic Dentistry</h3>
+                        <p class="text-muted leading-relaxed">Whitening, veneers, and smile makeovers for a confident smile.</p>
                     </div>
                 </div>
             </div>
@@ -540,10 +510,10 @@
                 <div class="doppelrand card-hover h-full">
                     <div class="doppelrand-inner p-8 md:p-10 h-full">
                         <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mb-6">
-                            <i class="ph ph-warning text-xl text-secondary"></i>
+                            <i class="ph ph-push-pin text-xl text-secondary"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Emergency Dentistry</h3>
-                        <p class="text-muted leading-relaxed">Dental Emergencies</p>
+                        <h3 class="text-xl font-bold mb-3">Dental Implants</h3>
+                        <p class="text-muted leading-relaxed">Permanent tooth replacement with state-of-the-art implants.</p>
                     </div>
                 </div>
             </div>
@@ -552,10 +522,10 @@
                 <div class="doppelrand card-hover h-full">
                     <div class="doppelrand-inner p-8 md:p-10 h-full">
                         <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mb-6">
-                            <i class="ph ph-star text-xl text-secondary"></i>
+                            <i class="ph ph-smiley text-xl text-secondary"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Restorative Dentistry</h3>
-                        <p class="text-muted leading-relaxed">Dental Implants</p>
+                        <h3 class="text-xl font-bold mb-3">Orthodontics</h3>
+                        <p class="text-muted leading-relaxed">Braces and clear aligners for straighter, healthier teeth.</p>
                     </div>
                 </div>
             </div>
@@ -564,10 +534,10 @@
                 <div class="doppelrand card-hover h-full">
                     <div class="doppelrand-inner p-8 md:p-10 h-full">
                         <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mb-6">
-                            <i class="ph ph-star text-xl text-secondary"></i>
+                            <i class="ph ph-warning text-xl text-secondary"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Meet The Doctor</h3>
-                        <p class="text-muted leading-relaxed">Allen Mossaei, DDS</p>
+                        <h3 class="text-xl font-bold mb-3">Emergency Dental</h3>
+                        <p class="text-muted leading-relaxed">Same-day emergency dental care when you need it most.</p>
                     </div>
                 </div>
             </div>
@@ -989,17 +959,17 @@
                                         <select name="service" class="w-full px-4 py-3 rounded-xl border border-ink/8 bg-surface text-sm focus:outline-none focus:border-secondary/40 focus:ring-2 focus:ring-secondary/10 transition-all duration-300">
                                             <option value="">Select a service</option>
                                             
-                                            <option value="Phone">Phone</option>
-                                            
-                                            <option value="Including">Including</option>
-                                            
                                             <option value="General Dentistry">General Dentistry</option>
                                             
-                                            <option value="Emergency Dentistry">Emergency Dentistry</option>
+                                            <option value="Root Canal">Root Canal</option>
                                             
-                                            <option value="Restorative Dentistry">Restorative Dentistry</option>
+                                            <option value="Cosmetic Dentistry">Cosmetic Dentistry</option>
                                             
-                                            <option value="Meet The Doctor">Meet The Doctor</option>
+                                            <option value="Dental Implants">Dental Implants</option>
+                                            
+                                            <option value="Orthodontics">Orthodontics</option>
+                                            
+                                            <option value="Emergency Dental">Emergency Dental</option>
                                             
                                         </select>
                                     </div>
@@ -1027,111 +997,6 @@
 <!-- ================================================================
      PAYMENT / GET THIS WEBSITE SECTION
      ================================================================ -->
-
-<section id="get-website" class="py-20 lg:py-24">
-    <div class="max-w-3xl mx-auto px-6">
-        <div class="doppelrand">
-            <div class="doppelrand-inner overflow-hidden relative">
-                <div class="absolute inset-0 hero-gradient opacity-95"></div>
-                <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" aria-hidden="true"></div>
-
-                <div class="relative z-10 p-10 sm:p-14 text-center">
-                    <span class="eyebrow" style="background:rgba(255,255,255,0.1); color:#fff;">Premium Website</span>
-                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-4 mb-4">Get This Website</h2>
-                    <p class="text-white/60 text-lg mb-2">A professionally built, fully customized website just like this one.</p>
-
-                    <div class="grid grid-cols-3 gap-3 max-w-lg mx-auto my-8">
-                        <div class="bg-white/5 border border-white/10 rounded-2xl p-3 text-center">
-                            <p class="text-white/30 text-[10px] uppercase tracking-wider mb-1">Agencies</p>
-                            <p class="text-white/40 line-through text-lg font-bold">$3,000+</p>
-                            <p class="text-red-400/60 text-[10px]">4-8 weeks</p>
-                        </div>
-                        <div class="bg-white/5 border border-white/10 rounded-2xl p-3 text-center">
-                            <p class="text-white/30 text-[10px] uppercase tracking-wider mb-1">Freelancers</p>
-                            <p class="text-white/40 line-through text-lg font-bold">$2,000+</p>
-                            <p class="text-red-400/60 text-[10px]">2-4 weeks</p>
-                        </div>
-                        <div class="bg-secondary/20 border-2 border-secondary/50 rounded-2xl p-3 text-center ring-2 ring-secondary/20">
-                            <p class="text-secondary text-[10px] uppercase tracking-wider font-bold mb-1">Us</p>
-                            <p class="text-white text-lg font-extrabold">$500</p>
-                            <p class="text-green-400 text-[10px] font-semibold">Ready now</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center justify-center gap-4 my-6">
-                        <span class="text-2xl text-white/40 line-through font-bold">$1250</span>
-                        <span class="text-5xl font-extrabold text-white">$500</span>
-                    </div>
-                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/20 border border-red-400/30 text-red-300 text-sm font-bold mb-6">
-                        Expires in <span id="countdown-timer-bottom" class="font-mono ml-1">48:00:00</span>
-                    </div>
-                    <script>
-                        (function(){
-                            var key='discount_start_'+location.pathname; var start=localStorage.getItem(key);
-                            if(!start){start=Date.now();localStorage.setItem(key,start);}
-                            start=parseInt(start); var end=start+48*3600000;
-                            var el=document.getElementById('countdown-timer-bottom');
-                            function tick(){
-                                var left=Math.max(0,end-Date.now());
-                                var h=Math.floor(left/3600000),m=Math.floor((left%3600000)/60000),s=Math.floor((left%60000)/1000);
-                                el.textContent=h.toString().padStart(2,'0')+':'+m.toString().padStart(2,'0')+':'+s.toString().padStart(2,'0');
-                                if(left>0)requestAnimationFrame(tick); else el.textContent='EXPIRED';
-                            } tick();
-                        })();
-                    </script>
-                    <ul class="text-left max-w-md mx-auto space-y-3 mb-10">
-                        
-                        
-                        <li class="flex items-center gap-3 text-white/80">
-                            <i class="ph ph-check-circle text-lg text-secondary flex-shrink-0"></i>
-                            <span>Fully responsive, mobile-first design</span>
-                        </li>
-                        
-                        <li class="flex items-center gap-3 text-white/80">
-                            <i class="ph ph-check-circle text-lg text-secondary flex-shrink-0"></i>
-                            <span>Unlimited free revisions — colors, fonts, layout, spacing, content</span>
-                        </li>
-                        
-                        <li class="flex items-center gap-3 text-white/80">
-                            <i class="ph ph-check-circle text-lg text-secondary flex-shrink-0"></i>
-                            <span>SEO-optimized structure</span>
-                        </li>
-                        
-                        <li class="flex items-center gap-3 text-white/80">
-                            <i class="ph ph-check-circle text-lg text-secondary flex-shrink-0"></i>
-                            <span>Real photos & reviews from your business</span>
-                        </li>
-                        
-                        <li class="flex items-center gap-3 text-white/80">
-                            <i class="ph ph-check-circle text-lg text-secondary flex-shrink-0"></i>
-                            <span>Add your logo, menu items, services, social links anytime</span>
-                        </li>
-                        
-                        <li class="flex items-center gap-3 text-white/80">
-                            <i class="ph ph-check-circle text-lg text-secondary flex-shrink-0"></i>
-                            <span>Rearrange sections, change themes, update text — just reply to any email</span>
-                        </li>
-                        
-                        <li class="flex items-center gap-3 text-white/80">
-                            <i class="ph ph-check-circle text-lg text-secondary flex-shrink-0"></i>
-                            <span>Full setup guide included after purchase</span>
-                        </li>
-                        
-                    </ul>
-                    <a href="https://buy.stripe.com/14A14nbN85xO4Yu6S1bZe01" target="_blank" class="inline-flex items-center gap-3 px-14 py-5 rounded-full bg-green-500 text-white font-extrabold text-lg btn-press shadow-2xl shadow-green-500/30" style="text-decoration:none;">
-                        Claim Your Website
-                        <span class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
-                            <i class="ph ph-arrow-right text-sm"></i>
-                        </span>
-                    </a>
-                    <p class="text-white/40 text-sm mt-6">Secure payment via Stripe. Full setup guide included after purchase.</p>
-                    <p class="text-white/20 text-[10px] mt-3">By completing your purchase you agree to our <a href="https://amaru143.github.io/auto-site-builder/terms.html" class="underline text-white/25 hover:text-white/40" target="_blank">Terms of Service</a>.</p>
-                    <p class="text-red-400 text-[10px] font-bold mt-4 border border-red-400/30 rounded-full px-3 py-1 inline-block">This payment section will NOT appear on your final website</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 
 
@@ -1181,17 +1046,17 @@
                 <h4 class="font-semibold mb-4">Services</h4>
                 <ul class="space-y-3">
                     
-                    <li><a href="#services" class="text-muted hover:text-ink transition-colors text-sm">Phone</a></li>
-                    
-                    <li><a href="#services" class="text-muted hover:text-ink transition-colors text-sm">Including</a></li>
-                    
                     <li><a href="#services" class="text-muted hover:text-ink transition-colors text-sm">General Dentistry</a></li>
                     
-                    <li><a href="#services" class="text-muted hover:text-ink transition-colors text-sm">Emergency Dentistry</a></li>
+                    <li><a href="#services" class="text-muted hover:text-ink transition-colors text-sm">Root Canal</a></li>
                     
-                    <li><a href="#services" class="text-muted hover:text-ink transition-colors text-sm">Restorative Dentistry</a></li>
+                    <li><a href="#services" class="text-muted hover:text-ink transition-colors text-sm">Cosmetic Dentistry</a></li>
                     
-                    <li><a href="#services" class="text-muted hover:text-ink transition-colors text-sm">Meet The Doctor</a></li>
+                    <li><a href="#services" class="text-muted hover:text-ink transition-colors text-sm">Dental Implants</a></li>
+                    
+                    <li><a href="#services" class="text-muted hover:text-ink transition-colors text-sm">Orthodontics</a></li>
+                    
+                    <li><a href="#services" class="text-muted hover:text-ink transition-colors text-sm">Emergency Dental</a></li>
                     
                 </ul>
             </div>
